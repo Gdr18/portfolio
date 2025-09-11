@@ -54,9 +54,9 @@
 	<body>
 		<!-- MARK: Navegación -->
 		<nav>
-			<a href="#home" title="Inicio">
+			<a href="http://127.0.0.1:3000/src/index.html" title="Inicio">
 				<svg
-					class="link-nav"
+					class="logo"
 					version="1.1"
 					id="Capa_1"
 					xmlns:x="&ns_extend;"
@@ -65,26 +65,24 @@
 					xmlns="http://www.w3.org/2000/svg"
 					xmlns:xlink="http://www.w3.org/1999/xlink"
 					xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-					x="0px"
-					y="0px"
 					viewBox="0 0 650.969 713.316"
 					enable-background="new 0 0 650.969 713.316"
 					xml:space="preserve"
-					width="40px"
-					height="40px"
 				>
 					<defs>
 						<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-							<stop offset="0%" style="stop-color: #ee8403; stop-opacity: 1" />
-							<stop offset="35%" style="stop-color: #d97904; stop-opacity: 1" />
-							<stop offset="80%" style="stop-color: #c26c03; stop-opacity: 1" />
+							<stop offset="0%" style="stop-color: #d97904; stop-opacity: 1" />
+							<stop offset="50%" style="stop-color: #c26c03; stop-opacity: 1" />
+							<stop
+								offset="100%"
+								style="stop-color: #a05a04; stop-opacity: 1"
+							/>
 						</linearGradient>
 					</defs>
 					<g>
 						<path
 							fill-rule="evenodd"
 							clip-rule="evenodd"
-							fill="url(#grad1)"
 							d="M404.321,690.377c-4.307,0.621-8.723,0.832-12.898,1.943
 						c-12.664,3.367-25.203,7.195-37.854,10.613c-5.539,1.496-11.193,2.631-16.855,3.576c-7.912,1.322-12.43-2.113-13.729-11.111
 						c-0.281-1.941-0.09-4,0.18-5.963c0.471-3.414,0.064-4.541-3.014-6.154c-3.985-2.09-8.323-2.781-12.759-2.891
@@ -182,17 +180,19 @@
 			</div>
 		</nav>
 		<!-- MARK: Inicio -->
-		<main id="home">
+		<main>
 			<section class="hero">
-				<header>
-					<h1>Gádor García Martínez</h1>
-					<h2>Desarrolladora Web Full Stack</h2>
-					<a class="link-nav" href="#contact">Contacta</a>
-				</header>
-				<img
-					src="assets/images/ilustracion_original_yo.jpg"
-					alt="Ilustración de Gádor"
-				/>
+				<div class="welcome-container">
+					<header>
+						<h1>Gádor García Martínez</h1>
+						<h2>Desarrolladora Web Full Stack</h2>
+						<a class="button" href="#contact">Contacta</a>
+					</header>
+					<img
+						src="assets/images/ilustracion_original_yo.jpg"
+						alt="Ilustración de Gádor"
+					/>
+				</div>
 			</section>
 			<!-- MARK: Sobre mí -->
 			<section id="about">
@@ -207,17 +207,18 @@
 						tengo uso de razón. En un momento de búsqueda personal descubrí el
 						desarrollo web y me enamoré. Siempre he estado en contacto con el
 						arte y la creatividad, ya sea a través del diseño, el lettering, el
-						dibujo o la música. El desarrollo me permite unir mi parte lógica
-						con mi lado más creativo.<br />
+						dibujo o la música. Y siento que el desarrollo me permite combinarlo
+						todo.<br />
 						<br />
 						A lo largo de mi trayectoria profesional he trabajado en sectores
 						como la logística, el transporte y la hostelería, lo que me ha
-						permitido afrontar diferentes situaciones y encontrar soluciones
-						eficientes.<br />
+						permitido afrontar diferentes situaciones que me han permitido
+						aprender y crecer.<br />
 						<br />
 						Pero no todo es trabajo: en mi tiempo libre me encanta hacer
 						ejercicio, disfrutar de mi entorno, jugar a videojuegos y aprender
-						cosas nuevas.<br />
+						cosas nuevas. Se puede decir que soy una persona activa y curiosa.
+						<br />
 						<br />
 						Estaría encantada de aportar mis conocimientos y experiencia a tu
 						proyecto. Si buscas a alguien tenaz, creativa y con atención al
@@ -1084,7 +1085,11 @@
 			</section>
 			<footer>
 				<p>Gádor García Martínez - 2025</p>
-				<a href="https://github.com/Gdr18/portfolio" target="_blank" rel="noreferrer">
+				<a
+					href="https://github.com/Gdr18/portfolio"
+					target="_blank"
+					rel="noreferrer"
+				>
 					<img
 						alt="Repositorio Portfolio"
 						src="https://img.shields.io/badge/Repositorio Portfolio-100000?style=flat&logo=GitHub&logoColor=2b2b2b&labelColor=d97904&color=d97904"
