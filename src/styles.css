@@ -1,3 +1,5 @@
+/* MARK: ANIMACIONES */
+
 @keyframes jump {
 	0% {
 		transform: translate(0, 0);
@@ -7,33 +9,36 @@
 	}
 }
 
-@keyframes in-from-left {
+@keyframes scale-to-small {
 	0% {
-		transform: translateX(-60%);
-		opacity: 0;
-	}
-	50% {
-		opacity: 0.5;
+		transform: scale(1.5) translateY(0);
 	}
 	100% {
-		transform: translateX(0);
+		transform: scale(1) translateY(50%);
+	}
+}
+
+@keyframes scale-to-big {
+	0% {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes reveal {
+	0% {
+		opacity: 0;
+	}
+	100% {
 		opacity: 1;
 	}
 }
 
-@keyframes in-from-right {
-	0% {
-		transform: translateX(60%);
-		opacity: 0;
-	}
-	50% {
-		opacity: 0.5;
-	}
-	100% {
-		transform: translateX(0);
-		opacity: 1;
-	}
-}
+/* MARK: GENERAL */
 
 :root {
 	--orange: #d97904;
@@ -100,13 +105,24 @@ h3 {
 	transition: all 0.3s ease-in;
 	&:hover {
 		background-color: orange;
-		outline: 1px solid var(--black);	}
+		outline: 1px solid var(--black);
+	}
 	&:active {
 		background-color: var(--grey-dark);
 		color: orange;
 		transition: none;
 	}
 }
+
+#about,
+#skills,
+#contact {
+	padding: 2em 2em 2em 7em;
+	height: 100vh;
+	/* box-shadow: 0px 0px 10px var(--grey-dark); */
+}
+
+/* MARK: NAV */
 
 nav {
 	padding: 1em;
@@ -138,13 +154,7 @@ nav {
 	}
 }
 
-#about,
-#skills,
-#contact {
-	padding: 2em 2em 2em 5em;
-	height: 100vh;
-	/* box-shadow: 0px 0px 10px var(--grey-dark); */
-}
+/* MARK: HOME */
 
 .hero {
 	height: 100vh;
@@ -162,10 +172,13 @@ nav {
 			justify-content: flex-end;
 			align-self: flex-end;
 			gap: 0.5em;
-			animation: in-from-left 0.5s linear forwards;
-			position: absolute;
+			transform: scale(1.5) translateY(0);
 			margin-bottom: 5%;
+			top: 50%;
+			position: absolute;
 			z-index: 2;
+			animation: reveal 0.3s ease-in-out forwards,
+				scale-to-small 1s ease 0.8s forwards;
 			h1,
 			h2 {
 				text-shadow: var(--shadow);
@@ -181,51 +194,91 @@ nav {
 			}
 		}
 		img {
+			opacity: 0;
 			height: 95%;
 			aspect-ratio: 1 / 1;
 			object-fit: cover;
 			border-radius: 0 1em 0 1em;
 			border: 5px solid var(--orange);
 			box-shadow: 0px 0px 10px var(--grey-dark);
-			animation: in-from-right 0.5s linear forwards;
+			animation: scale-to-big 1s ease 1s forwards;
 		}
 	}
 }
+
+/* MARK: ABOUT */
 
 #about {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 4em;
-	img {
-		width: 100%;
-		aspect-ratio: 16 / 9;
+	header {
+		margin-bottom: 1em;
+	}
+	.bento {
+		margin: 10px;
+		display: grid;
+		grid-template-areas:
+			"resume yo"
+			"map education"
+			"map certifications";
+		align-content: center;
+		justify-content: center;
+		.item-bento {
+			border-radius: 0 1em 0 1em;
+			border: 5px solid var(--orange);
+		}
+		.text-bento {
+			padding: 1em;
+		}
+		article {
+			width: 600px;
+			grid-area: resume;
+			/* p {
+				text-align: justify;
+				font-size: .8em;
+			} */
+		}
+		.certifications {
+			grid-area: certifications;
+		}
+		img {
+			grid-area: yo;
+			height: 250px;
+			aspect-ratio: 1 / 1;
+			object-fit: cover;
+		}
+		.map {
+			grid-area: map;
+			position: relative;
+			img {
+				width: 100%;
+			}
+			p {
+				position: absolute;
+				bottom: 100px;
+				right: 20px;
+			}
+			svg {
+				position: absolute;
+				fill: var(--red);
+				width: 3em;
+				top: 50%;
+				left: 20%;
+				animation: jump 0.5s infinite alternate;
+			}
+		}
+		.education {
+			grid-area: education;
+			width: 500px;
+		}
 	}
 }
 
-.map {
-	position: relative;
-	span {
-		p {
-			position: absolute;
-			bottom: 15px;
-			right: 15px;
-		}
-		svg {
-			position: absolute;
-			fill: var(--red);
-			width: 3em;
-			top: 50%;
-			left: 20%;
-			animation: jump 0.5s infinite alternate;
-		}
-	}
-}
+/* MARK: SKILLS */
 
 #skills {
 	ul {
 		padding: 5%;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
 		gap: 4em;
 		li {
 			list-style: none;
@@ -237,6 +290,8 @@ nav {
 	fill: var(--grey-dark);
 	width: 50%;
 }
+
+/* MARK: PROJECTS */
 
 #projects {
 	.project-list {
@@ -258,6 +313,8 @@ nav {
 	fill: var(--grey-dark);
 	width: 20px;
 }
+
+/* MARK: CONTACT */
 
 .contact-container {
 	display: grid;
