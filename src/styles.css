@@ -14,7 +14,7 @@
 		transform: scale(1.5) translateY(0);
 	}
 	100% {
-		transform: scale(1) translateY(50%);
+		transform: scale(1) translateY(100px);
 	}
 }
 
@@ -170,14 +170,14 @@ nav {
 			align-items: center;
 			justify-content: flex-end;
 			align-self: flex-end;
-			gap: 0.5em;
+			gap: .5em;
 			transform: scale(1.5) translateY(0);
 			margin-bottom: 5%;
 			top: 50%;
 			position: absolute;
 			z-index: 2;
-			animation: reveal 0.3s ease-in-out forwards,
-				scale-to-small 1s ease 0.8s forwards;
+			animation: reveal .3s ease-in-out forwards,
+				scale-to-small .8s ease .8s forwards;
 			h1,
 			h2 {
 				text-shadow: var(--shadow);
@@ -195,6 +195,7 @@ nav {
 		img {
 			opacity: 0;
 			height: 95%;
+			width: auto;
 			aspect-ratio: 1 / 1;
 			object-fit: cover;
 			border-radius: 0 1em 0 1em;
@@ -208,7 +209,7 @@ nav {
 /* MARK: ABOUT */
 
 #about {
-	height: 100dvh;
+	min-height: 100dvh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -217,7 +218,6 @@ nav {
 		margin-bottom: 1em;
 	}
 	.bento {
-		margin: 10px;
 		height: 80%;
 		width: 50%;
 		display: grid;
@@ -229,23 +229,26 @@ nav {
 			"map education education"
 			"map certifications certifications";
 		position: relative;
-		h3 {
-			scale: 2;
-		}
 		.item-bento {
 			border-radius: 5px;
 			border: 5px solid var(--orange);
-			transition: all 0.3s ease-in-out;
+			transition: all 0.8s ease-in;
 		}
 		.text-bento {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
+			position: relative;
 			padding: 1em;
-			transition: all .8s ease-in;
+			h3 {
+				position: absolute;
+				font-size: 2.5em;
+				top: 35%;
+				left: 30%;
+			}
 			p {
-				display: none;
+				display: block;
+				filter: blur(1.5px);
+				height: 100px;
+				overflow: hidden;
+				zoom: 200%;
 			}
 			ul {
 				list-style: inside;
@@ -259,7 +262,7 @@ nav {
 				display: block;
 			}
 			&:hover h3 {
-				scale: none;
+				font-size: 1em;
 				animation: reveal 0.8s ease-in-out forwards;
 			}
 			&:hover p {
@@ -281,6 +284,9 @@ nav {
 				object-fit: cover;
 				aspect-ratio: 1/1;
 			}
+		}
+		.text-bento:hover ~ .item-bento:not(:hover) {
+			transform: scale(0.95);
 		}
 		.map {
 			grid-area: map;
