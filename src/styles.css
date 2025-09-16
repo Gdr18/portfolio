@@ -14,10 +14,11 @@
 		transform: rotateY(0deg) rotateX(0deg);
 	}
 	50% {
-		transform: rotateY(8deg) rotateX(-8deg);
+		box-shadow: 5px 5px 10px rgba(102, 97, 97, 0.5);
 	}
 	100% {
-		transform: rotateY(0deg) rotateX(0deg);
+		transform: rotateY(8deg) rotateX(-8deg);
+		box-shadow: 8px 8px 18px rgba(102, 97, 97, 0.5);
 	}
 }
 
@@ -64,9 +65,12 @@
 	--blue: #356a79;
 	--red: #9b2d30;
 	--text-shadow: 5px 5px 10px var(--black);
-	--shadow-fluor: 0 0px 7px var(--grey-light);
+	--shadow-fluor: 0 0px 6px var(--grey-light);
 	--shadow-button: 4px 4px 8px var(--black);
 	--shadow-button-hover: 4px 4px 10px var(--black);
+	--border-radius: 0 1em 0 1em;
+	--border-purple: 5px solid var(--purple-dark);
+	--border-orange: 5px solid var(--orange-dark);
 	/* --shadow-fluor: 0 4px 10px rgba(196, 196, 196, 0.15); */
 	/* --button-hover: linear-gradient(
 		140deg,
@@ -104,16 +108,6 @@ h3 {
 	color: var(--blue);
 }
 
-.card {
-	border-radius: 0 1em 0 1em;
-	box-shadow: var(--shadow-fluor);
-	/* background: linear-gradient(150deg, #592e99 0%, #48267a 49%, #331b57 100%); */
-	position: relative;
-	/* TODO: Falta linear gradient */
-	background: var(--purple-dark);
-	/* clip-path: polygon(7% 0, 100% 0, 100% 0, 100% 88%, 93% 100%, 0 100%, 0 100%, 0 12%); */
-}
-
 .button {
 	font-size: clamp(0.8rem, 2vw, 1rem);
 	color: var(--black);
@@ -127,7 +121,6 @@ h3 {
 	will-change: transform;
 	&:hover {
 		background-color: #ffa600;
-		/* outline: 1px solid var(--black); */
 		box-shadow: var(--shadow-button-hover);
 		transform: scale(1.01);
 	}
@@ -136,12 +129,6 @@ h3 {
 		color: #ffa500;
 		transition: none;
 	}
-}
-
-#projects,
-#contact {
-	padding: 2em 2em 2em 7em;
-	min-height: 100dvh;
 }
 
 /* MARK: NAV */
@@ -189,6 +176,7 @@ nav {
 		display: flex;
 		justify-content: center;
 		position: relative;
+		transition: animation 1s ease-in-out;
 		header {
 			display: flex;
 			flex-direction: column;
@@ -199,7 +187,7 @@ nav {
 			transform: scale(1.5);
 			position: absolute;
 			z-index: 2;
-			transition: animation 0.3s ease-in-out;
+			transition: animation 0.8s ease-in-out;
 			animation: reveal 0.8s ease-in-out forwards,
 				scale-to-small 0.8s ease-in-out 0.8s forwards;
 			h1,
@@ -223,10 +211,10 @@ nav {
 			width: auto;
 			aspect-ratio: 1 / 1;
 			object-fit: cover;
-			border-radius: 0 1em 0 1em;
-			border: 5px solid var(--orange-dark);
-			transition: all 0.3s ease-in-out;
+			border-radius: var(--border-radius);
+			border: var(--border-orange);
 			animation: scale-to-big 1s ease 1s forwards;
+			transition: all 0.3s ease-in-out;
 		}
 		&:hover img {
 			border-color: var(--orange-light);
@@ -247,8 +235,6 @@ nav {
 		width: 50dvw;
 		height: 70dvh;
 		display: grid;
-		/* grid-auto-columns: minmax(100px, 1fr);
-		grid-auto-rows: minmax(100px, auto); */
 		gap: 1em;
 		grid-template-areas:
 			"education education me"
@@ -266,8 +252,8 @@ nav {
 		}
 		.item-bento {
 			background-color: var(--grey-dark);
-			border-radius: 0 1em 0 1em;
-			border: 5px solid var(--purple-dark);
+			border-radius: var(--border-radius);
+			border: var(--border-purple);
 			will-change: transform, filter, display;
 			perspective: 1000px;
 			overflow: hidden;
@@ -275,7 +261,6 @@ nav {
 			&:hover {
 				border-color: var(--purple-light);
 				box-shadow: var(--shadow-fluor);
-				/* animation: rotate 1s ease-in-out both; */
 				filter: brightness(110%);
 				transform: scale(1.01);
 			}
@@ -335,7 +320,7 @@ nav {
 			svg {
 				position: absolute;
 				fill: var(--red);
-				width: 2em;
+				width: 3em;
 				top: 50%;
 				left: 20%;
 				opacity: 0;
@@ -402,7 +387,6 @@ nav {
 		flex-direction: column;
 		align-items: baseline;
 		place-items: center;
-		/* will-change: display; */
 		svg {
 			opacity: 1;
 			margin-bottom: 3px;
@@ -422,15 +406,16 @@ nav {
 	}
 	.card-tech {
 		background-color: var(--grey-dark);
-		border-radius: 0 1em 0 1em;
-		border: 5px solid var(--purple-dark);
+		border-radius: var(--border-radius);
+		border: var(--border-purple);
 		padding: 2em;
 		display: flex;
 		flex-direction: column;
+		transition: all 0.3s ease-in-out;
 		&:hover {
 			border-color: var(--purple-light);
 			box-shadow: var(--shadow-fluor);
-			/* transform: scale(1.01); */
+			transform: scale(1.01);
 		}
 	}
 	.plus {
@@ -458,8 +443,6 @@ nav {
 		grid-template-columns: repeat(auto-fill, 40px);
 		gap: 4em;
 		justify-content: center;
-		/* align-items: center; */
-		/* place-items: center; */
 		margin-top: 2em;
 	}
 	.logo-tech {
@@ -469,25 +452,66 @@ nav {
 /* MARK: PROJECTS */
 
 #projects {
+	min-height: 100dvh;
+	padding: 10em 5em 5em 7em;
 	.project-list {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
 		gap: 4em;
 	}
-	.project-image {
-		width: 100%;
-		aspect-ratio: 16/9;
+	.card-project {
+		padding: 1em;
+		border-radius: var(--border-radius);
+		border: var(--border-purple);
+		background: var(--grey-dark);
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		justify-content: space-between;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			border-color: var(--purple-light);
+			box-shadow: var(--shadow-fluor);
+			transform: scale(1.01);
+		}
+		header h3 {
+			text-indent: 10px;
+		}
+		.logo-container {
+			margin-left: 20px;
+			display: flex;
+			gap: 1em;
+			.logo-project {
+				fill: var(--background);
+				width: 25px;
+			}
+		}
+		.project-image {
+			width: 90%;
+			aspect-ratio: 16/9;
+			border-radius: 1em;
+			align-self: center;
+			box-shadow: var(--text-shadow);
+		}
+		p {
+			padding: 0 1em;
+		}
+		.buttons-container {
+			padding: 1em 0;
+			display: flex;
+			justify-content: space-evenly;
+
+			.button {
+				font-size: clamp(0.6rem, 1vw, 0.8rem);
+				padding: 0.5em 1.5em;
+			}
+		}
 	}
 }
 
-.link-project {
+/* .link-project {
 	width: 25px;
-}
-
-.logo-project {
-	fill: var(--grey-dark);
-	width: 20px;
-}
+} */
 
 /* MARK: CONTACT */
 
