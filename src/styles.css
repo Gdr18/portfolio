@@ -49,6 +49,28 @@
 	}
 }
 
+@keyframes move-in-top-left {
+	0% {
+		opacity: 0;
+		transform: translate(-100%, -100%) scale(0);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(0, 0) scale(1);
+	}
+}
+
+@keyframes gradiant-move {
+	0% {
+		height: 100dvh;
+	}
+	50% {
+		height: 80dvh;
+	}
+	100% {
+		height: 60dvh;
+	}
+}
 /* @keyframes shine {
 	0% {
 		right: 0;
@@ -95,6 +117,13 @@
 	--border-orange: 5px solid var(--orange-dark);
 }
 
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation: none !important;
+		transition: none !important;
+	}
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -122,28 +151,6 @@ h3 {
 	font-family: Orbitron, sans-serif;
 	color: var(--blue);
 	text-shadow: var(--text-shadow);
-}
-@keyframes move-in-top-left {
-	0% {
-		opacity: 0;
-		transform: translate(-100%, -100%) scale(0);
-	}
-	100% {
-		opacity: 1;
-		transform: translate(0, 0) scale(1);
-	}
-}
-
-@keyframes gradiant-move {
-	0% {
-		height: 100dvh;
-	}
-	50% {
-		height: 75dvh;
-	}
-	100% {
-		height: 50dvh;
-	}
 }
 
 .heading-transition {
@@ -233,26 +240,6 @@ h3 {
 }
 
 /* MARK: NAV */
-@keyframes vibrate {
-	0% {
-		transform: translate(0);
-	}
-	20% {
-		transform: translate(-2px, 2px);
-	}
-	40% {
-		transform: translate(-2px, -2px);
-	}
-	60% {
-		transform: translate(2px, 2px);
-	}
-	80% {
-		transform: translate(2px, -2px);
-	}
-	100% {
-		transform: translate(0);
-	}
-}
 nav {
 	padding: 1em;
 	min-height: 100vh;
@@ -345,6 +332,38 @@ nav {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	#history-modal {
+		height: fit-content;
+		width: 50%;
+		color: var(--grey-light);
+		padding: 2em;
+		transition: scale 0.3s ease-in-out, display 0.3s ease-in-out,
+			opacity 0.3s ease-in-out allow-discrete;
+		opacity: 0;
+		scale: 0;
+		z-index: 2;
+		inset: 0;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 2em;
+		align-items: center;
+		p {
+			text-align: center;
+		}
+		&[open] {
+			opacity: 1;
+			scale: 1;
+			transition: scale 0.3s ease-in-out, opacity 0.3s ease-in-out;
+			@starting-style {
+				scale: 0;
+			}
+		}
+		&[open]::backdrop {
+			background: rgba(0, 0, 0, 0.4);
+			backdrop-filter: blur(3px); /* un ligero blur al fondo */
+		}
+	}
 	.bento {
 		width: 50dvw;
 		height: 70dvh;
@@ -356,9 +375,6 @@ nav {
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: repeat(2, minmax(200px, auto));
 		position: relative;
-		dialog {
-			display: none;
-		}
 		img {
 			width: 100%;
 			height: 100%;
@@ -430,16 +446,16 @@ nav {
 				left: 25%;
 			}
 			&:hover .hand {
-				animation: falling 3s ease-in-out infinite;
+				animation: falling 2s ease-in-out infinite;
 			}
 			&:hover .logo-photo {
-				animation: falling 3s ease-in-out infinite 0.5s;
+				animation: falling 2s ease-in-out infinite 0.5s;
 			}
 			&:hover .hand2 {
-				animation: falling 3s ease-in-out infinite 1s;
+				animation: falling 2s ease-in-out infinite 1s;
 			}
 			&:hover .logo-photo2 {
-				animation: falling 3s ease-in-out infinite 1.5s;
+				animation: falling 2s ease-in-out infinite 1.5s;
 			}
 			img {
 				aspect-ratio: 1/1;
@@ -487,83 +503,82 @@ nav {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 2em;
-	justify-content: center;
+	gap: 1em;
+	justify-content: space-evenly;
 	align-items: center;
 	.switch {
 		position: relative;
-		display: inline-block;
 		width: 75px;
 		height: 45px;
-	}
-	.switch input {
-		opacity: 0;
-		width: 0;
-		height: 0;
-	}
-	/* Estilo del fondo */
-	.slider {
-		position: absolute;
-		cursor: pointer;
-		inset: 0;
-		background-color: var(--grey-dark);
-		transition: 0.4s;
-		border-radius: 26px;
-	}
-	/* La bolita */
-	.slider:before {
-		position: absolute;
-		content: "";
-		height: 80%;
-		width: 50%;
-		left: 5px;
-		bottom: 5px;
-		background-color: var(--grey-light);
-		transition: 0.4s;
-		border-radius: 50%;
-	}
-	/* Cuando está activado */
-	input:checked + .slider {
-		background-color: var(--orange-dark);
-	}
-	input:checked + .slider:before {
-		transform: translateX(70%);
+		input {
+			opacity: 0;
+			width: 0;
+			height: 0;
+			&:checked + .slider {
+				background-color: var(--orange-dark);
+			}
+			&:checked + .slider:before {
+				background-color: var(--grey-dark);
+				transform: translateX(70%);
+			}
+		}
+		/* Estilo del fondo */
+		.slider {
+			position: absolute;
+			cursor: pointer;
+			inset: 0;
+			background-color: var(--grey-dark);
+			transition: 0.4s;
+			border-radius: 26px;
+			/* La bolita */
+			&:before {
+				position: absolute;
+				content: "";
+				height: 80%;
+				width: 50%;
+				left: 5px;
+				bottom: 5px;
+				background-color: var(--grey-light);
+				transition: 0.4s;
+				border-radius: 50%;
+			}
+		}
 	}
 	.grid-container {
-		width: 50dvw;
+		width: 70dvw;
 		height: 70dvh;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr 0.5fr;
+		grid-template-rows: auto;
 		gap: 1em;
-		li {
-			list-style: none;
-			display: flex;
-			flex-direction: column;
-			align-items: baseline;
-			place-items: center;
-			svg {
-				opacity: 1;
-				margin-bottom: 3px;
-			}
-			img {
-				display: none;
-				transform: scale(1.2);
-			}
-			.show-tech {
-				svg {
-					display: none;
-				}
-				img {
-					display: block;
-					animation: reveal 0.3s ease-in-out forwards;
-				}
-			}
-		}
 		.card {
 			padding: 2em;
 			display: flex;
 			flex-direction: column;
+			gap: 2em;
+			.logos-list {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(20px, 40px));
+				justify-content: center;
+				align-items: center;
+				gap: 3em;
+				.logo-tech {
+					fill: var(--grey-light);
+					list-style: none;
+					display: flex;
+					flex-direction: column;
+					align-items: baseline;
+					place-items: center;
+					svg {
+						display: block;
+						margin-bottom: 3px;
+					}
+					img {
+						display: none;
+						transform: scale(1.2);
+					}
+				}
+			}
 		}
 		.plus {
 			grid-column: 1 / 2;
@@ -580,22 +595,10 @@ nav {
 				display: flex;
 				justify-content: space-evenly;
 				align-items: center;
-				li svg {
-					max-width: 30px;
-					width: 30px;
-					min-width: 15px;
+				.logo-tech svg {
+					width: 40px;
 				}
 			}
-		}
-		.logos-list {
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(15px, 30px));
-			gap: 4em;
-			justify-content: center;
-			margin-top: 2em;
-		}
-		.logo-tech {
-			fill: var(--grey-light);
 		}
 	}
 }
@@ -661,10 +664,11 @@ nav {
 /* MARK: CONTACT */
 #contact {
 	min-height: 100dvh;
+	padding: 1em 0 1em 0;
 	display: grid;
-	gap: 2em;
+	align-content: flex-end;
+	gap: 4em;
 	.contact-form {
-		padding: 1em;
 		width: 100%;
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
@@ -718,7 +722,7 @@ nav {
 		}
 		.card {
 			height: 70dvh;
-			width: 80%;
+			width: 70%;
 			padding: 2em;
 			will-change: transform;
 			transition: transform 0.2s ease-out;
@@ -747,8 +751,7 @@ nav {
 				}
 				textarea {
 					resize: none;
-					min-height: 55%;
-					max-height: 80%;
+					height: 65%;
 				}
 			}
 			input:focus,
@@ -771,7 +774,6 @@ nav {
 	}
 	footer {
 		margin: auto;
-		padding: 1em;
 		color: var(--grey-dark);
 		margin-bottom: 10px;
 		p {
@@ -780,7 +782,6 @@ nav {
 		.button {
 			margin: auto;
 			font-size: clamp(0.6rem, 1vw, 0.8rem);
-			padding: 0.5em 1.5em;
 			width: fit-content;
 			display: flex;
 			align-items: center;
@@ -791,5 +792,47 @@ nav {
 				fill: var(--black);
 			}
 		}
+	}
+}
+#contact .contact-form {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#contact .contact-form .card {
+	width: 30dvw;
+	height: auto;
+}
+
+#contact .contact-form .card form {
+	height: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+#contact .contact-form .card form textarea {
+	width: 100%;
+	height: auto;
+	min-height: clamp(10rem, 30vh, 26rem);
+	max-height: 60vh;
+	resize: none;
+}
+
+/* Layout responsive en móviles */
+@media (max-width: 900px) {
+	#contact {
+		padding: 1em;
+	}
+	#contact .contact-form {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+		gap: 2em;
+	}
+	#contact .contact-form .card {
+		max-width: none;
+	}
+	/* Evita que el tooltip del email se salga en pantallas estrechas */
+	#contact .contact-form .contact-info .email-container span {
+		right: 0;
 	}
 }
