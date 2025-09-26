@@ -9,6 +9,15 @@
 	}
 }
 
+@keyframes reveal {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 @keyframes scale-to-small {
 	0% {
 		transform: scale(1.5) translateY(-50%);
@@ -29,15 +38,6 @@
 	}
 }
 
-@keyframes reveal {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
 @keyframes falling {
 	0% {
 		transform: translateY(0);
@@ -47,12 +47,14 @@
 	}
 }
 
-@keyframes move-in-bottom-right {
+@keyframes header-reveal {
 	0% {
-		transform: translate(-100%, -100%) scale(0);
+		opacity: 0;
+		transform: translateY(-50dvh) skew(20deg);
 	}
 	100% {
-		transform: translate(0, 0) scale(1);
+		opacity: 1;
+		transform: translateY(0) skew(0);
 	}
 }
 
@@ -83,6 +85,21 @@
 	}
 }
 
+@keyframes card-reveal {
+	0% {
+		filter: saturate(0) brightness(0.1) blur(5px);
+		opacity: 0;
+		translate: 0 4rem;
+		scale: 0.95;
+	}
+	100% {
+		opacity: 1;
+		translate: 0 0;
+		scale: 1;
+		filter: none;
+	}
+}
+
 /* MARK: GENERAL */
 
 :root {
@@ -108,17 +125,39 @@
 @media (prefers-reduced-motion: reduce) {
 	* {
 		animation: none !important;
-		transition: none !important;
+		/* transition: none !important; */
+		transform: none !important;
 	}
 
 	.welcome-container {
 		img {
 			opacity: 1 !important;
-			transform: scale(1) !important;
 		}
 		header {
 			transform: scale(1) translateY(0) !important;
-			opacity: 1 !important;
+		}
+	}
+	#skills .skills-container {
+		.card {
+			min-width: 0 !important;
+			padding: 0 !important;
+			padding-top: 1em !important;
+			.logos-list {
+				height: 100% !important;
+				min-width: 0 !important;
+				mask-image: none !important;
+				padding: 0 1em !important;
+				flex-wrap: nowrap !important; /* no saltos de línea */
+				overflow: auto !important; /* scroll horizontal si es necesario */
+				.logo-tech {
+					position: static !important;
+					flex: 0 0 var(--width-item-carousel) !important;
+				}
+			}
+		}
+		.secondaries-skills .logos-list {
+			display: flex !important;
+			justify-content: center !important;
 		}
 	}
 }
@@ -131,6 +170,7 @@
 }
 
 body {
+	padding-left: 5em;
 	font-size: clamp(0.8rem, 2vw, 1rem);
 	background-color: var(--background);
 	color: var(--grey-light);
@@ -154,7 +194,7 @@ h3 {
 
 .heading-transition {
 	width: 100%;
-	height: 100dvh;
+	height: 60dvh;
 	text-align: right;
 	align-content: flex-end;
 	background: linear-gradient(
@@ -162,19 +202,13 @@ h3 {
 		var(--grey-dark) 50%,
 		var(--background) 100%
 	);
-	transition: all 0.3s ease-in-out;
-	animation: gradiant-move 0.5s ease-in-out forwards;
-	animation-timeline: view();
-	animation-range: entry 50%;
-	scroll-behavior: smooth;
 	h2 {
 		margin-right: 1em;
 		font-size: clamp(3rem, 7vw, 10rem);
 		-webkit-text-stroke: 2px var(--black);
-		transition: animation 0.3s ease-out;
-		animation: move-in-bottom-right 0.5s linear forwards;
+		animation: header-reveal both;
 		animation-timeline: view();
-		animation-range: entry 0% cover 50%;
+		animation-range: entry 20% cover 100vh;
 	}
 }
 
@@ -188,7 +222,7 @@ h3 {
 	box-shadow: var(--shadow-button);
 	border: none;
 	outline: none;
-	transition: all 0.3s ease-in-out;
+	transition: all 0.2s ease-in-out;
 	&:hover {
 		cursor: pointer;
 		background-color: #ffa600;
@@ -216,7 +250,7 @@ h3 {
 .link-icon {
 	fill: var(--orange-dark);
 	cursor: pointer;
-	transition: all 0.3s ease-in-out;
+	transition: fill 0.2s ease-in-out, transform 0.2s ease-in-out;
 	&:hover {
 		fill: var(--orange-light);
 		transform: scale(1.1);
@@ -230,18 +264,30 @@ h3 {
 	border: var(--border-purple);
 	transform-style: preserve-3d;
 	perspective: 600px;
-	transition: all 0.3s ease-in-out;
+	transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 	&:hover {
 		border-color: var(--purple-light);
 		box-shadow: var(--shadow-fluor);
-		/* filter: brightness(110%); */
 	}
+}
+
+.animated-card {
+	animation: card-reveal both;
+	animation-timeline: view();
+	animation-range: entry 10% cover 50vh;
+}
+
+.hero,
+#projects {
+	margin-bottom: 50px;
 }
 
 /* MARK: NAV */
 nav {
+	border-right: 2px solid var(--black);
+	box-shadow: 2px 0 20px var(--black);
 	padding: 1em;
-	min-height: 100vh;
+	min-height: 100dvh;
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -249,7 +295,9 @@ nav {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	z-index: 1;
+	z-index: 4;
+	perspective: 600px;
+	transform-style: preserve-3d;
 	.nav-sections {
 		display: flex;
 		flex-direction: column;
@@ -281,7 +329,6 @@ nav {
 		flex-direction: column;
 		align-items: center;
 		gap: 0.5em;
-		transform: scale(1.5) translateY(-50%);
 		animation: reveal 0.8s ease-in-out both,
 			scale-to-small 0.8s ease-in-out 0.8s both;
 		h1,
@@ -393,7 +440,6 @@ nav {
 		&[open] {
 			opacity: 1;
 			scale: 1;
-			transition: scale 0.3s ease-in-out, opacity 0.3s ease-in-out;
 			@starting-style {
 				scale: 0;
 			}
@@ -430,7 +476,7 @@ nav {
 			ul {
 				transition: opacity 0.5s ease-in-out;
 			}
-			img{
+			img {
 				transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
 			}
 			.text-container {
@@ -471,6 +517,7 @@ nav {
 			border: var(--border-orange);
 			border-radius: var(--border-radius);
 			position: relative;
+			transition: all 0.2s ease-in-out;
 			&:hover {
 				cursor: pointer;
 				border-color: var(--orange-light);
@@ -508,13 +555,14 @@ nav {
 				top: 50%;
 				left: 20%;
 				opacity: 0;
+				transition: opacity 0.3s ease-in-out;
 			}
 			&:hover svg {
-				animation: jump 0.5s ease-in-out infinite alternate,
-					reveal 0.3s ease-in-out forwards;
+				animation: jump 0.5s ease-in-out infinite alternate;
+				opacity: 1;
 			}
 			&:hover p {
-				animation: reveal 0.3s ease-in-out forwards;
+				opacity: 1;
 			}
 		}
 		.education {
@@ -546,6 +594,7 @@ nav {
 			overflow: hidden;
 			display: grid;
 			row-gap: 0.5em;
+			animation-range: entry 10% cover 40vh;
 			&:hover .logos-list .logo-tech,
 			&:hover .minus-list .logo-tech {
 				animation-play-state: paused;
@@ -588,7 +637,6 @@ nav {
 					animation-delay: calc(
 						(10s / var(--quantity-items-carousel)) * var(--position)
 					);
-					transition: display 0.3s ease-in-out allow-discrete;
 					svg {
 						width: 50px;
 					}
@@ -604,12 +652,12 @@ nav {
 				}
 			}
 		}
-		.minus {
+		.secondaries-skills {
 			grid-row: 2/3;
 			header h3 {
 				text-align: right;
 			}
-			.minus-list {
+			.logos-list {
 				.logo-tech {
 					left: 105%;
 					animation: autorun-right 10s linear infinite;
@@ -740,7 +788,6 @@ nav {
 			width: 70%;
 			padding: 2em;
 			will-change: transform;
-			transition: transform 0.2s ease-out;
 			header h3 {
 				margin-bottom: 1em;
 			}
@@ -760,7 +807,7 @@ nav {
 					border-radius: 5px;
 					border: 2px solid transparent;
 					box-shadow: var(--shadow-button);
-					transition: border-color 0.1s ease-in-out;
+					transition: border-color 0.3s ease-in-out;
 					background-color: var(--grey-light);
 					color: var(--black);
 				}
