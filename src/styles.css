@@ -20,7 +20,7 @@
 
 @keyframes scale-to-small {
 	0% {
-		transform: scale(1.5) translateY(-50%);
+		transform: scale(var(--scale-heading)) translateY(-50%);
 	}
 	100% {
 		transform: scale(1) translateY(0);
@@ -43,14 +43,15 @@
 		transform: translateY(0);
 	}
 	100% {
-		transform: translateY(40dvh);
+		transform: translateY(var(--falling-item));
 	}
 }
 
 @keyframes header-reveal {
 	0% {
 		opacity: 0;
-		transform: translateY(-50dvh) skew(20deg);
+		transform: translateY(calc(-1 * (var(--height-heading-transition) / 3 * 2)))
+			skew(20deg);
 	}
 	100% {
 		opacity: 1;
@@ -120,46 +121,9 @@
 	--border-radius: 1em;
 	--border-purple: 5px solid var(--purple-dark);
 	--border-orange: 5px solid var(--orange-dark);
-}
-
-@media (prefers-reduced-motion: reduce) {
-	* {
-		animation: none !important;
-		/* transition: none !important; */
-		transform: none !important;
-	}
-
-	.welcome-container {
-		img {
-			opacity: 1 !important;
-		}
-		header {
-			transform: scale(1) translateY(0) !important;
-		}
-	}
-	#skills .skills-container {
-		.card {
-			min-width: 0 !important;
-			padding: 0 !important;
-			padding-top: 1em !important;
-			.logos-list {
-				height: 100% !important;
-				min-width: 0 !important;
-				mask-image: none !important;
-				padding: 0 1em !important;
-				flex-wrap: nowrap !important; /* no saltos de línea */
-				overflow: auto !important; /* scroll horizontal si es necesario */
-				.logo-tech {
-					position: static !important;
-					flex: 0 0 var(--width-item-carousel) !important;
-				}
-			}
-		}
-		.secondaries-skills .logos-list {
-			display: flex !important;
-			justify-content: center !important;
-		}
-	}
+	--height-heading-transition: 60dvh;
+	--falling-item: 40dvh;
+	--scale-heading: 1.5;
 }
 
 * {
@@ -194,7 +158,7 @@ h3 {
 
 .heading-transition {
 	width: 100%;
-	height: 60dvh;
+	height: var(--height-heading-transition);
 	text-align: right;
 	align-content: flex-end;
 	background: linear-gradient(
@@ -203,6 +167,7 @@ h3 {
 		var(--background) 100%
 	);
 	h2 {
+		margin-bottom: 1em;
 		margin-right: 1em;
 		font-size: clamp(3rem, 7vw, 10rem);
 		-webkit-text-stroke: 2px var(--black);
@@ -284,6 +249,7 @@ h3 {
 
 /* MARK: NAV */
 nav {
+	background: var(--background);
 	border-right: 2px solid var(--black);
 	box-shadow: 2px 0 20px var(--black);
 	padding: 1em;
@@ -298,16 +264,16 @@ nav {
 	z-index: 4;
 	perspective: 600px;
 	transform-style: preserve-3d;
+	.logo {
+		width: 45px;
+	}
 	.nav-sections {
 		display: flex;
 		flex-direction: column;
 		gap: 1em;
-	}
-	.logo {
-		width: 45px;
-	}
-	.link-icon {
-		width: 40px;
+		.link-icon {
+			width: 40px;
+		}
 	}
 }
 
@@ -336,10 +302,10 @@ nav {
 			-webkit-text-stroke: 1.5px var(--black);
 		}
 		h1 {
-			font-size: clamp(1.5rem, 4vw, 3rem);
+			font-size: clamp(2rem, 4vw, 3rem);
 		}
 		h2 {
-			font-size: clamp(1rem, 3vw, 2rem);
+			font-size: clamp(1.5rem, 3vw, 2rem);
 			color: var(--grey-light);
 			font-style: oblique;
 			margin-bottom: 0.8em;
@@ -492,7 +458,6 @@ nav {
 				list-style-position: inside;
 				li {
 					text-indent: 15px;
-					font-size: 0.9em;
 					margin-bottom: 0.5em;
 				}
 			}
@@ -525,7 +490,7 @@ nav {
 				transform: scale(1.01);
 			}
 			&:hover .items-photo-me {
-				animation: falling 1.2s linear var(--delay) infinite;
+				animation: falling 2s linear var(--delay) infinite;
 			}
 			img {
 				aspect-ratio: 1/1;
@@ -542,7 +507,7 @@ nav {
 			grid-area: map;
 			position: relative;
 			p {
-				font-size: 0.8em;
+				/* font-size: 0.8em; */
 				position: absolute;
 				bottom: 5%;
 				right: 5%;
@@ -584,7 +549,7 @@ nav {
 	justify-content: center;
 	.skills-container {
 		width: 100%;
-		max-width: 600px;
+		max-width: clamp(400px, 90vw, 600px);
 		aspect-ratio: 1/1;
 		display: grid;
 		gap: 1em;
@@ -877,7 +842,7 @@ nav {
 }
 
 /* Layout responsive en móviles */
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
 	#contact {
 		padding: 1em;
 	}
@@ -889,8 +854,215 @@ nav {
 	#contact .contact-form .card {
 		max-width: none;
 	}
+	Evita que el tooltip del email se salga en pantallas estrechas
+	#contact .contact-form .contact-info .email-container span {
+		right: 0;
+	}
+} */
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation: none !important;
+		transform: none !important;
+	}
+
+	.welcome-container {
+		img {
+			opacity: 1 !important;
+		}
+		header {
+			transform: scale(1) translateY(0) !important;
+		}
+	}
+	#skills .skills-container {
+		.card {
+			min-width: 0 !important;
+			padding: 0 !important;
+			padding-top: 1em !important;
+			.logos-list {
+				height: 100% !important;
+				min-width: 0 !important;
+				mask-image: none !important;
+				padding: 0 1em !important;
+				flex-wrap: nowrap !important;
+				overflow: auto !important;
+				.logo-tech {
+					position: static !important;
+					flex: 0 0 var(--width-item-carousel) !important;
+				}
+			}
+		}
+		.secondaries-skills .logos-list {
+			display: flex !important;
+			justify-content: center !important;
+		}
+	}
+}
+
+/* Pantallas grandes (mejoras leves) */
+/* @media (max-width: 1200px) {
+    #projects {
+        padding: 2em 3em;
+    }
+    #projects .project-list {
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+        gap: 2.5em;
+    }
+    .hero .welcome-container img {
+        height: 80dvh;
+    }
+} */
+
+/* Tablets y móviles */
+@media (max-width: 900px) {
+	:root {
+		--height-heading-transition: 40dvh;
+		--falling-item: 60dvh;
+		--scale-heading: 1.4;
+		--width-item-carousel: 60px;
+	}
+
+	body {
+		display: block;
+		padding-left: 0;
+		padding-bottom: 70px;
+	}
+
+	nav {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: auto;
+		bottom: 0;
+		min-height: auto;
+		height: 70px;
+		flex-direction: row;
+		align-items: center;
+		border-right: none;
+		border-top: 2px solid var(--black);
+		box-shadow: 0 -2px 20px var(--black);
+		.logo {
+			width: 40px;
+		}
+		.nav-sections {
+			flex-direction: row;
+			.link-icon {
+				width: 35px;
+			}
+		}
+	}
+
+	/* Hero */
+	.hero {
+		/* min-height: 0; */
+		padding: 1em;
+		gap: 1em;
+		flex-direction: column;
+		header {
+			bottom: 25%;
+		}
+		.welcome-container img {
+			height: 65dvh;
+		}
+	}
+
+	.heading-transition {
+		height: var(--height-heading-transition);
+		h2 {
+			font-size: clamp(2rem, 9vw, 4rem);
+		}
+	}
+
+	/* About: bento a 1 columna */
+	#about #history-modal {
+		width: 90%;
+	}
+	#about {
+		font-size: 1.2rem;
+		.bento {
+			max-width: 100%;
+			aspect-ratio: auto;
+			grid-template-areas:
+				"education education"
+				"me map"
+				"certifications certifications";
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(3, 300px);
+		}
+	}
+	#about .bento .photo-bento img {
+		width: 100%;
+	}
+
+	#skills {
+		.skills-container .card {
+			padding: 1em 0;
+		}
+	}
+
+	#skills .skills-container .card .logos-list .logo-tech svg {
+		width: 35px;
+	}
+
+	/* Projects: 1 columna y paddings compactos */
+	#projects {
+		padding: 1.5em;
+	}
+	#projects .project-list {
+		grid-template-columns: 1fr;
+		gap: 2em;
+	}
+	#projects .card .project-image {
+		width: 100%;
+	}
+
+	/* Contact: grid a una columna y tarjetas fluidas */
+	#contact {
+		padding: 1em;
+		gap: 2em;
+	}
+	#contact .contact-form {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+		gap: 2em;
+		place-content: initial;
+		align-items: initial;
+	}
+	#contact .contact-form .card {
+		width: 100%;
+		max-width: none;
+		height: auto;
+		padding: 1.25em;
+	}
+	#contact .contact-form .card form {
+		height: auto;
+	}
 	/* Evita que el tooltip del email se salga en pantallas estrechas */
 	#contact .contact-form .contact-info .email-container span {
 		right: 0;
+		top: 100%;
+		margin-top: 4px;
+	}
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+	nav {
+		height: 56px;
+	}
+	nav .link-icon {
+		width: 24px;
+	}
+	.hero .welcome-container img {
+		height: 55dvh;
+		/* border-width: 3px; */
+	}
+	#projects .card .logo-container {
+		margin-left: 0;
+		justify-content: center;
+	}
+	.button {
+		padding: 0.5em 1em;
 	}
 }
