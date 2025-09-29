@@ -135,7 +135,7 @@
 
 body {
 	padding-left: 5em;
-	font-size: clamp(0.8rem, 2vw, 1rem);
+	/* font-size: clamp(0.8rem, 2vw, 1rem); */
 	background-color: var(--background);
 	color: var(--grey-light);
 	display: grid;
@@ -167,7 +167,7 @@ h3 {
 		var(--background) 100%
 	);
 	h2 {
-		margin-bottom: 1em;
+		margin-bottom: 0.5em;
 		margin-right: 1em;
 		font-size: clamp(3rem, 7vw, 10rem);
 		-webkit-text-stroke: 2px var(--black);
@@ -302,10 +302,10 @@ nav {
 			-webkit-text-stroke: 1.5px var(--black);
 		}
 		h1 {
-			font-size: clamp(2rem, 4vw, 3rem);
+			font-size: clamp(2rem, 5.5vw, 3rem);
 		}
 		h2 {
-			font-size: clamp(1.5rem, 3vw, 2rem);
+			font-size: clamp(1rem, 3.5vw, 2rem);
 			color: var(--grey-light);
 			font-style: oblique;
 			margin-bottom: 0.8em;
@@ -490,7 +490,7 @@ nav {
 				transform: scale(1.01);
 			}
 			&:hover .items-photo-me {
-				animation: falling 2s linear var(--delay) infinite;
+				animation: falling 1.5s linear var(--delay) infinite;
 			}
 			img {
 				aspect-ratio: 1/1;
@@ -500,6 +500,7 @@ nav {
 				opacity: 0.8;
 				top: -15%;
 				width: 20px;
+				font-size: 20px;
 				left: var(--position);
 			}
 		}
@@ -642,7 +643,7 @@ nav {
 	padding: 2em 7em;
 	.project-list {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(560px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
 		gap: 4em;
 	}
 	.card {
@@ -681,7 +682,7 @@ nav {
 				display: flex;
 				align-items: center;
 				gap: 0.5em;
-				font-size: clamp(0.6rem, 1vw, 0.8rem);
+				/* font-size: clamp(0.6rem, 1vw, 0.8rem); */
 				padding: 0.5em 1.5em;
 				text-align: center;
 			}
@@ -692,24 +693,27 @@ nav {
 /* MARK: CONTACT */
 #contact {
 	min-height: 100dvh;
-	padding: 1em 0 1em 0;
-	display: grid;
-	align-content: flex-end;
-	gap: 4em;
+	/* padding: 1em 0 1em 0; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
 	.contact-form {
 		width: 100%;
-		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: 80%;
 		place-content: center;
 		align-items: center;
-		gap: 4em;
 		.contact-info {
 			display: flex;
 			flex-direction: column;
 			gap: 2em;
 			align-items: center;
 			justify-content: center;
+			.logo {
+				width: 100px;
+				filter: opacity(0.8);
+			}
 			h2 {
 				padding-bottom: 1em;
 				border-bottom: 5px solid var(--grey-dark);
@@ -743,14 +747,11 @@ nav {
 					border-radius: 3px;
 				}
 			}
-			.logo {
-				width: 20%;
-				filter: opacity(0.8);
-			}
 		}
 		.card {
 			height: 70dvh;
-			width: 70%;
+			max-width: 500px;
+			min-width: 450px;
 			padding: 2em;
 			will-change: transform;
 			header h3 {
@@ -778,7 +779,7 @@ nav {
 				}
 				textarea {
 					resize: none;
-					height: 65%;
+					/* height: clamp(8rem, 20vh, 20rem); */
 				}
 			}
 			input:focus,
@@ -800,14 +801,12 @@ nav {
 		}
 	}
 	footer {
-		margin: auto;
 		color: var(--grey-dark);
-		margin-bottom: 10px;
-		p {
-			margin-bottom: 20px;
-		}
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1em;
 		.button {
-			margin: auto;
 			font-size: clamp(0.6rem, 1vw, 0.8rem);
 			width: fit-content;
 			display: flex;
@@ -917,7 +916,7 @@ nav {
 @media (max-width: 900px) {
 	:root {
 		--height-heading-transition: 40dvh;
-		--falling-item: 60dvh;
+		--falling-item: 35dvh;
 		--scale-heading: 1.4;
 		--width-item-carousel: 60px;
 	}
@@ -951,10 +950,11 @@ nav {
 			}
 		}
 	}
+	.hero #projects {
+		margin-bottom: 20px;
+	}
 
-	/* Hero */
 	.hero {
-		/* min-height: 0; */
 		padding: 1em;
 		gap: 1em;
 		flex-direction: column;
@@ -973,10 +973,6 @@ nav {
 		}
 	}
 
-	/* About: bento a 1 columna */
-	#about #history-modal {
-		width: 90%;
-	}
 	#about {
 		font-size: 1.2rem;
 		.bento {
@@ -989,55 +985,54 @@ nav {
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-rows: repeat(3, 300px);
 		}
-	}
-	#about .bento .photo-bento img {
-		width: 100%;
-	}
-
-	#skills {
-		.skills-container .card {
-			padding: 1em 0;
+		#history-modal {
+			width: 90%;
+		}
+		.bento .photo-bento {
+			img {
+				width: 100%;
+			}
+			.items-photo-me {
+				width: 25px;
+				font-size: 25px;
+			}
 		}
 	}
 
-	#skills .skills-container .card .logos-list .logo-tech svg {
-		width: 35px;
+	#skills .skills-container .card {
+		padding: 1em 0;
+		.logos-list .logo-tech svg {
+			width: 35px;
+		}
 	}
 
-	/* Projects: 1 columna y paddings compactos */
 	#projects {
-		padding: 1.5em;
-	}
-	#projects .project-list {
-		grid-template-columns: 1fr;
-		gap: 2em;
-	}
-	#projects .card .project-image {
-		width: 100%;
+		padding: 4em;
+		.project-list {
+			gap: 2em;
+		}
 	}
 
-	/* Contact: grid a una columna y tarjetas fluidas */
 	#contact {
-		padding: 1em;
-		gap: 2em;
+		min-height: calc(100dvh - 70px);
+		.contact-form {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto;
+			gap: 4em;
+			place-items: center;
+			.card {
+				max-width: none;
+				width: 60vw;
+				height: 40vh;
+				padding: 1.25em;
+				form textarea {
+					min-height: clamp(8rem, 18vh, 20rem);
+				}
+			}
+		}
 	}
-	#contact .contact-form {
-		display: grid;
-		grid-template-columns: 1fr;
-		grid-template-rows: auto auto;
-		gap: 2em;
-		place-content: initial;
-		align-items: initial;
-	}
-	#contact .contact-form .card {
-		width: 100%;
-		max-width: none;
-		height: auto;
-		padding: 1.25em;
-	}
-	#contact .contact-form .card form {
-		height: auto;
-	}
+
 	/* Evita que el tooltip del email se salga en pantallas estrechas */
 	#contact .contact-form .contact-info .email-container span {
 		right: 0;
