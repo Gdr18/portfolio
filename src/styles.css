@@ -169,7 +169,7 @@ h3 {
 	h2 {
 		margin-bottom: 0.5em;
 		margin-right: 1em;
-		font-size: clamp(3rem, 7vw, 10rem);
+		font-size: clamp(2rem, 10vw, 8rem);
 		-webkit-text-stroke: 2px var(--black);
 		animation: header-reveal both;
 		animation-timeline: view();
@@ -178,7 +178,7 @@ h3 {
 }
 
 .button {
-	font-size: clamp(0.8rem, 2vw, 1rem);
+	font-size: clamp(0.7rem, 2vw, 1rem);
 	color: var(--black);
 	background-color: var(--orange-dark);
 	padding: 0.5em 1.5em;
@@ -265,14 +265,14 @@ nav {
 	perspective: 600px;
 	transform-style: preserve-3d;
 	.logo {
-		width: 45px;
+		width: clamp(30px, 4vw, 45px);
 	}
 	.nav-sections {
 		display: flex;
 		flex-direction: column;
 		gap: 1em;
 		.link-icon {
-			width: 40px;
+			width: clamp(30px, 4vw, 40px);
 		}
 	}
 }
@@ -302,7 +302,7 @@ nav {
 			-webkit-text-stroke: 1.5px var(--black);
 		}
 		h1 {
-			font-size: clamp(2rem, 5.5vw, 3rem);
+			font-size: clamp(1.5rem, 5.5vw, 3rem);
 		}
 		h2 {
 			font-size: clamp(1rem, 3.5vw, 2rem);
@@ -385,6 +385,7 @@ nav {
 	align-items: center;
 	justify-content: center;
 	padding: clamp(0.5rem, 5vw, 4rem);
+	font-size: clamp(0.75rem, 1.1vw, 1.2rem);
 	#history-modal {
 		height: fit-content;
 		width: 50%;
@@ -500,8 +501,8 @@ nav {
 				position: absolute;
 				opacity: 0.8;
 				top: -15%;
-				width: 20px;
-				font-size: 20px;
+				width: clamp(15px, 3vw, 20px);
+				font-size: clamp(15px, 3vw, 20px);
 				left: var(--position);
 			}
 		}
@@ -509,7 +510,6 @@ nav {
 			grid-area: map;
 			position: relative;
 			p {
-				/* font-size: 0.8em; */
 				position: absolute;
 				bottom: 5%;
 				right: 5%;
@@ -641,10 +641,10 @@ nav {
 
 #projects {
 	min-height: 100dvh;
-	padding: 2em 7em;
+	padding: 2em 0;
 	.project-list {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 		gap: 4em;
 	}
 	.card {
@@ -885,7 +885,7 @@ nav {
 @media (max-width: 900px) {
 	:root {
 		--height-heading-transition: 40dvh;
-		--falling-item: 35dvh;
+		--falling-item: 50dvh;
 		--scale-heading: 1.4;
 		--width-item-carousel: 60px;
 	}
@@ -909,14 +909,8 @@ nav {
 		border-right: none;
 		border-top: 2px solid var(--black);
 		box-shadow: 0 -2px 20px var(--black);
-		.logo {
-			width: 40px;
-		}
 		.nav-sections {
 			flex-direction: row;
-			.link-icon {
-				width: 40px;
-			}
 		}
 	}
 	.hero #projects {
@@ -937,13 +931,9 @@ nav {
 
 	.heading-transition {
 		height: var(--height-heading-transition);
-		h2 {
-			font-size: clamp(2rem, 9vw, 4rem);
-		}
 	}
 
 	#about {
-		font-size: 1.2rem;
 		.bento {
 			max-width: 100%;
 			aspect-ratio: auto;
@@ -956,14 +946,11 @@ nav {
 		}
 		#history-modal {
 			width: 90%;
+			padding: 1em;
 		}
 		.bento .photo-bento {
 			img {
 				width: 100%;
-			}
-			.items-photo-me {
-				width: 25px;
-				font-size: 25px;
 			}
 		}
 	}
@@ -1005,40 +992,66 @@ nav {
 
 /* Móviles pequeños */
 @media (max-width: 480px) {
-	nav {
-		.logo {
-			width: 35px;
-		}
-		.nav-sections .link-icon {
-			width: 35px;
-		}
+	:root {
+		--height-heading-transition: 30dvh;
+		--falling-item: 35dvh;
 	}
+
+	#projects, .hero {
+		margin-bottom: 0;
+	}
+	
 	.hero {
 		header {
-			bottom: 25%;
+			bottom: 35%;
 			animation: reveal 0.6s ease-in-out both;
+			h1, h2 {
+				-webkit-text-stroke: 1px var(--black);
+			}
 		}
 		.welcome-container img {
 			animation: reveal 1s ease 0.5s forwards;
-			height: 55dvh;
+			height: 45dvh;
 		}
 	}
 
 	#about .bento {
-		font-size: 1rem;
-		grid-template-rows: repeat(3, 250px);
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(4, 200px);
+		grid-template-areas:
+			"education"
+			"me"
+			"map"
+			"certifications";
 	}
 
 	#skills .skills-container {
-		grid-template-rows: repeat(3, 200px);
-		/* .card .logos-list .logo-tech svg {
-			width: 45px;
-		} */
+		padding: 0 1em;
+		grid-template-rows: repeat(3, 150px);
 	}
-	#projects .card .logo-container {
-		margin-left: 0;
-		justify-content: center;
+	
+	#projects {
+		padding: 1em;
+		.project-list {
+			gap: 1em;
+		}
+		.card {
+			header h3 {
+				font-size: 1.2rem;
+			}
+			.project-image {
+				width: 100%;
+			}
+			p {
+				font-size: 0.9rem;
+			}
+		}
+		.logo-container {
+			margin-left: 0;
+			justify-content: center;
+		}
 	}
+
 	.button {
 		padding: 0.5em 1em;
 	}
