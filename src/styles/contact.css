@@ -1,0 +1,100 @@
+#contact {
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	.contact-form {
+		padding-top: 4rem;
+		width: 100%;
+		display: flex;
+		justify-content: space-evenly;
+		.contact-info {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			align-items: center;
+			justify-content: center;
+			.logo {
+				width: 100px;
+				filter: opacity(0.8);
+			}
+			h2 {
+				padding-bottom: 1rem;
+				border-bottom: 5px solid var(--grey-dark);
+			}
+			.social-container {
+				display: flex;
+				gap: 1.5rem;
+			}
+			.link-icon {
+				width: 30px;
+			}
+			.email-container {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				position: relative;
+				p {
+					font-size: clamp(0.9rem, 2vw, 1.1rem);
+				}
+
+				span {
+					position: absolute;
+					right: -70%;
+					display: none;
+					color: black;
+					background-color: var(--grey-light);
+					font-size: clamp(0.5rem, 1vw, 0.7rem);
+					padding: 0.2rem 0.5rem;
+					border-radius: 3px;
+				}
+			}
+		}
+		.card {
+			max-width: 450px;
+			min-width: 400px;
+			padding: 2rem;
+			will-change: transform;
+			height: auto;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			.button {
+				align-self: center;
+			}
+			input,
+			textarea {
+				outline: none;
+				padding: 0.5rem;
+				font-size: 1rem;
+				border-radius: 5px;
+				border: 2px solid transparent;
+				box-shadow: var(--shadow-button);
+				transition: border-color 0.3s ease-in-out;
+				background-color: var(--grey-light);
+				color: var(--black);
+			}
+			textarea {
+				resize: none;
+				min-height: 10rem;
+			}
+			input:focus,
+			textarea:focus {
+				border-color: var(--orange-dark);
+			}
+			input:-webkit-autofill,
+			textarea:-webkit-autofill {
+				-webkit-box-shadow: var(--grey-light);
+				-webkit-text-fill-color: black;
+				transition: background-color 5000s ease-in-out 0s; /* evita que vuelva al estilo por defecto */
+			}
+
+			input:-webkit-autofill:focus,
+			textarea:-webkit-autofill:focus {
+				-webkit-box-shadow: var(--grey-light);
+				-webkit-text-fill-color: black;
+			}
+		}
+	}
+}

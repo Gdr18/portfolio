@@ -1,0 +1,93 @@
+#skills {
+	min-height: 100dvh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.skills-container {
+		width: 100%;
+		max-width: clamp(400px, 90vw, 600px);
+		aspect-ratio: 1/1;
+		display: grid;
+		gap: 1rem;
+		.card {
+			--width-item-carousel: 80px;
+			padding: clamp(0.5rem, 1rem, 1.5rem) 0;
+			overflow: hidden;
+			display: grid;
+			gap: 0.5rem;
+			animation-range: entry 10% cover 40vh;
+			&:hover .logos-list .logo-tech,
+			&:hover .minus-list .logo-tech {
+				animation-play-state: paused;
+			}
+			header {
+				margin: 0 1.5rem;
+			}
+			.logos-list {
+				height: var(--width-item-carousel);
+				mask-image: linear-gradient(
+					to right,
+					transparent,
+					black 200px,
+					black
+						calc(
+							(
+									var(--width-item-carousel) * var(--quantity-items-carousel) -
+										700px
+								) - 200px
+						),
+					transparent
+				);
+				display: flex;
+				min-width: calc(
+					var(--width-item-carousel) * var(--quantity-items-carousel)
+				);
+				position: relative;
+				.logo-tech {
+					width: var(--width-item-carousel);
+					height: var(--width-item-carousel);
+					fill: var(--grey-light);
+					list-style: none;
+					display: flex;
+					flex-direction: column;
+					place-items: center;
+					place-content: center;
+					position: absolute;
+					left: 100%;
+					animation: autorun-left 10s linear infinite;
+					animation-delay: calc(
+						(10s / var(--quantity-items-carousel)) * var(--position)
+					);
+					svg {
+						width: clamp(35px, 1vw, 50px);
+					}
+					img {
+						display: none;
+					}
+					&:hover svg {
+						display: none;
+					}
+					&:hover img {
+						display: block;
+					}
+				}
+			}
+		}
+		.secondaries-skills {
+			grid-row: 2/3;
+			header h3 {
+				text-align: right;
+			}
+			.logos-list {
+				.logo-tech {
+					left: 105%;
+					animation: autorun-right 10s linear infinite;
+					animation-delay: calc(
+						(10s / var(--quantity-items-carousel)) * var(--position)
+					);
+				}
+			}
+		}
+	}
+}

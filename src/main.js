@@ -1,5 +1,4 @@
-import "./style.css";
-import { copyEmail } from "./portfolio/use-cases/copy-email.js";
+import { copyEmail } from "./use-cases/copy-email.js";
 
 const copyIcon = document.querySelector(".copy-icon");
 const photoMine = document.getElementsByClassName("photo-bento")[0];

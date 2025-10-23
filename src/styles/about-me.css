@@ -1,0 +1,162 @@
+#about {
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: clamp(1rem, 5vw, 4rem);
+	font-size: 0.95rem;
+	#history-modal {
+		height: fit-content;
+		width: 50%;
+		color: var(--grey-light);
+		padding: 2rem;
+		transition: scale 0.3s ease-in-out, display 0.3s ease-in-out,
+			opacity 0.3s ease-in-out allow-discrete;
+		opacity: 0;
+		scale: 0;
+		z-index: 2;
+		inset: 0;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		align-items: center;
+		p {
+			text-align: center;
+		}
+		&[open] {
+			opacity: 1;
+			scale: 1;
+			@starting-style {
+				scale: 0;
+			}
+		}
+		&[open]::backdrop {
+			background: rgba(0, 0, 0, 0.4);
+			backdrop-filter: blur(3px);
+		}
+	}
+	.bento {
+		max-width: 800px;
+		aspect-ratio: 2 / 1.2;
+		display: grid;
+		gap: 1em;
+		grid-template-areas:
+			"education education me"
+			"map certifications certifications";
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, minmax(200px, auto));
+		position: relative;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		.item-bento {
+			will-change: transform;
+			overflow: hidden;
+			transition: transform 0.3s, opacity 0.3s;
+		}
+		.text-bento {
+			header h3,
+			ul {
+				transition: opacity 0.5s ease-in-out;
+			}
+			img {
+				transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+			}
+			.text-container {
+				position: absolute;
+				top: 0;
+				opacity: 0;
+			}
+			img {
+				filter: grayscale(50) blur(1px);
+			}
+			ul {
+				list-style-type: square;
+				list-style-position: inside;
+				li {
+					text-indent: 15px;
+					margin-bottom: 0.5em;
+				}
+			}
+			ul,
+			header h3 {
+				padding: 1em;
+			}
+			&:hover .text-container {
+				opacity: 1;
+			}
+			&:hover img {
+				opacity: 0.08;
+				transform: scale3d(2, 2, 1);
+			}
+			&:hover ul,
+			&:hover header h3 {
+				opacity: 1;
+			}
+		}
+		.photo-bento {
+			grid-area: me;
+			border: var(--border-orange);
+			border-radius: var(--border-radius);
+			position: relative;
+			transition: all 0.2s ease-in-out;
+			&:hover {
+				cursor: pointer;
+				border-color: var(--orange-light);
+				box-shadow: var(--shadow-fluor);
+				transform: scale(1.01);
+			}
+			&:hover .items-photo-me {
+				animation: falling 1.5s linear var(--delay) infinite;
+			}
+			img {
+				aspect-ratio: 1/1;
+				width: 100%;
+			}
+			.items-photo-me {
+				position: absolute;
+				opacity: 0.8;
+				top: -15%;
+				width: clamp(15px, 3vw, 20px);
+				font-size: clamp(15px, 3vw, 20px);
+				left: var(--position);
+			}
+		}
+		.map {
+			grid-area: map;
+			position: relative;
+			p {
+				position: absolute;
+				bottom: 5%;
+				right: 5%;
+				opacity: 0;
+			}
+			svg {
+				position: absolute;
+				fill: var(--red);
+				width: 3em;
+				top: 50%;
+				left: 20%;
+				opacity: 0;
+				transition: opacity 0.3s ease-in-out;
+			}
+			&:hover svg {
+				animation: jump 0.5s ease-in-out infinite alternate;
+				opacity: 1;
+			}
+			&:hover p {
+				opacity: 1;
+			}
+		}
+		.education {
+			grid-area: education;
+		}
+		.certifications {
+			grid-area: certifications;
+		}
+	}
+}

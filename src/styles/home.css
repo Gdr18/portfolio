@@ -1,0 +1,97 @@
+/* TODO: Arrancar las animaciones cuando la sección esté en el viewport con JavaScript */
+#hero {
+	min-height: 100dvh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	header {
+		position: absolute;
+		bottom: 10%;
+		z-index: 3;
+		perspective: 600px;
+		transform-style: preserve-3d;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5em;
+		animation: reveal 0.8s ease-in-out both,
+			scale-to-small 0.8s ease-in-out 0.8s both;
+		h1,
+		h2 {
+			-webkit-text-stroke: 1.5px var(--black);
+		}
+		h1 {
+			font-size: 3rem;
+		}
+		h2 {
+			font-size: 2rem;
+			color: var(--grey-light);
+			font-style: oblique;
+			margin-bottom: 0.8rem;
+		}
+	}
+	.welcome-container {
+		border-radius: var(--border-radius);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transform-style: preserve-3d;
+		perspective: 600px;
+		transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		position: relative;
+		&:hover {
+			cursor: pointer;
+		}
+		&:active {
+			transform: rotate3d(0, 1, 0, 8deg) rotate3d(1, 0, 0, -8deg);
+			box-shadow: 7px 7px 15px rgba(46, 46, 46);
+			cursor: pointer;
+		}
+		&:active .shine-container::after {
+			animation: shine 0.3s linear both;
+			opacity: 1;
+		}
+		&:hover img {
+			border-color: var(--orange-light);
+			box-shadow: var(--shadow-fluor);
+		}
+		.shine-container {
+			z-index: 2;
+			position: absolute;
+			inset: 0;
+			overflow: hidden;
+			&::after {
+				content: "";
+				position: absolute;
+				right: 0;
+				width: 15%;
+				height: 100%;
+				background: linear-gradient(
+					120deg,
+					rgba(255, 255, 255, 0.35) 0%,
+					rgba(255, 255, 255, 0.05) 25%,
+					rgba(255, 255, 255, 0) 60%
+				);
+				filter: blur(10px);
+				transform: skewX(-20deg);
+				opacity: 0;
+				transition: animation 0.3s;
+			}
+		}
+		img {
+			position: relative;
+			z-index: 1;
+			opacity: 0;
+			height: 95dvh;
+			width: auto;
+			aspect-ratio: 1 / 1;
+			object-fit: cover;
+			border: var(--border-orange);
+			border-radius: var(--border-radius);
+			animation: scale-to-big 1s ease 1s forwards;
+			transition: animation 1s ease-in-out, border-color 0.3s ease-in-out,
+				box-shadow 0.3s ease-in-out;
+		}
+	}
+}
