@@ -30,13 +30,7 @@
 		<!-- <meta property="og:url" content="https://tusitio.com"> -->
 		<meta property="og:type" content="website" />
 
-		<link
-			rel="icon"
-			type="image/png"
-			href="assets/images/mi_logo_sin_fondo.png"
-		/>
-
-		<link rel="stylesheet" href="styles.css" />
+		<link rel="icon" type="image/png" href="/images/mi_logo_sin_fondo.png" />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,12 +44,11 @@
 		/>
 
 		<title>Portfolio de Gádor | Desarrolladora Web Full Stack</title>
-		<script src="./main.js" defer></script>
 	</head>
 	<body>
 		<!-- MARK: Navegación -->
 		<nav>
-			<a href="http://127.0.0.1:3000/src/index.html" title="Inicio">
+			<a href="#hero" title="Inicio">
 				<svg
 					class="logo"
 					xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +164,7 @@
 		</nav>
 		<!-- MARK: Inicio -->
 		<main>
-			<section class="hero">
+			<section id="hero">
 				<header>
 					<h1>Gádor García Martínez</h1>
 					<h2>Desarrolladora Web Full Stack</h2>
@@ -180,7 +173,7 @@
 				<div class="welcome-container">
 					<div class="shine-container"></div>
 					<img
-						src="assets/images/ilustracion_original_yo.jpg"
+						src="/images/ilustracion_original_yo.jpg"
 						alt="Ilustración de Gádor"
 					/>
 				</div>
@@ -227,7 +220,7 @@
 				</dialog>
 				<div class="bento">
 					<section class="animated-card card item-bento text-bento education">
-						<img src="assets/images/study.jpg" alt="Imagen educación" />
+						<img src="/images/study.jpg" alt="Imagen educación" />
 						<div class="text-container">
 							<header>
 								<h3>Educación</h3>
@@ -246,10 +239,7 @@
 					<section
 						class="animated-card card item-bento text-bento certifications"
 					>
-						<img
-							src="assets/images/certification.jpg"
-							alt="Imagen certificado"
-						/>
+						<img src="/images/certification.jpg" alt="Imagen certificado" />
 						<div class="text-container">
 							<header>
 								<h3>Certificaciones</h3>
@@ -386,13 +376,13 @@
 						</svg>
 						<img
 							class="photo-me"
-							src="assets/images/foto_cv_marzo_2025_blanco_negro.jpg"
+							src="images/foto_cv_marzo_2025_blanco_negro.jpg"
 							alt="Gádor García Martínez"
 						/>
 					</div>
 					<div class="card animated-card item-bento map">
 						<img
-							src="assets/images/Alacant _ Alicante_cut.png"
+							src="images/Alacant _ Alicante_cut.png"
 							alt="Mapa de Alicante"
 						/>
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
@@ -693,7 +683,7 @@
 						</div>
 						<img
 							class="project-image"
-							src="assets/images/mockup_ping_server.png"
+							src="images/mockup_ping_server.png"
 							alt="Captura Postman de Ping Server"
 						/>
 						<p>
@@ -766,7 +756,7 @@
 						</div>
 						<img
 							class="project-image"
-							src="assets/images/mockup_la_favorita_bar.png"
+							src="images/mockup_la_favorita_bar.png"
 							alt="Gif del funcionamiento en Postman"
 						/>
 						<p>
@@ -818,7 +808,7 @@
 						</div>
 						<img
 							class="project-image"
-							src="assets/images/mockup_calculadora_tkinter.png"
+							src="/images/mockup_calculadora_tkinter.png"
 							alt="Gif de Calculadora Tkinter"
 						/>
 						<p>
@@ -899,7 +889,7 @@
 						</div>
 						<img
 							class="project-image"
-							src="assets/images/mockup_incompleto_planet_gamer_16.9.png"
+							src="images/mockup_incompleto_planet_gamer_16.9.png"
 							alt="Captura de Planet Gamer Frontend"
 						/>
 						<p>
@@ -1006,7 +996,7 @@
 						</div>
 						<img
 							class="project-image"
-							src="assets/images/mockup_incomplete_url_shortener.png"
+							src="images/mockup_incomplete_url_shortener.png"
 							alt="Gif de Redis Link Shortener Frontend"
 						/>
 						<p>
@@ -1153,7 +1143,7 @@
 							<a
 								title="Descargar CV"
 								download
-								href="assets/CV Programadora Julio 2025.pdf"
+								href="/CV Programadora Julio 2025.pdf"
 							>
 								<svg
 									class="link-icon"
@@ -1170,8 +1160,7 @@
 							<p><strong>Email</strong></p>
 							<svg
 								title="Copiar"
-								class="link-icon"
-								onclick="copyEmail()"
+								class="link-icon copy-icon"
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 -960 960 960"
 							>
@@ -1227,46 +1216,6 @@
 			</footer>
 		</main>
 		<!-- MARK: JavaScript -->
-		<script>
-			function copyEmail() {
-				<!-- const email = import.meta.env.VITE_EMAIL; -->
-				const span = document.querySelector(".email-container span");
-				navigator.clipboard.writeText(email).then(() => {
-					span.style.display = "inline";
-					setTimeout(() => {
-						span.style.display = "none";
-					}, 1500);
-				});
-			}
-
-			const photoMine = document.getElementsByClassName("photo-bento");
-			const historyModal = document.getElementById("history-modal");
-			photoMine[0].addEventListener("click", () => {
-				historyModal.showModal();
-			});
-
-			const toggle = document.getElementById("toggle-skills");
-
-			function toggleIcons() {
-				const icons = document.querySelectorAll(".logo-tech svg");
-				const badges = document.querySelectorAll(".logo-tech img");
-				if (toggle.checked) {
-					icons.forEach((icon) => {
-						icon.style.display = "none";
-					});
-					badges.forEach((badge) => {
-						badge.style.display = "block";
-					});
-				} else {
-					icons.forEach((icon) => {
-						icon.style.display = "block";
-					});
-					badges.forEach((badge) => {
-						badge.style.display = "none";
-					});
-				}
-			}
-			toggle.addEventListener("change", toggleIcons);
-		</script>
+		<script type="module" src="./src/main.js"></script>
 	</body>
 </html>
