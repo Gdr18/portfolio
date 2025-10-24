@@ -1,5 +1,5 @@
 /* TODO: Arrancar las animaciones cuando la sección esté en el viewport con JavaScript */
-#hero {
+#home {
 	min-height: 100dvh;
 	width: 100%;
 	display: flex;

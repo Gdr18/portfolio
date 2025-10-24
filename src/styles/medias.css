@@ -46,7 +46,7 @@
         grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
         gap: 2.5em;
     }
-    .hero .welcome-container img {
+    .home .welcome-container img {
         height: 80dvh;
     }
 } */
@@ -79,11 +79,11 @@
 			flex-direction: row;
 		}
 	}
-	.hero #projects {
+	.home #projects {
 		margin-bottom: 20px;
 	}
 
-	.hero {
+	.home {
 		padding: 1rem;
 		header {
 			bottom: 25%;
@@ -99,7 +99,7 @@
 		}
 	}
 
-	#about {
+	#about-me {
 		font-size: 1.1rem;
 		.bento {
 			max-width: 100%;
@@ -111,7 +111,7 @@
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-rows: repeat(3, 300px);
 		}
-		#history-modal {
+		#story-modal {
 			width: 70%;
 			padding: 1rem;
 		}
@@ -142,11 +142,11 @@
 	}
 
 	#projects,
-	.hero {
+	.home {
 		margin-bottom: 0;
 	}
 
-	.hero {
+	.home {
 		flex-direction: column;
 		gap: 1rem;
 		header {
@@ -173,9 +173,9 @@
 		}
 	}
 
-	#about {
+	#about-me {
 		font-size: 0.75rem;
-		#history-modal {
+		#story-modal {
 			width: 90%;
 		}
 		.bento {

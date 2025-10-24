@@ -1,5 +1,9 @@
 import { loadIcon } from "./render-icon-template.js";
 
+/**
+ * Renderiza los logos SVG en los elementos designados.
+ * 
+ */
 export const renderLogos = () => {
 	const elementsList = ["#inc-logo", "#inc-logo-little"];
 	const pathLogo = "/icons/logo.svg";
