@@ -1,8 +1,8 @@
-import { loadIcon } from "./render-icon-template.js";
+import { loadIcon } from "./load-icons.js";
 
 /**
  * Renderiza los logos SVG en los elementos designados.
- * 
+ *
  */
 export const renderLogos = () => {
 	const elementsList = ["#inc-logo", "#inc-logo-little"];
@@ -13,8 +13,8 @@ export const renderLogos = () => {
 			await loadIcon(element, pathLogo);
 			const svg = element.querySelector("svg");
 			element.id === "inc-logo-little"
-				? svg.classList.add("items-photo-me")
-				: null;
+				? svg.classList.add("items-photo-me", "logo")
+				: svg.classList.add("logo");
 		});
 	});
 };

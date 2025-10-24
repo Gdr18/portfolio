@@ -47,7 +47,7 @@
 				.logo-tech {
 					width: var(--width-item-carousel);
 					height: var(--width-item-carousel);
-					fill: var(--grey-light);
+					color: var(--grey-light);
 					list-style: none;
 					display: flex;
 					flex-direction: column;

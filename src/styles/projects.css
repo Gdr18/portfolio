@@ -19,7 +19,7 @@
 				display: flex;
 				gap: 1rem;
 				.logo-project {
-					fill: black;
+					color: black;
 					width: 25px;
 				}
 			}

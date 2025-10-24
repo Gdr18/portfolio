@@ -35,7 +35,7 @@
 }
 
 a {
-	fill: var(--orange-dark);
+	color: var(--orange-dark);
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -85,11 +85,11 @@ h3 {
 		box-shadow: var(--shadow-button-hover);
 	}
 	&:active svg {
-		fill: var(--orange-dark);
+		color: var(--orange-dark);
 	}
 	svg {
 		width: 15px;
-		fill: var(--black);
+		color: var(--black);
 	}
 	&:active {
 		background-color: var(--black);
@@ -100,15 +100,15 @@ h3 {
 
 .logo {
 	filter: drop-shadow(2px 2px 4px var(--grey-dark));
-	/* fill: url(#grad1); */
+	/* color: url(#grad1); */
 }
 
 .link-icon {
-	fill: var(--orange-dark);
+	color: var(--orange-dark);
 	cursor: pointer;
-	transition: fill 0.2s ease-in-out, transform 0.2s ease-in-out;
+	transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 	&:hover {
-		fill: var(--orange-light);
+		color: var(--orange-light);
 		transform: scale(1.1);
 		/* filter: drop-shadow(0 0px 2px var(--grey-light)); */
 	}

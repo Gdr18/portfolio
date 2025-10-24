@@ -137,7 +137,7 @@
 			}
 			svg {
 				position: absolute;
-				fill: var(--red);
+				color: var(--red);
 				width: 3em;
 				top: 50%;
 				left: 20%;
