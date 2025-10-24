@@ -100,7 +100,7 @@ h3 {
 
 .logo {
 	filter: drop-shadow(2px 2px 4px var(--grey-dark));
-	fill: url(#grad1);
+	/* fill: url(#grad1); */
 }
 
 .link-icon {
@@ -133,7 +133,6 @@ h3 {
 	animation-range: entry 10% cover 50vh;
 }
 
-.hero,
-#projects {
-	margin-bottom: 50px;
+.heading-transition {
+	margin-top: 50px;
 }
