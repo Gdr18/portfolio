@@ -58,9 +58,6 @@
 		--falling-item: 35dvh;
 		--scale-heading: 1.4;
 		--width-item-carousel: 60px;
-	}
-
-	body {
 		padding-left: 0;
 		padding-bottom: 70px;
 	}
@@ -119,6 +116,7 @@
 
 	#contact {
 		min-height: calc(100dvh - 70px);
+		margin-bottom: 50px;
 		.contact-form {
 			display: grid;
 			grid-template-columns: 1fr;

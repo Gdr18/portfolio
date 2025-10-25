@@ -100,7 +100,6 @@ h3 {
 
 .logo {
 	filter: drop-shadow(2px 2px 4px var(--grey-dark));
-	/* color: url(#grad1); */
 }
 
 .link-icon {
