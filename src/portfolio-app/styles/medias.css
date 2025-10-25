@@ -72,7 +72,7 @@
 		border-right: none;
 		border-top: 2px solid var(--black);
 		box-shadow: 0 -2px 20px var(--black);
-		.nav-section {
+		.links-links-nav-section {
 			flex-direction: row;
 		}
 	}

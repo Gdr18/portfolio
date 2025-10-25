@@ -2,16 +2,17 @@ import { renderModal } from "./render-modal";
 import htmlAboutMe from "../partials/about-me.html?raw";
 
 import { renderElement } from "./render-element";
-import { addIconAndAttributes } from "./load-icons";
+import { loadIcon } from "./load-icons";
 
-export const renderAboutMe = () => {
-    renderElement("#about-me", htmlAboutMe);
+export const renderAboutMe = (aboutMeParentSelector) => {
+    renderElement(aboutMeParentSelector, htmlAboutMe);
+
 	renderModal();
 
-    const logoPath = "/icons/logo.svg";
-    const logoContainers = document.querySelectorAll("#inc-logo-little");
-    const logoClasses = ["items-photo-me", "logo"];
-    logoContainers.forEach((logoDiv) => {
-        addIconAndAttributes(logoDiv, logoPath, logoClasses);
+    const parentsLogoElements = document.querySelectorAll("#inc-logo-little");
+    parentsLogoElements.forEach((parentLogoElement) => {
+        const logoClasses = ["items-photo-me", "logo"];
+        const logoIconName = "logo";
+        loadIcon(parentLogoElement, logoIconName, logoClasses);
     })
 };

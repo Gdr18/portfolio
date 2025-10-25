@@ -1,60 +1,58 @@
-import { addIconAndAttributes } from "./load-icons.js";
+import { loadIcon, createElement } from "./load-icons.js";
 import { renderElement } from "./render-element.js";
 
-const Links = {
+const LinksInfo = {
 	ABOUT_ME: {
 		anchor: "#about-me",
-		icon: "logo_dev",
+		iconName: "logo_dev",
 		title: "Sobre mí",
 	},
 	SKILLS: {
 		anchor: "#skills",
-		icon: "sdk",
+		iconName: "sdk",
 		title: "Habilidades",
 	},
 	PROJECTS: {
 		anchor: "#projects",
-		icon: "folder_code",
+		iconName: "folder_code",
 		title: "Proyectos",
 	},
 	CONTACT: {
 		anchor: "#contact",
-		icon: "3p",
+		iconName: "3p",
 		title: "Contacto",
 	},
 };
 
-const ClassLinks = {
-	LINK_NAV_CLASS: ["link-icon"],
-	LOGO_CLASS: ["logo"],
+const SVGClasses = {
+	NAV: ["link-icon"],
+	LOGO: ["logo"],
 };
 
-// TODO: Posible reutilización y mejora
-const createLinksNav = async (container) => {
-	for (const key of Object.keys(Links)) {
-		const link = document.createElement("a");
-		link.href = Links[key].anchor;
-		link.title = Links[key].title;
-		container.append(link);
+const LINKS_PARENT_ELEMENT = document.querySelector(".links-nav-section");
 
-		const elementLink = container.querySelector("a:last-child");
-		const pathIcons = `/icons/${Links[key].icon}.svg`;
-		addIconAndAttributes(elementLink, pathIcons, ClassLinks.LINK_NAV_CLASS);
+const createLinksNav = async (linksParentElement) => {
+	for (const obj of Object.values(LinksInfo)) {
+		createElement(linksParentElement, "a", { href: obj.anchor, title: obj.title });
+		//const svgParentElement = document.querySelector("a:last-child");
+		//loadIcon(svgParentElement, obj.iconName, SVGClasses.NAV);
 	}
 };
 
-export const renderNav = async (section) => {
-	const html = `
+/**
+ * Renderiza la barra de navegación en el elemento padre dado.
+ * @param {String} navParentSelector Ejemplo: "nav"
+ */
+export const renderNav = async (navParentSelector) => {
+	const htmlNav = `
                 <a id="inc-logo" href="#home" title="Inicio"></a>
-                <div class="nav-section"></div>`;
+                <div class="links-nav-section"></div>`;
 
-	renderElement(section, html);
+	renderElement(navParentSelector, htmlNav);
 
-	const elementLink = document.querySelector("#inc-logo");
-	const pathLogo = "/icons/logo.svg";
-	addIconAndAttributes(elementLink, pathLogo, ClassLinks.LOGO_CLASS);
+	const logoIconName = "logo";
+	const parentLogoElement = document.querySelector("#inc-logo");
+	loadIcon(parentLogoElement, logoIconName, SVGClasses.LOGO);
 
-	const divElement = document.querySelector(".nav-section");
-
-	createLinksNav(divElement);
+	createLinksNav(LINKS_PARENT_ELEMENT);
 };

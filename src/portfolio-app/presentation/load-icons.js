@@ -1,18 +1,29 @@
 /**
  *  Carga un ícono SVG desde una ruta y lo inserta en el elemento dado.
- * @param {HTMLElement} element Ejemplo: <div></div>
- * @param {String} path Ejemplo: "/icons/icon.svg"
+ * @param {HTMLElement} parentElement Ejemplo: document.querySelector("#mi-elemento")
+ * @param {String} iconName Ejemplo: "logo_dev"
  */
-const loadIcon = async (element, path) => {
-	const res = await fetch(path);
-	const svg = await res.text();
-	element.innerHTML = svg;
+export const loadIcon = async (parentElement, iconName, svgClassList = []) => {
+	const pathIcon = `/icons/${iconName}.svg`;
+
+	const loaderIcon = await fetch(pathIcon);
+	const svg = await loaderIcon.text();
+	parentElement.innerHTML = svg;
+
+	if (!svgClassList.length) return;
+	const svgElement = parentElement.querySelector("svg");
+	svgElement.classList.add(...svgClassList);
 };
 
-const addIconAndAttributes = async (element, path, classList) => {
-	await loadIcon(element, path);
-	const svg = element.querySelector("svg");
-	svg.classList.add(...classList);
+export const createElement = (parentElement, tagElement, atributes = {}) => {
+	const element = document.createElement(tagElement);
+	if (atributes) {
+		Object.entries(atributes).forEach(([key, value]) => {
+			element.setAttribute(key, value);
+		});
+	}
+	// console.log(parentElement);
+	console.log(element);
+	// parentElement.append(element);
 };
 
-export { loadIcon, addIconAndAttributes };
