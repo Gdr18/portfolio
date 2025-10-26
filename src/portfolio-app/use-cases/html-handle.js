@@ -28,7 +28,7 @@ const createElementAndAppend = (tagElement, parentElement, atributes = {}) => {
 			element.setAttribute(key, value);
 		});
 	}
-	parentElement.append(element);
+	parentElement.appendChild(element);
 };
 
 export default {

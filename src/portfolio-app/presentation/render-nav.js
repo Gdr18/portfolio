@@ -38,13 +38,17 @@ export const renderNav = (navParentSelector) => {
 
 	const logoIconName = "logo";
 	const parentLogoElement = document.querySelector("#inc-logo");
-	const linksParentElement = document.querySelector(".links-nav-section");
 
 	htmlHandle.loadIcon(parentLogoElement, logoIconName, SVGClasses.LOGO);
 
+	const parentFragment = document.createDocumentFragment();
 	for (const obj of Object.values(LinksInfo)) {
-		htmlHandle.createElementAndAppend("a", linksParentElement, obj.atributes);
-		const linkElement = document.querySelector("a:last-child");
+		htmlHandle.createElementAndAppend("a", parentFragment, obj.atributes);
+		const linkElement = parentFragment.querySelector("a:last-child");
 		htmlHandle.loadIcon(linkElement, obj.iconName, SVGClasses.NAV);
 	}
+
+	const linksParentElement = document.querySelector(".links-nav-section");
+	linksParentElement.append(parentFragment);
+
 };
