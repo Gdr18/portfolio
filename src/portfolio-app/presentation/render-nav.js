@@ -43,7 +43,7 @@ export const renderNav = (navParentSelector) => {
 
 	const parentFragment = document.createDocumentFragment();
 	for (const obj of Object.values(LinksInfo)) {
-		htmlHandle.createElementAndAppend("a", parentFragment, obj.atributes);
+		htmlHandle.createElementAndAppend("a", obj.atributes, parentFragment);
 		const linkElement = parentFragment.querySelector("a:last-child");
 		htmlHandle.loadIcon(linkElement, obj.iconName, SVGClasses.NAV);
 	}

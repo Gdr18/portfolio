@@ -1,12 +1,11 @@
 import { renderNav } from "./presentation/render-nav.js";
 import { renderAboutMe } from "./presentation/render-about-me.js";
 import { renderSkills } from "./presentation/render-skills.js";
+import { renderProjects } from "./presentation/render-projects.js";
 import { renderElement } from "./presentation/render-element.js";
 import { copyEmail } from "./use-cases/copy-email.js";
 
 import htmlHome from "./partials/home.html?raw";
-// import htmlSkills from "./partials/skills.html?raw";
-import htmlProjects from "./partials/projects.html?raw";
 import htmlContact from "./partials/contact.html?raw";
 import htmlFooter from "./partials/footer.html?raw";
 
@@ -25,7 +24,7 @@ export const renderApp = () => {
 	renderElement(ToSelectElement.HOME, htmlHome);
 	renderAboutMe(ToSelectElement.ABOUT_ME);
 	renderSkills(ToSelectElement.SKILLS);
-	renderElement(ToSelectElement.PROJECTS, htmlProjects);
+	renderProjects(ToSelectElement.PROJECTS);
 	renderElement(ToSelectElement.CONTACT, htmlContact);
 	renderElement(ToSelectElement.FOOTER, htmlFooter);
 

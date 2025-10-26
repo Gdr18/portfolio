@@ -52,7 +52,7 @@
         "links": {
             "GitHub": "https://github.com/Gdr18/planet-gamer",
             "Postman": "https://www.postman.com/maintenance-participant-28116252/workspace/gdor-comparte/collection/26739293-12e6659d-c495-4dfa-86d0-eda808b8d03c?action=share&creator=26739293",
-            "Host": "https://planet-gamer-frontend.onrender.com"
+            "Link": "https://planet-gamer-frontend.onrender.com"
         }
     },
     {
@@ -69,7 +69,7 @@
         "links": {
             "GitHub": "https://github.com/Gdr18/redis-link-shortener",
             "Postman": "https://www.postman.com/maintenance-participant-28116252/workspace/gdor-comparte/collection/26739293-12e6659d-c495-4dfa-86d0-eda808b8d03c?action=share&creator=26739293",
-            "Host": "https://redis-link-shortener-frontend.onrender.com"
+            "Link": "https://redis-link-shortener-frontend.onrender.com"
         }
     }
 ]
