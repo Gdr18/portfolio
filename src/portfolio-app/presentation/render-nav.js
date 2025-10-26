@@ -1,26 +1,22 @@
-import { loadIcon, createElement } from "./load-icons.js";
+import htmlHandle from "../use-cases/html-handle.js";
 import { renderElement } from "./render-element.js";
 
 const LinksInfo = {
 	ABOUT_ME: {
-		anchor: "#about-me",
+		atributes: { href: "#about-me", title: "Sobre mí" },
 		iconName: "logo_dev",
-		title: "Sobre mí",
 	},
 	SKILLS: {
-		anchor: "#skills",
+		atributes: { href: "#skills", title: "Habilidades" },
 		iconName: "sdk",
-		title: "Habilidades",
 	},
 	PROJECTS: {
-		anchor: "#projects",
+		atributes: { href: "#projects", title: "Proyectos" },
 		iconName: "folder_code",
-		title: "Proyectos",
 	},
 	CONTACT: {
-		anchor: "#contact",
+		atributes: { href: "#contact", title: "Contacto" },
 		iconName: "3p",
-		title: "Contacto",
 	},
 };
 
@@ -29,21 +25,11 @@ const SVGClasses = {
 	LOGO: ["logo"],
 };
 
-const LINKS_PARENT_ELEMENT = document.querySelector(".links-nav-section");
-
-const createLinksNav = async (linksParentElement) => {
-	for (const obj of Object.values(LinksInfo)) {
-		createElement(linksParentElement, "a", { href: obj.anchor, title: obj.title });
-		//const svgParentElement = document.querySelector("a:last-child");
-		//loadIcon(svgParentElement, obj.iconName, SVGClasses.NAV);
-	}
-};
-
 /**
  * Renderiza la barra de navegación en el elemento padre dado.
  * @param {String} navParentSelector Ejemplo: "nav"
  */
-export const renderNav = async (navParentSelector) => {
+export const renderNav = (navParentSelector) => {
 	const htmlNav = `
                 <a id="inc-logo" href="#home" title="Inicio"></a>
                 <div class="links-nav-section"></div>`;
@@ -52,7 +38,13 @@ export const renderNav = async (navParentSelector) => {
 
 	const logoIconName = "logo";
 	const parentLogoElement = document.querySelector("#inc-logo");
-	loadIcon(parentLogoElement, logoIconName, SVGClasses.LOGO);
+	const linksParentElement = document.querySelector(".links-nav-section");
 
-	createLinksNav(LINKS_PARENT_ELEMENT);
+	htmlHandle.loadIcon(parentLogoElement, logoIconName, SVGClasses.LOGO);
+
+	for (const obj of Object.values(LinksInfo)) {
+		htmlHandle.createElementAndAppend("a", linksParentElement, obj.atributes);
+		const linkElement = document.querySelector("a:last-child");
+		htmlHandle.loadIcon(linkElement, obj.iconName, SVGClasses.NAV);
+	}
 };

@@ -17,7 +17,7 @@ nav {
 	.logo {
 		width: clamp(30px, 4vw, 45px);
 	}
-	.links-links-nav-section {
+	.links-nav-section {
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
