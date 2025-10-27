@@ -1,6 +1,7 @@
 import "./styles/main.css";
 
 import { renderNav } from "./components/nav/render-nav.js";
+import { renderFooter } from "./components/footer/render-footer.js";
 
 const renderHeader = (section) => {
 	const headerElement = document.createElement("header");
@@ -42,6 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	app.append(
         renderNav(), 
         // renderMain(), 
-        // renderFooter()
+        renderFooter()
     );
 });
