@@ -1,54 +1,65 @@
-import htmlHandle from "../../use-cases/html-handle.js";
-import { renderElement } from "../render-element.js";
+import svgAboutMe from '../../assets/icons/logo_dev.svg?raw';
+import svgSkills from "../../assets/icons/sdk.svg?raw";
+import svgProjects from "../../assets/icons/folder_code.svg?raw";
+import svgContact from "../../assets/icons/3p.svg?raw";
+import svgLogo from "../../assets/icons/logo.svg?raw";
 
 const LinksInfo = {
 	ABOUT_ME: {
-		atributes: { href: "#about-me", title: "Sobre mí" },
-		iconName: "logo_dev",
+		linkId: "#about-me", 
+		linkTitle: "Sobre mí",
+		linkSvg: svgAboutMe,
 	},
 	SKILLS: {
-		atributes: { href: "#skills", title: "Habilidades" },
-		iconName: "sdk",
+		linkId: "#skills", 
+		linkTitle: "Habilidades",
+		linkSvg: svgSkills,
 	},
 	PROJECTS: {
-		atributes: { href: "#projects", title: "Proyectos" },
-		iconName: "folder_code",
+		linkId: "#projects", 
+		linkTitle: "Proyectos",
+		linkSvg: svgProjects,
 	},
 	CONTACT: {
-		atributes: { href: "#contact", title: "Contacto" },
-		iconName: "3p",
+		linkId: "#contact", 
+		linkTitle: "Contacto",
+		linkSvg: svgContact,
 	},
-};
-
-const SVGClasses = {
-	NAV: ["link-icon"],
-	LOGO: ["logo"],
 };
 
 /**
- * Renderiza la barra de navegación en el elemento padre dado.
- * @param {String} navParentSelector Ejemplo: "nav"
+ * Genera los enlaces de navegación.
+ * @returns <String>
  */
-export const renderNav = (navParentSelector) => {
+const generateLinks = () => {
+	const linksList = Object.values(LinksInfo).map(link => {
+		const {linkId, linkTitle, linkSvg} = link;
+
+		const linkTemplate = `
+		<a href="${linkId}" title="${linkTitle}">
+			${linkSvg}
+		</a>
+		`
+		return linkTemplate;
+	});
+	return linksList.join("");
+}
+
+/**
+ * Renderiza la barra de navegación.
+ */
+export const renderNav = () => {
+	const navElement = document.createElement("nav");
+    
 	const htmlNav = `
-                <a id="inc-logo" href="#home" title="Inicio"></a>
-                <div class="links-nav-section"></div>`;
+                <a id="inc-logo" href="#home" title="Inicio">
+					${svgLogo}
+				</a>
+                <div class="links-nav-section">
+					${generateLinks()}
+				</div>`;
 
-	renderElement(navParentSelector, htmlNav);
-
-	const logoIconName = "logo";
-	const parentLogoElement = document.querySelector("#inc-logo");
-
-	htmlHandle.loadIcon(parentLogoElement, logoIconName, SVGClasses.LOGO);
-
-	const parentFragment = document.createDocumentFragment();
-	for (const obj of Object.values(LinksInfo)) {
-		htmlHandle.createElementAndAppend("a", obj.atributes, parentFragment);
-		const linkElement = parentFragment.querySelector("a:last-child");
-		htmlHandle.loadIcon(linkElement, obj.iconName, SVGClasses.NAV);
-	}
-
-	const linksParentElement = document.querySelector(".links-nav-section");
-	linksParentElement.append(parentFragment);
-
+	navElement.innerHTML = htmlNav;
+	navElement.querySelectorAll(".links-nav-section svg").forEach(link => link.classList.add("link-icon"))
+	return navElement;
 };

@@ -1,10 +1,10 @@
 @import "./animations.css";
 @import "./base.css";
-@import "./about-me.css";
-@import "./contact.css";
-@import "./footer.css";
-@import "./nav.css";
-@import "./projects.css";
-@import "./skills.css";
 @import "./medias.css";
-@import "./home.css";
+@import "../components/nav/nav.css";
+@import "../components/home/home.css";
+@import "../components/about-me/about-me.css";
+@import "../components/skills/skills.css";
+@import "../components/projects/projects.css";
+@import "../components/contact/contact.css";
+@import "../components/footer/footer.css";
