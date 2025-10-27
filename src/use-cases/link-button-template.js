@@ -1,4 +1,4 @@
-export const linkButtonTemplate = (svg, url, text) => {
+export const buttonTemplate = (svg, url, text) => {
     const linkTemplate = `<a
 	class="button"
 	href=${url}

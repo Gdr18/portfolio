@@ -1,6 +1,6 @@
 import svgGitHub from "../../assets/icons/github.svg?raw";
 
-import { linkButtonTemplate } from "../../use-cases/generate-button.js";
+import { buttonTemplate } from "../../use-cases/link-button-template.js";
 
 const ButtonInfo = {
     URL: "https://github.com/Gdr18/portfolio",
@@ -11,7 +11,7 @@ const ButtonInfo = {
 export const renderFooter = () => {
     const footerTemplate = `
     <p>Gádor García Martínez - 2025</p>
-    ${linkButtonTemplate(ButtonInfo.SVG, ButtonInfo.URL, ButtonInfo.TEXT)}
+    ${buttonTemplate(ButtonInfo.SVG, ButtonInfo.URL, ButtonInfo.TEXT)}
     `;
 
     const footerElement = document.createElement("footer");

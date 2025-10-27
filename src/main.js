@@ -1,15 +1,9 @@
 import "./styles/main.css";
 
+import { renderHeader } from "./use-cases/render-header.js";
 import { renderNav } from "./components/nav/render-nav.js";
+import { renderHome } from "./components/home/render-home.js";
 import { renderFooter } from "./components/footer/render-footer.js";
-
-const renderHeader = (section) => {
-	const headerElement = document.createElement("header");
-	headerElement.classList.add("heading-transition");
-	const h2Template = `<h2>${section}</h2>`;
-	headerElement.innerHTML = h2Template;
-	return headerElement;
-};
 
 const HeaderSection = {
 	ABOUT_ME: renderHeader("Sobre mí"),
@@ -18,12 +12,12 @@ const HeaderSection = {
 	CONTACT: renderHeader("Contacto"),
 };
 
-const renderMain = async () => {
+const renderMain = () => {
 	const mainElement = document.createElement("main");
 
 	mainElement
-		.append
-		// await renderHome(),
+		.append(
+		renderHome(),
 		// HeaderSection.ABOUT_ME,
 		// await renderAboutMe(),
 		// HeaderSection.SKILLS,
@@ -32,7 +26,7 @@ const renderMain = async () => {
 		// await renderProjects(),
 		// HeaderSection.CONTACT,
 		// await renderContact()
-		();
+		);
 
 	return mainElement;
 };
@@ -42,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	app.append(
         renderNav(), 
-        // renderMain(), 
+        renderMain(), 
         renderFooter()
     );
 });
