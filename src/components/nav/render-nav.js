@@ -4,6 +4,8 @@ import svgProjects from "../../assets/icons/folder_code.svg?raw";
 import svgContact from "../../assets/icons/3p.svg?raw";
 import svgLogo from "../../assets/icons/logo.svg?raw";
 
+import { generateIconsLinks } from '../../use-cases/link-icon-html-template';
+
 const LinksInfo = {
 	ABOUT_ME: {
 		linkId: "#about-me", 
@@ -28,24 +30,6 @@ const LinksInfo = {
 };
 
 /**
- * Genera los enlaces de navegación.
- * @returns <String>
- */
-const generateLinks = () => {
-	const linksList = Object.values(LinksInfo).map(link => {
-		const {linkId, linkTitle, linkSvg} = link;
-
-		const linkTemplate = `
-		<a href="${linkId}" title="${linkTitle}">
-			${linkSvg}
-		</a>
-		`
-		return linkTemplate;
-	});
-	return linksList.join("");
-}
-
-/**
  * Renderiza la barra de navegación.
  */
 export const renderNav = () => {
@@ -56,7 +40,7 @@ export const renderNav = () => {
 					${svgLogo}
 				</a>
                 <div class="links-nav-section">
-					${generateLinks()}
+					${generateIconsLinks(Object.values(LinksInfo))}
 				</div>`;
 
 	navElement.innerHTML = htmlNav;

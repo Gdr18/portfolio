@@ -5,6 +5,10 @@ import htmlAboutMe from "./about-me.html?raw";
 import htmlModal from "./modal.html?raw";
 
 // TODO: Manejar el modal con JavaScript
+/**
+ * Listener para el modal de la sección "Sobre mí".
+ * @param {HTMLElement} parentElement 
+ */
 export const modalListener = (parentElement) => {
 	const storyModal = parentElement.querySelector("#story-modal");
 	const photoMine = parentElement.querySelector(".photo-me");
@@ -12,6 +16,10 @@ export const modalListener = (parentElement) => {
 	photoMine.addEventListener("click", () => storyModal.showModal());
 };
 
+/**
+ * Renderiza la sección "Sobre mí".
+ * @returns {HTMLElement} sectionElement Ejemplo: <section id="about-me">...</section>
+ */
 export const renderAboutMe = () => {
 	const htmlFormated = htmlAboutMe
 		.replaceAll("{{ svgLogo }}", logo)
