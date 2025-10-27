@@ -1,6 +1,6 @@
-import projects from "../data/projects.json";
-import htmlHandle from "../use-cases/html-handle.js";
-import handleHtml from "../use-cases/html-handle.js";
+import projects from "../../portfolio-app/data/projects.json";
+import htmlHandle from "../../use-cases/html-handle.js";
+import handleHtml from "../../use-cases/html-handle.js";
 
 /**
  * Crea un artículo para un proyecto.

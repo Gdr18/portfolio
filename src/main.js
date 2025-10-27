@@ -1,9 +1,40 @@
-import "./portfolio-app/styles/main.css";
+import "./styles/main.css";
 
-import { renderElement } from "./portfolio-app/presentation/render-element.js";
-import { renderApp } from "./portfolio-app/app.js";
+const renderHeader = (section) => {
+	const headerElement = document.createElement("header")
+	headerElement.classList.add("heading-transition");
+	const h2Template = `<h2>${section}</h2>`;
+	headerElement.innerHTML = h2Template;
+	return headerElement;
+};
 
-import htmlBase from "./portfolio-app/partials/base.html?raw";
+const HeaderSection = {
+	ABOUT_ME: renderHeader("Sobre mí"),
+	SKILLS: renderHeader("Tecnologías"),
+	PROJECTS: renderHeader("Proyectos"),
+	CONTACT: renderHeader("Contacto"),
+};
 
-renderElement("#app", htmlBase);
-renderApp();
+const renderMain = async() => {
+	const mainElement = document.createElement("main");
+
+	mainElement.append(
+		// await renderHome(),
+		// HeaderSection.ABOUT_ME,
+		// await renderAboutMe(),
+		// HeaderSection.SKILLS,
+		// await renderSkills(),
+		// HeaderSection.PROJECTS,
+		// await renderProjects(),
+		// HeaderSection.CONTACT,
+		// await renderContact()
+	);
+
+	return mainElement;
+};
+
+document.addEventListener("DOMContentLoaded", async() => {
+	const app = document.querySelector("#app");
+
+	app.append(renderNav(), await renderMain(), renderFooter())
+});

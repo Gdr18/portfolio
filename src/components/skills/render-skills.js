@@ -1,7 +1,7 @@
-import { renderElement } from "./render-element";
-import htmlHandle from "../use-cases/html-handle";
+import { renderElement } from "../render-element";
+import htmlHandle from "../../use-cases/html-handle";
 import htmlSkills from "../partials/skills.html?raw";
-import skillsInfo from "../data/skills-info.json";
+import skillsInfo from "../../data/skills-info.json";
 
 const createAndLoadLis = () => {
 	for (const category of Object.values(skillsInfo)) {

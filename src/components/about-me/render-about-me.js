@@ -1,8 +1,8 @@
 import { renderModal } from "./render-modal";
 import htmlAboutMe from "../partials/about-me.html?raw";
 
-import { renderElement } from "./render-element";
-import htmlHandle from "../use-cases/html-handle";
+import { renderElement } from "../render-element";
+import htmlHandle from "../../use-cases/html-handle";
 
 export const renderAboutMe = (aboutMeParentSelector) => {
 	renderElement(aboutMeParentSelector, htmlAboutMe);

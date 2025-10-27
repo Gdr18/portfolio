@@ -1,6 +1,6 @@
 import modalHTML from "../partials/modal.html?raw";
 
-import { renderElement } from "./render-element.js";
+import { renderElement } from "../render-element.js";
 
 export const renderModal = () => {
 	renderElement("#modal-container", modalHTML);

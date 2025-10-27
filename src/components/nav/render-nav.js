@@ -1,5 +1,5 @@
-import htmlHandle from "../use-cases/html-handle.js";
-import { renderElement } from "./render-element.js";
+import htmlHandle from "../../use-cases/html-handle.js";
+import { renderElement } from "../render-element.js";
 
 const LinksInfo = {
 	ABOUT_ME: {
