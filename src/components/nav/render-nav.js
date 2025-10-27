@@ -52,7 +52,7 @@ export const renderNav = () => {
 	const navElement = document.createElement("nav");
     
 	const htmlNav = `
-                <a id="inc-logo" href="#home" title="Inicio">
+                <a href="#home" title="Inicio">
 					${svgLogo}
 				</a>
                 <div class="links-nav-section">

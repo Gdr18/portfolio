@@ -3,6 +3,7 @@ import "./styles/main.css";
 import { renderHeader } from "./use-cases/render-header.js";
 import { renderNav } from "./components/nav/render-nav.js";
 import { renderHome } from "./components/home/render-home.js";
+import { renderAboutMe } from "./components/about-me/render-about-me.js";
 import { renderFooter } from "./components/footer/render-footer.js";
 
 const HeaderSection = {
@@ -15,18 +16,17 @@ const HeaderSection = {
 const renderMain = () => {
 	const mainElement = document.createElement("main");
 
-	mainElement
-		.append(
+	mainElement.append(
 		renderHome(),
-		// HeaderSection.ABOUT_ME,
-		// await renderAboutMe(),
+		HeaderSection.ABOUT_ME,
+		renderAboutMe()
 		// HeaderSection.SKILLS,
 		// await renderSkills(),
 		// HeaderSection.PROJECTS,
 		// await renderProjects(),
 		// HeaderSection.CONTACT,
 		// await renderContact()
-		);
+	);
 
 	return mainElement;
 };
@@ -34,9 +34,5 @@ const renderMain = () => {
 document.addEventListener("DOMContentLoaded", () => {
 	const app = document.querySelector("#app");
 
-	app.append(
-        renderNav(), 
-        renderMain(), 
-        renderFooter()
-    );
+	app.append(renderNav(), renderMain(), renderFooter());
 });

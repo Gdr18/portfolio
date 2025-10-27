@@ -1,18 +1,28 @@
-import { renderModal } from "./render-modal";
-import htmlAboutMe from "../partials/about-me.html?raw";
+import logo from "../../assets/icons/logo.svg?raw";
+import mapPin from "../../assets/icons/home_pin.svg?raw";
 
-import { renderElement } from "../render-element";
-import htmlHandle from "../../use-cases/html-handle";
+import htmlAboutMe from "./about-me.html?raw";
+import htmlModal from "./modal.html?raw";
 
-export const renderAboutMe = (aboutMeParentSelector) => {
-	renderElement(aboutMeParentSelector, htmlAboutMe);
+// TODO: Manejar el modal con JavaScript
+export const modalListener = (parentElement) => {
+	const storyModal = parentElement.querySelector("#story-modal");
+	const photoMine = parentElement.querySelector(".photo-me");
 
-	renderModal();
+	photoMine.addEventListener("click", () => storyModal.showModal());
+};
 
-	const parentsLogoElements = document.querySelectorAll("#inc-logo-little");
-	parentsLogoElements.forEach((parentLogoElement) => {
-		const logoClasses = ["items-photo-me", "logo"];
-		const logoIconName = "logo";
-		htmlHandle.loadIcon(parentLogoElement, logoIconName, logoClasses);
-	});
+export const renderAboutMe = () => {
+	const htmlFormated = htmlAboutMe
+		.replaceAll("{{ svgLogo }}", logo)
+		.replace("{{ svgPin }}", mapPin)
+		.replace("{{ modal }}", htmlModal);
+
+	const sectionElement = document.createElement("section");
+	sectionElement.setAttribute("id", "about-me");
+	sectionElement.innerHTML = htmlFormated;
+
+	modalListener(sectionElement);
+
+	return sectionElement;
 };
