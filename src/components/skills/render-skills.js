@@ -1,7 +1,8 @@
 import htmlSkills from "./skills.html?raw";
-import skillsInfo from "../../data/skills-info.json";
-import { getSvgTech } from "../../use-cases/get-raw-svg";
+import skillsInfo from "./skills-info.json";
+import { getAllSvgTechs }  from "../../use-cases/get-raw-svg.js";
 
+const svgTechs = getAllSvgTechs();
 /**
  * Genera un HTML de elementos <li> con la información de las tecnologías.
  * @param {Array<Object>} listInfo Ejemplo: [{ nameTech: "JavaScript", badgeURL: "url" }, ...]
@@ -13,7 +14,7 @@ const lisTemplate = (listInfo) => {
 		const { nameTech, badgeURL } = tech;
 		const liTemplate = `
 		<li class="logo-tech" style="--position: ${++position}">
-			${getSvgTech(nameTech)}
+			${svgTechs[nameTech.toLowerCase()]}
 			<img alt="Badge ${nameTech}" src=${badgeURL}>
 		</li>
 		`;

@@ -1,35 +1,38 @@
-import projectsData from "../../data/projects-info.json";
-import svgLink from "../../assets/icons/link.svg?raw";
-import projectTemplate from "./project-template.html?raw";
-
 import { getSvgTech } from "../../use-cases/get-raw-svg";
-import { buttonTemplate } from "../../use-cases/button-template";
+import { buttonTemplate } from "../../use-cases/templates.js";
 
+import projectsData from "./projects-info.json";
+import projectsTemplate from "./project-template.html?raw";
+import svgLink from "../../assets/icons/link.svg?raw";
+
+const ButtonIcon = {
+	GITHUB: getSvgTech("github"),
+	POSTMAN: getSvgTech("postman"),
+	LINK: svgLink,
+}
 /**
- * Genera los proyectos en formato HTML.
- * @param {Array<Object>} projectsDataArray Ejemplo: [{...}, {...}, {...}]
- * @returns {String} Ejemplo: "<article>...</article> <article>...</article> <article>...</article>"
+ * Genera proyect en formato HTML.
+ * @param {Object} objectValues Ejemplo: {title, image, description,...}
+ * @returns {String} Ejemplo: "<article>...</article>"
  */
-const generateProjects = (projectsDataArray) => {
-	const projectsArray = projectsDataArray.map((project) => {
-		const logosTechArray = project.technologies.map((tech) => getSvgTech(tech));
+const projectTemplate = (objectValues) => {
+	const { title, description, image, technologies, links } = objectValues;
+	
+	const iconsTech = technologies.map(getSvgTech).join("");
 
-		const buttonsArray = Object.entries(project.links).map(([tech, link]) => {
-			const svgIcon =
-				tech !== "Link" ? getSvgTech(tech.toLowerCase()) : svgLink;
-			return buttonTemplate(svgIcon, link, tech);
-		});
+	const buttons = links.map(link => {
+		link.svgRaw = ButtonIcon[link.name.toUpperCase()] || ButtonIcon.LINK;
+		return buttonTemplate(link);
+	}).join("");
 
-		const articleProject = projectTemplate
-			.replace("{{ image }}", project.image)
-			.replaceAll("{{ title }}", project.title)
-			.replace("{{ description }}", project.description)
-			.replace("{{ logos }}", logosTechArray.join(""))
-			.replace("{{ buttons }}", buttonsArray.join(""));
+	const articleProject = projectsTemplate
+		.replace("{{ image }}", image)
+		.replaceAll("{{ title }}", title)
+		.replace("{{ description }}", description)
+		.replace("{{ iconsTech }}", iconsTech)
+		.replace("{{ buttons }}", buttons);
 
-		return articleProject;
-	});
-	return projectsArray.join("");
+	return articleProject;
 };
 
 /**
@@ -39,7 +42,7 @@ const generateProjects = (projectsDataArray) => {
 export const renderProjects = () => {
 	const htmlProjets = `
 		<div class="project-list">
-		${generateProjects(projectsData)}
+		${projectsData.map(projectTemplate).join("")}
 		</div>
 	`;
 

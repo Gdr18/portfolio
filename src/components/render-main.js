@@ -3,7 +3,6 @@ import { renderSkills } from "./skills/render-skills.js";
 import { renderAboutMe } from "./about-me/render-about-me.js";
 import { renderProjects } from "./projects/render-projects.js"
 import { renderContact } from "./contact/renderContact.js";
-
 /**
  * Renderiza el encabezado de una sección.
  * @param {String} sectionName Ejemplo: "Sobre mí", "Proyectos", etc.
@@ -42,6 +41,5 @@ export const renderMain = () => {
 		HeaderSection.CONTACT,
 		renderContact()
 	);
-
 	return mainElement;
 };

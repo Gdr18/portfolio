@@ -1,10 +1,10 @@
 import { getSvgTech } from "../../use-cases/get-raw-svg.js";
-import { buttonTemplate } from "../../use-cases/button-template.js";
+import { buttonTemplate } from "../../use-cases/templates.js";
 
-const ButtonInfo = {
-    URL: "https://github.com/Gdr18/portfolio",
-    TEXT: "GitHub Portfolio",
-    SVG: getSvgTech("github")
+const BUTTON_INFO = {
+    url: "https://github.com/Gdr18/portfolio",
+    name: "GitHub Portfolio",
+    svgRaw: getSvgTech("github")
 };
 
 /**
@@ -14,7 +14,7 @@ const ButtonInfo = {
 export const renderFooter = () => {
     const footerTemplate = `
     <p>Gádor García Martínez - 2025</p>
-    ${buttonTemplate(ButtonInfo.SVG, ButtonInfo.URL, ButtonInfo.TEXT)}
+    ${buttonTemplate(BUTTON_INFO)}
     `;
 
     const footerElement = document.createElement("footer");

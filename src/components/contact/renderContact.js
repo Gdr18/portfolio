@@ -6,7 +6,7 @@ import svgLogo from "../../assets/icons/logo.svg?raw";
 import contactTemplate from "./contact.html?raw";
 
 import { getSvgTech } from "../../use-cases/get-raw-svg";
-import { svgInLinkTemplate } from "../../use-cases/svg-in-link-template";
+import { iconLinkTemplate } from "../../use-cases/templates.js";
 import { copyEmailListener } from "./contactListeners.js";
 
 const LinksInfo = {
@@ -32,9 +32,10 @@ const LinksInfo = {
  * @returns {HTMLElement} Ejemplo: <section id="contact"> ... </section>
  */
 export const renderContact = () => {
+	const iconLinks = Object.values(LinksInfo).map(iconLinkTemplate).join("");
 	const templateFormated = contactTemplate
 		.replace("{{ logo }}", svgLogo)
-		.replace("{{ socialLinks }}", svgInLinkTemplate(Object.values(LinksInfo)))
+		.replace("{{ socialLinks }}", iconLinks)
 		.replace("{{ copyIcon }}", svgCopy);
 	
 	const contactSection = document.createElement("section");
