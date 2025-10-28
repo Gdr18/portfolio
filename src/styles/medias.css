@@ -204,7 +204,7 @@
 				.logo-container {
 					margin-left: 0;
 					justify-content: center;
-					.logo-project {
+					svg {
 						width: 20px;
 					}
 				}

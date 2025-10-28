@@ -1,6 +1,8 @@
 import { renderHome } from "./home/render-home.js";
 import { renderSkills } from "./skills/render-skills.js";
 import { renderAboutMe } from "./about-me/render-about-me.js";
+import { renderProjects } from "./projects/render-projects.js"
+import { renderContact } from "./contact/renderContact.js";
 
 /**
  * Renderiza el encabezado de una sección.
@@ -34,11 +36,11 @@ export const renderMain = () => {
 		HeaderSection.ABOUT_ME,
 		renderAboutMe(),
 		HeaderSection.SKILLS,
-		renderSkills()
-		// HeaderSection.PROJECTS,
-		// await renderProjects(),
-		// HeaderSection.CONTACT,
-		// await renderContact()
+		renderSkills(),
+		HeaderSection.PROJECTS,
+		renderProjects(),
+		HeaderSection.CONTACT,
+		renderContact()
 	);
 
 	return mainElement;

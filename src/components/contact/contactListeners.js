@@ -1,5 +1,6 @@
-const copyIcon = document.querySelector(".copy-icon");
-
+/**
+ * Copia el email al portapapeles y muestra un mensaje temporal.
+ */
 export const copyEmailListener = () => {
 	const email = import.meta.env.VITE_EMAIL;
 	const span = document.querySelector(".email-container span");
@@ -10,5 +11,3 @@ export const copyEmailListener = () => {
 		}, 1500);
 	});
 };
-
-copyIcon.addEventListener("click", copyEmailListener);

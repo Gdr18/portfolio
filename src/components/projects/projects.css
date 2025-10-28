@@ -18,7 +18,7 @@
 				margin-left: 20px;
 				display: flex;
 				gap: 1rem;
-				.logo-project {
+				svg {
 					color: black;
 					width: 25px;
 				}

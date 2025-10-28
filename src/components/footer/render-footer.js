@@ -1,10 +1,10 @@
-import { getTechIcon } from "../../use-cases/get-tech-icons.js";
-import { buttonTemplate } from "../../use-cases/button-html-template.js";
+import { getSvgTech } from "../../use-cases/get-raw-svg.js";
+import { buttonTemplate } from "../../use-cases/button-template.js";
 
 const ButtonInfo = {
     URL: "https://github.com/Gdr18/portfolio",
     TEXT: "GitHub Portfolio",
-    SVG: getTechIcon("github")
+    SVG: getSvgTech("github")
 };
 
 /**
