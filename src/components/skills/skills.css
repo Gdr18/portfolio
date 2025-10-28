@@ -1,3 +1,21 @@
+@keyframes autorun-left {
+	0% {
+		left: 100%;
+	}
+	100% {
+		left: calc(var(--width-item-carousel) * -1);
+	}
+}
+
+@keyframes autorun-right {
+	0% {
+		left: calc(var(--width-item-carousel) * -1);
+	}
+	100% {
+		left: 105%;
+	}
+}
+
 #skills {
 	min-height: 100dvh;
 	width: 100%;
@@ -91,3 +109,21 @@
 		}
 	}
 }
+
+@media (max-width: 900px) {
+	#skills {
+		--height-heading-transition: 40dvh;
+		--width-item-carousel: 60px;
+	}
+}
+
+@media (max-width: 480px) {
+	#skills {
+		--height-heading-transition: 30dvh;
+		.skills-container {
+			padding: 0 1rem;
+			grid-template-rows: repeat(3, 150px);
+		}
+	}
+}
+

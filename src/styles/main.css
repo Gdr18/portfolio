@@ -1,6 +1,4 @@
-@import "./animations.css";
 @import "./base.css";
-@import "./medias.css";
 @import "../components/nav/nav.css";
 @import "../components/home/home.css";
 @import "../components/about-me/about-me.css";

@@ -1,5 +1,53 @@
 /* TODO: Arrancar las animaciones cuando la sección esté en el viewport con JavaScript */
+@keyframes reveal {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes translate-header {
+	0% {
+		transform: translateY(-200px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes scale-to-small {
+	0% {
+		transform: scale(var(--scale-heading)) translateY(-50%);
+	}
+	100% {
+		transform: scale(1) translateY(0);
+	}
+}
+
+@keyframes scale-to-big {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes shine {
+	0% {
+		right: 0;
+	}
+	100% {
+		right: 90%;
+	}
+}
+
 #home {
+	--scale-heading: 1.5;
 	min-height: 100dvh;
 	width: 100%;
 	display: flex;
@@ -92,6 +140,56 @@
 			animation: scale-to-big 1s ease 1s forwards;
 			transition: animation 1s ease-in-out, border-color 0.3s ease-in-out,
 				box-shadow 0.3s ease-in-out;
+		}
+	}
+}
+
+@media (max-width: 900px) {
+	#home {
+		--scale-heading: 1.4;
+		margin-bottom: 20px;
+		padding: 1rem;
+		header {
+			bottom: 25%;
+			h1 {
+				font-size: 2.8rem;
+			}
+			h2 {
+				font-size: 1.8rem;
+			}
+		}
+		.welcome-container img {
+			height: 65dvh;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	#home {
+		margin-bottom: 0;
+		flex-direction: column;
+		gap: 1rem;
+		header {
+			order: 2;
+			position: static;
+			bottom: 30%;
+			animation: reveal 0.6s ease-in-out both,
+				translate-header 0.6s ease-in-out 0.5s both;
+			h1,
+			h2 {
+				-webkit-text-stroke: 1px var(--black);
+			}
+			h1 {
+				font-size: 1.4rem;
+			}
+			h2 {
+				font-size: 0.9rem;
+			}
+		}
+		.welcome-container img {
+			animation: reveal 1s ease 0.5s forwards;
+			height: 50vh;
+			width: 100%;
 		}
 	}
 }

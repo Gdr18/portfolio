@@ -1,4 +1,23 @@
+@keyframes jump {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(0, -40%);
+	}
+}
+
+@keyframes falling {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(var(--falling-item));
+	}
+}
+
 #about-me {
+	--falling-item: 40dvh;
 	min-height: 100dvh;
 	display: flex;
 	flex-direction: column;
@@ -157,6 +176,49 @@
 		}
 		.certifications {
 			grid-area: certifications;
+		}
+	}
+}
+
+@media (max-width: 900px) {
+	#about-me {
+		--falling-item: 35dvh;
+		font-size: 1.1rem;
+		.bento {
+			max-width: 100%;
+			aspect-ratio: auto;
+			grid-template-areas:
+				"education education"
+				"me map"
+				"certifications certifications";
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(3, 300px);
+		}
+		#story-modal {
+			width: 70%;
+			padding: 1rem;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	#about-me {
+		--falling-item: 35dvh;
+		font-size: 0.75rem;
+		#story-modal {
+			width: 90%;
+		}
+		.bento {
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(4, 200px);
+			grid-template-areas:
+				"education"
+				"me"
+				"map"
+				"certifications";
+			.text-bento ul {
+				padding: 0 1rem;
+			}
 		}
 	}
 }
