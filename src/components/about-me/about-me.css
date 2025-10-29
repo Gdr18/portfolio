@@ -80,10 +80,10 @@
 		.text-bento {
 			header h3,
 			ul {
-				transition: opacity 0.5s ease-in-out;
+				transition: opacity 0.4s ease-in-out;
 			}
 			img {
-				transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+				transition: opacity 0.4s ease-in-out, transform 0.8s ease-in-out;
 			}
 			.text-container {
 				position: absolute;
@@ -102,8 +102,8 @@
 				}
 			}
 			ul,
-			header h3 {
-				padding: 1em;
+			header h2 {
+				padding: 1.1rem 0 0.3rem 1.4rem;
 			}
 			&:hover .text-container {
 				opacity: 1;
@@ -113,7 +113,7 @@
 				transform: scale3d(2, 2, 1);
 			}
 			&:hover ul,
-			&:hover header h3 {
+			&:hover header h2 {
 				opacity: 1;
 			}
 		}

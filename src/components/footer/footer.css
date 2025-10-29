@@ -9,6 +9,7 @@ footer {
 	gap: 1rem;
 	.button {
 		width: fit-content;
+		font-size: .7rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;

@@ -204,12 +204,16 @@ h3 {
 
 @media (max-width: 900px) {
 	:root {
+		--height-heading-transition: 40dvh;
 		padding-left: 0;
 		padding-bottom: 70px;
 	}
 }
 
 @media (max-width: 480px) {
+	:root {
+		--height-heading-transition: 30dvh;
+	}
 	.button {
 		padding: 0.4rem 1rem;
 		font-size: 0.8rem;

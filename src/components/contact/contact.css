@@ -24,10 +24,10 @@
 			}
 			.social-container {
 				display: flex;
-				gap: 1.5rem;
+				gap: 4rem;
 			}
 			.link-icon {
-				width: 30px;
+				width: 35px;
 			}
 			.email-container {
 				display: flex;
@@ -35,7 +35,10 @@
 				gap: 1rem;
 				position: relative;
 				p {
-					font-size: clamp(0.9rem, 2vw, 1.1rem);
+					font-size: clamp(0.9rem, 3vw, 1.3rem);
+				}
+				svg {
+					width: 25px;
 				}
 
 				span {
