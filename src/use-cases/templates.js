@@ -14,7 +14,7 @@ export const buttonTemplate = (objectValues) => {
 		rel="noreferrer"
 		>
 		${svgRaw}
-		${name}
+		<span>${name}</span>
 	</a>
 	`;
 	return buttonTemplate;

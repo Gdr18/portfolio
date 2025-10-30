@@ -18,3 +18,13 @@ export const renderHome = () => {
     imgContainer.addEventListener("click", imageListener(imgContainer));
     return homeElement;
 };
+
+// TODO: Animación con Intersection Observer, habría que especificar la clase .animate en el CSS
+// const observer = new IntersectionObserver((entries) => {
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting) {
+//       entry.target.classList.add("animate");
+//     }
+//   });
+// });
+// observer.observe(document.querySelector("#home"));

@@ -2,8 +2,8 @@ nav {
 	background: var(--background);
 	border-right: 2px solid var(--black);
 	box-shadow: 2px 0 20px var(--black);
-	padding: 1em;
-	min-height: 100dvh;
+	padding: clamp(0.75rem, 1vw, 1.5rem);
+	min-height: 100svh;
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -11,16 +11,14 @@ nav {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	z-index: 4;
-	perspective: 600px;
-	transform-style: preserve-3d;
+	z-index: var(--z-nav);
 	.logo {
-		width: clamp(30px, 4vw, 45px);
+		width: clamp(35px, 5vw, 45px);
 	}
 	.links-nav-section {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: clamp(1rem, 2svh, 2.5rem);
 	}
 }
 
@@ -30,11 +28,11 @@ nav {
 		top: auto;
 		bottom: 0;
 		min-height: auto;
-		height: 70px;
+		height: 90px;
 		flex-direction: row;
 		border-right: none;
 		border-top: 2px solid var(--black);
-		box-shadow: 0 -2px 20px var(--black);
+		box-shadow: 0 -1px 10px var(--black);
 		.links-nav-section {
 			flex-direction: row;
 		}

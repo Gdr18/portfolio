@@ -8,6 +8,6 @@ export const copyEmailListener = () => {
 		span.style.display = "inline";
 		setTimeout(() => {
 			span.style.display = "none";
-		}, 1500);
+		}, 1000);
 	});
 };
