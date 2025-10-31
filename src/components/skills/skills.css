@@ -115,10 +115,8 @@
 			}
 		}
 	}
-}
 
-@media (min-width: 900) {
-	#skills {
+	@media (min-width: 900) {
 		.skills-container {
 			gap: clamp(0.5rem, 2svh, 0.8rem);
 			padding: clamp(0.5rem, 1.5vw, 1rem) 0;
@@ -128,10 +126,8 @@
 			gap: clamp(0.3rem, 1svh, 0.4rem);
 		}
 	}
-}
 
-@media (max-width: 480px) {
-	#skills {
+	@media (max-width: 480px) {
 		.skills-container {
 			padding: 0 1rem;
 			grid-template-rows: repeat(3, 150px);

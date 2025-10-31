@@ -25,7 +25,7 @@
 				gap: 3rem;
 				svg {
 					color: var(--background);
-					width: clamp(20px, 2vw, 25px);
+					width: clamp(30px, 2vw, 40px);
 				}
 			}
 			.project-image {
@@ -51,16 +51,11 @@
 			}
 		}
 	}
-}
-
-@media (min-width: 900px) {
-	#projects {
+	@media (min-width: 900px) {
 		margin-bottom: 20px;
 	}
-}
 
-@media (max-width: 480px) {
-	#projects {
+	@media (max-width: 480px) {
 		margin-bottom: 0;
 		padding: 1rem;
 		.project-list {

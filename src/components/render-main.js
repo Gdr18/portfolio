@@ -11,8 +11,8 @@ import { renderContact } from "./contact/renderContact.js";
 const renderHeader = (sectionName) => {
 	const headerElement = document.createElement("header");
 	headerElement.classList.add("heading-transition");
-	const h2Template = `<h2>${sectionName}</h2>`;
-	headerElement.innerHTML = h2Template;
+	const h1Template = `<h1>${sectionName}</h1>`;
+	headerElement.innerHTML = h1Template;
 	return headerElement;
 };
 

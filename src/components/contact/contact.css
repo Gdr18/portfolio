@@ -112,10 +112,8 @@
 			}
 		}
 	}
-}
 
-@media (max-width: 900px) {
-	#contact {
+	@media (max-width: 900px) {
 		min-height: calc(100svh - 70px);
 		margin-bottom: 50px;
 		.contact-form {
@@ -131,10 +129,8 @@
 			}
 		}
 	}
-}
-
-@media (max-width: 480px) {
-	#contact {
+	
+	@media (max-width: 480px) {
 		min-height: 100%;
 		margin-bottom: 0;
 		padding-bottom: 2rem;
