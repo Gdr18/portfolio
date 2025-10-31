@@ -128,6 +128,7 @@
 	}
 
 	@media (max-width: 480px) {
+		min-height: 90svh;
 		.skills-container {
 			padding: 0 1rem;
 			grid-template-rows: repeat(3, 150px);
