@@ -111,17 +111,17 @@
 	}
 }
 
-@media (max-width: 900px) {
-  #skills {
-    .skills-container {
-      gap: clamp(0.5rem, 2svh, 0.8rem);
-      padding: clamp(0.5rem, 1.5vw, 1rem) 0;
-    }
+@media (min-width: 900) {
+	#skills {
+		.skills-container {
+			gap: clamp(0.5rem, 2svh, 0.8rem);
+			padding: clamp(0.5rem, 1.5vw, 1rem) 0;
+		}
 
-    .card {
-      gap: clamp(0.3rem, 1svh, 0.4rem);
-    }
-  }
+		.card {
+			gap: clamp(0.3rem, 1svh, 0.4rem);
+		}
+	}
 }
 
 @media (max-width: 480px) {

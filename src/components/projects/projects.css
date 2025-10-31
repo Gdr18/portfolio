@@ -53,7 +53,7 @@
 	}
 }
 
-@media (max-width: 900px) {
+@media (min-width: 900px) {
 	#projects {
 		margin-bottom: 20px;
 	}

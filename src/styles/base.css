@@ -40,7 +40,7 @@
 	--shadow-fluor: 0 0px 6px var(--grey-light);
 	--shadow-button: 4px 4px 8px var(--black);
 	--shadow-button-hover: 4px 4px 10px var(--black);
-	--border-radius: 1em;
+	--border-radius: 10px;
 	--border-purple: 5px solid var(--purple-dark);
 	--border-orange: 5px solid var(--orange-dark);
 	--z-nav: 4;
@@ -88,6 +88,7 @@ h3 {
 		var(--grey-dark) 50%,
 		var(--background) 100%
 	);
+	/* TODO: Cambiar a h1 */
 	h2 {
 		margin-bottom: 0.5em;
 		margin-right: 1em;
@@ -109,15 +110,16 @@ h3 {
 	background-color: var(--orange-dark);
 	padding: 0.5rem 1rem;
 	font-weight: bold;
-	border-radius: 5px;
 	box-shadow: var(--shadow-button);
 	border: none;
+	border-radius: var(--border-radius);
+	border: 3px solid var(--background);
 	outline: none;
 	transition: all 0.2s ease-in-out;
 	&:hover {
 		cursor: pointer;
 		background-color: #ffa600;
-		box-shadow: var(--shadow-button-hover);
+		transform: translateY(-2px);
 	}
 	&:active svg {
 		color: var(--orange-dark);
@@ -128,6 +130,7 @@ h3 {
 	}
 	&:active {
 		background-color: var(--black);
+		border-color: transparent;
 		color: #ffa500;
 		transition: none;
 	}
@@ -137,14 +140,25 @@ h3 {
 	filter: drop-shadow(2px 2px 4px var(--grey-dark));
 }
 
+/* .link-icon {
+  width: clamp(30px, 5vw, 45px);
+  color: var(--orange-dark);
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  &:hover {
+    transform: translate(-1.5px, -1.5px);
+    filter: drop-shadow(2px 2px 0 var(--orange-light));
+  }
+} */
+
 .link-icon {
-	width: clamp(30px, 5vw, 45px);
+	width: clamp(35px, 5vw, 45px);
 	color: var(--orange-dark);
 	cursor: pointer;
-	transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 	&:hover {
+		transform: scale(1.05) rotate(2deg);
 		color: var(--orange-light);
-		transform: translateY(-2px);
 	}
 }
 
