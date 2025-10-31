@@ -30,7 +30,7 @@
 				filter: opacity(0.8);
 			}
 			h1 {
-				font-size: clamp(1.5rem, 5vw, 2.5rem);
+				font-size: clamp(1.5rem, 3vw, 2.5rem);
 				padding-bottom: 1rem;
 				border-bottom: 5px solid var(--grey-dark);
 			}
@@ -138,7 +138,6 @@
 			padding-top: 1rem;
 			gap: 3rem;
 			h2 {
-				font-size: 1rem;
 				padding-bottom: 0.5rem;
 			}
 			.contact-info {
