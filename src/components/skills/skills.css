@@ -35,9 +35,13 @@
 			display: grid;
 			gap: 0.5rem;
 			animation-range: entry 10% cover 40svh;
-			&:hover .logos-list .logo-tech,
-			&:hover .minus-list .logo-tech {
-				animation-play-state: paused;
+			&:hover {
+				.logos-list,
+				.minus-list {
+					.logo-tech {
+						animation-play-state: paused;
+					}
+				}
 			}
 			header {
 				margin: 0 1.5rem;
@@ -47,8 +51,8 @@
 				mask-image: linear-gradient(
 					to right,
 					transparent,
-					black 200px,
-					black
+					var(--black) 200px,
+					var(--black)
 						calc(
 							(
 									var(--width-item-carousel) * var(--quantity-items-carousel) -
@@ -84,11 +88,13 @@
 					img {
 						display: none;
 					}
-					&:hover svg {
-						display: none;
-					}
-					&:hover img {
-						display: block;
+					&:hover {
+						svg {
+							display: none;
+						}
+						img {
+							display: block;
+						}
 					}
 				}
 			}

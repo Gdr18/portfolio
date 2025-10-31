@@ -116,23 +116,23 @@ h3 {
 	border: 3px solid var(--background);
 	outline: none;
 	transition: all 0.2s ease-in-out;
+	svg {
+		width: 15px;
+		color: var(--black);
+	}
 	&:hover {
 		cursor: pointer;
 		background-color: #ffa600;
 		transform: translateY(-2px);
-	}
-	&:active svg {
-		color: var(--orange-dark);
-	}
-	svg {
-		width: 15px;
-		color: var(--black);
 	}
 	&:active {
 		background-color: var(--black);
 		border-color: transparent;
 		color: #ffa500;
 		transition: none;
+		svg {
+			color: var(--orange-dark);
+		}
 	}
 }
 
