@@ -1,4 +1,4 @@
-import { getSvgTech } from "../../use-cases/get-raw-svg.js";
+import { getSvgTech } from "../../assets/icons/techs";
 import { buttonTemplate } from "../../use-cases/templates.js";
 
 const BUTTON_INFO = {

@@ -1,6 +1,6 @@
 import htmlSkills from "./skills.html?raw";
 import skillsInfo from "./skills-info.json";
-import { getAllSvgTechs }  from "../../use-cases/get-raw-svg.js";
+import { getAllSvgTechs } from "../../assets/icons/techs";
 
 const svgTechs = getAllSvgTechs();
 /**

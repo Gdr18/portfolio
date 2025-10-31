@@ -23,7 +23,7 @@
         "technologies": [
             "python",
             "flask",
-            "MongoDB"
+            "mongodb"
         ],
         "image": "mockup_la_favorita_bar.webp",
         "description": "API de gestión integral de La Favorita Bar. Incluye autenticación y autorización con JWT y OAuth por roles, envío de emails con SendGrid y gestión de usuarios, productos, pedidos, platos y tokens. Desarrollada con Flask y MongoDB.",

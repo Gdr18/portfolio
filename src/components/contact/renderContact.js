@@ -2,11 +2,11 @@ import svgCopy from "../../assets/icons/file_copy.svg?raw";
 import svgDownload from "../../assets/icons/file_save.svg?raw";
 import svgLinkedin from "../../assets/icons/linkedin.svg?raw";
 import svgLogo from "../../assets/icons/logo.svg?raw";
+import { getSvgTech } from "../../assets/icons/techs";
 
 import contactTemplate from "./contact.html?raw";
-
-import { getSvgTech } from "../../use-cases/get-raw-svg";
 import { iconLinkTemplate } from "../../use-cases/templates.js";
+
 import { copyEmailListener } from "./contactListeners.js";
 
 const LinksInfo = {
