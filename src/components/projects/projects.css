@@ -14,7 +14,7 @@
 			max-height: 90svh;
 			display: flex;
 			flex-direction: column;
-			gap: clamp(0.5rem, 1.5svh, 2rem);
+			gap: clamp(0.5rem, 2svh, 3rem);
 			justify-content: space-between;
 			header h3 {
 				text-indent: 10px;
@@ -25,12 +25,12 @@
 				gap: 3rem;
 				svg {
 					color: var(--background);
-					width: clamp(30px, 2vw, 40px);
+					width: clamp(25px, 1.5vw, 35px);
 				}
 			}
 			.project-image {
-				max-width: 95%;
-				max-height: 40%;
+				max-width: 90%;
+				max-height: 100%;
 				object-fit: fill;
 				border-radius: 1rem;
 				align-self: center;
