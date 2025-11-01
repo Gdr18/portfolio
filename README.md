@@ -1,10 +1,10 @@
 # Portfolio Personal
 
-[Captura Portfolio](https://i.imgur.com/WvRyRC5.png)
+![Captura Portfolio](https://i.imgur.com/WvRyRC5.png)
 
 Portfolio personal con infomación profesional sobre mí. Incluye secciones como "Sobre mí", "Tecnologías", "Proyectos" y "Contacto".
 
-Demo: [Demo](#)
+[Demo Portfolio](#)
 
 ## Tecnologías
 - Vite
