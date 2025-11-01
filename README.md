@@ -15,7 +15,22 @@ Demo: (sitio local)
 - Estructura modular basada en componentes de JavaScript.
 - Contacto a través de formulario con la ayuda de EmailJS. 
 
-## Comandos
+## Instalación local
+Clona el repositorio:
+```bash
+git clone https://github.com/Gdr18/portfolio.git
+cd portfolio
+```
+Instala las dependencias:
+```bash
+npm install
+```
+Configura las variables de entorno creando un archivo `.env` en la raíz del proyecto con las siguientes variables:
+```
+VITE_EMAIL=https://tu_servidor_backend.dev
+```
+
+## Comandos disponibles
 Para iniciar el servidor de desarrollo:
 ```bash
 npm run dev
