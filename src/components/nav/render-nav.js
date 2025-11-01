@@ -4,7 +4,7 @@ import svgProjects from "../../assets/icons/folder_code.svg?raw";
 import svgContact from "../../assets/icons/3p.svg?raw";
 import svgLogo from "../../assets/icons/logo.svg?raw";
 
-import { iconLinkTemplate } from "../../use-cases/templates.js";
+import { iconLinkTemplate } from "../shared/templates.js";
 
 const LinksInfo = {
 	ABOUT_ME: {
@@ -35,7 +35,7 @@ const LinksInfo = {
 export const renderNav = () => {
 	const navElement = document.createElement("nav");
 
-	const iconsNav = Object.values(LinksInfo).map(iconLinkTemplate).join(""); 
+	const iconsNav = Object.values(LinksInfo).map(iconLinkTemplate).join("");
 
 	const htmlNav = `
                 <a href="#home" title="Inicio">

@@ -1,5 +1,5 @@
-import { getSomeSvgTech } from "../../assets/icons/techs";
-import { buttonTemplate } from "../../use-cases/templates.js";
+import { getSomeSvgTech } from "../../assets/icons/techs/index.js";
+import { buttonTemplate } from "../shared/templates.js";
 
 import projectsData from "./projects-info.json";
 import projectsTemplate from "./project-template.html?raw";
