@@ -33,6 +33,5 @@ export const iconLinkTemplate = (objectValues, targetBlank = false) => {
 		${svgRaw}
 	</a>
 	`;
-	console.log(linkTemplate);
 	return linkTemplate;
 };

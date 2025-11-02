@@ -7,22 +7,22 @@ import svgLogo from "../../assets/icons/logo.svg?raw";
 import { iconLinkTemplate } from "../shared/templates.js";
 
 const LinksInfo = {
-	ABOUT_ME: {
+	about_me: {
 		url: "#about-me",
 		title: "Sobre mí",
 		svgRaw: svgAboutMe,
 	},
-	SKILLS: {
+	skills: {
 		url: "#skills",
 		title: "Tecnologías",
 		svgRaw: svgSkills,
 	},
-	PROJECTS: {
+	projects: {
 		url: "#projects",
 		title: "Proyectos",
 		svgRaw: svgProjects,
 	},
-	CONTACT: {
+	contact: {
 		url: "#contact",
 		title: "Contacto",
 		svgRaw: svgContact,

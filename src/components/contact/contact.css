@@ -15,10 +15,11 @@
 		opacity: 0;
 		box-shadow: var(--shadow-button);
 		animation: fade-in 0.4s ease-in-out forwards;
+		&.error {
+			color: var(--red);
+		}
 	}
-	.error {
-		color: var(--red);
-	}
+
 	.contact-form {
 		width: 100%;
 		display: flex;

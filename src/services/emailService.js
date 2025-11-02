@@ -2,26 +2,23 @@ import emailjs from "@emailjs/browser";
 
 import { displayUserAdvice } from "../components/contact/adviseUser.js";
 
-const TextAdvices = {
-	EMAIL_SENT: "Enviado!",
-	EMAIL_ERROR: "Error!",
-};
-
 /**
  * Muestra un mensaje de error al usuario.
  * @param {HTMLElement} adviseElement Ejemplo: document.querySelector(".form-message")
  */
 const showError = (adviseElement) => {
+	const errorMessage = "Error!";
 	adviseElement.classList.add("error");
-	displayUserAdvice(adviseElement, TextAdvices.EMAIL_ERROR);
+	displayUserAdvice(adviseElement, errorMessage);
 };
 
 /** Muestra un mensaje de éxito al usuario.
  * @param {HTMLElement} adviseElement Ejemplo: document.querySelector(".form-message")
  */
 const showMessage = (adviseElement) => {
+	const successMessage = "Enviado!";
     adviseElement.classList.remove("error");
-    displayUserAdvice(adviseElement, TextAdvices.EMAIL_SENT);
+    displayUserAdvice(adviseElement, successMessage);
 };
 
 /**
@@ -44,7 +41,7 @@ export const sendEmail = (formElement, adviseElement) => {
                 showError(adviseElement);
             }
 		})
-		.catch(error => {
+		.catch(() => {
             showError(adviseElement);
 			console.error("Error al enviar el email");
         });

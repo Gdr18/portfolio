@@ -3,6 +3,7 @@ import { renderSkills } from "./skills/render-skills.js";
 import { renderAboutMe } from "./about-me/render-about-me.js";
 import { renderProjects } from "./projects/render-projects.js"
 import { renderContact } from "./contact/renderContact.js";
+
 /**
  * Renderiza el encabezado de una sección.
  * @param {String} sectionName Ejemplo: "Sobre mí", "Proyectos", etc.
@@ -17,10 +18,10 @@ const renderHeader = (sectionName) => {
 };
 
 const HeaderSection = {
-	ABOUT_ME: renderHeader("Sobre mí"),
-	SKILLS: renderHeader("Tecnologías"),
-	PROJECTS: renderHeader("Proyectos"),
-	CONTACT: renderHeader("Contacto"),
+	aboutMe: renderHeader("Sobre mí"),
+	skills: renderHeader("Tecnologías"),
+	projects: renderHeader("Proyectos"),
+	contact: renderHeader("Contacto"),
 };
 
 /**
@@ -32,13 +33,13 @@ export const renderMain = () => {
 
 	mainElement.append(
 		renderHome(),
-		HeaderSection.ABOUT_ME,
+		HeaderSection.aboutMe,
 		renderAboutMe(),
-		HeaderSection.SKILLS,
+		HeaderSection.skills,
 		renderSkills(),
-		HeaderSection.PROJECTS,
+		HeaderSection.projects,
 		renderProjects(),
-		HeaderSection.CONTACT,
+		HeaderSection.contact,
 		renderContact()
 	);
 	return mainElement;

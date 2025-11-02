@@ -3,6 +3,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	&.active .img-container {
+		animation: fadeUp 1.5s ease forwards 1.4s,
+			float 6s ease-in-out 1.4s infinite;
+		transform: translateY(0);
+	}
 	.img-container {
 		margin-top: 3rem;
 		position: relative;
@@ -69,19 +74,12 @@
 			}
 		}
 	}
-
 	&:has(header:hover),
 	.img-container:hover {
 		.avatar {
 			border-color: var(--orange-light);
 			box-shadow: var(--shadow-fluor);
 		}
-	}
-
-	&.active .img-container {
-		animation: fadeUp 1.5s ease forwards 1.4s,
-			float 6s ease-in-out 1.4s infinite;
-		transform: translateY(0);
 	}
 
 	@media (max-width: 1080px) {
