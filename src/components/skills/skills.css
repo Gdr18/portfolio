@@ -1,21 +1,3 @@
-@keyframes autorun-left {
-	0% {
-		left: 100%;
-	}
-	100% {
-		left: calc(var(--width-item-carousel) * -1);
-	}
-}
-
-@keyframes autorun-right {
-	0% {
-		left: calc(var(--width-item-carousel) * -1);
-	}
-	100% {
-		left: 105%;
-	}
-}
-
 #skills {
 	--width-item-carousel: 100px;
 	min-height: 100svh;
@@ -133,5 +115,23 @@
 			padding: 0 1rem;
 			grid-template-rows: repeat(3, 150px);
 		}
+	}
+}
+
+@keyframes autorun-left {
+	0% {
+		left: 100%;
+	}
+	100% {
+		left: calc(var(--width-item-carousel) * -1);
+	}
+}
+
+@keyframes autorun-right {
+	0% {
+		left: calc(var(--width-item-carousel) * -1);
+	}
+	100% {
+		left: 105%;
 	}
 }

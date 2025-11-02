@@ -1,22 +1,3 @@
-@keyframes jump {
-	0% {
-		transform: translate(0, 0);
-	}
-	100% {
-		transform: translate(0, -40%);
-	}
-}
-
-@keyframes falling {
-	0% {
-		transform: translateY(0);
-	}
-	100% {
-		transform: translateY(var(--falling-item));
-	}
-}
-
-/* TODO: Pollyfill/fallback allow-discrete */
 #about-me {
 	--falling-item: 40svh;
 	min-height: 100svh;
@@ -224,5 +205,23 @@
 				padding: 0 1rem;
 			}
 		}
+	}
+}
+
+@keyframes jump {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(0, -40%);
+	}
+}
+
+@keyframes falling {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(var(--falling-item));
 	}
 }
