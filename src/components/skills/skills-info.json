@@ -6,15 +6,15 @@
         },
         {
             "nameTech": "CSS",
-            "badgeURL": "https://img.shields.io/badge/CSS-100000?style=flat-square&logo=CSS&logoColor=663399&labelColor=2b2b2b&color=2b2b2b"
+            "badgeURL": "https://img.shields.io/badge/CSS-100000?style=flat-square&logo=CSS&logoColor=663399&labelColor=2B2B2B&color=2B2B2B"
         },
         {
             "nameTech": "JavaScript",
-            "badgeURL": "https://img.shields.io/badge/JavaScript-100000?style=flat-square&logo=JavaScript&logoColor=F7DF1E&labelColor=2b2b2b&color=2b2b2b"
+            "badgeURL": "https://img.shields.io/badge/JavaScript-2b2b2b?style=flat-square&logo=JavaScript&logoColor=F7DF1E&labelColor=2b2b2b&color=2b2b2b"
         },
         {
             "nameTech": "React",
-            "badgeURL": "https://img.shields.io/badge/React-100000?style=flat-square&logo=React&logoColor=61DAFB&labelColor=2b2b2b&color=2b2b2b"
+            "badgeURL": "https://img.shields.io/badge/React-2b2b2b?style=flat-square&logo=React&logoColor=61DAFB&labelColor=2b2b2b&color=2b2b2b"
         },
         {
             "nameTech": "Python",
@@ -22,21 +22,21 @@
         },
         {
             "nameTech": "Flask",
-            "badgeURL": "https://img.shields.io/badge/Flask-100000?style=flat-square&logo=Flask&logoColor=3BABC3&labelColor=2b2b2b&color=2b2b2b"
+            "badgeURL": "https://img.shields.io/badge/Flask-2b2b2b?style=flat-square&logo=Flask&logoColor=3BABC3&labelColor=2b2b2b&color=2b2b2b"
         },
         {
             "nameTech": "MongoDB",
-            "badgeURL": "https://img.shields.io/badge/MongoDB-100000?style=flat-square&logo=MongoDB&logoColor=47A248&labelColor=2b2b2b&color=2b2b2b"
+            "badgeURL": "https://img.shields.io/badge/MongoDB-2b2b2b?style=flat-square&logo=MongoDB&logoColor=47A248&labelColor=2b2b2b&color=2b2b2b"
         }
     ],
     "tools": [
         {
             "nameTech": "GitHub",
-            "badgeURL": "https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=GitHub&logoColor=181717&labelColor=2b2b2b&color=2b2b2b"
+            "badgeURL": "https://img.shields.io/badge/GitHub-2b2b2b?style=flat-square&logo=GitHub&logoColor=181717&labelColor=2b2b2b&color=2b2b2b"
         },
         {
             "nameTech": "Git",
-            "badgeURL": "https://img.shields.io/badge/Git-100000?style=flat-square&logo=Git&logoColor=F05032&labelColor=2b2b2b&color=2b2b2b"
+            "badgeURL": "https://img.shields.io/badge/Git-2b2b2b?style=flat-square&logo=Git&logoColor=F05032&labelColor=2b2b2b&color=2b2b2b"
         },
         {
             "nameTech": "Vite",
@@ -48,15 +48,15 @@
         },
         {
             "nameTech": "PyCharm",
-            "badgeURL": "https://img.shields.io/badge/PyCharm-100000?style=flat-square&logo=PyCharm&logoColor=000000&labelColor=2b2b2b&color=2b2b2b"
+            "badgeURL": "https://img.shields.io/badge/PyCharm-2b2b2b?style=flat-square&logo=PyCharm&logoColor=000000&labelColor=2b2b2b&color=2b2b2b"
         },
         {
             "nameTech": "Postman",
-            "badgeURL": "https://img.shields.io/badge/Postman-100000?style=flat-square&logo=Postman&logoColor=FF6C37&labelColor=2b2b2b&color=2b2b2b"
+            "badgeURL": "https://img.shields.io/badge/Postman-2b2b2b?style=flat-square&logo=Postman&logoColor=FF6C37&labelColor=2b2b2b&color=2b2b2b"
         },
         {
             "nameTech": "Trello",
-            "badgeURL": "https://img.shields.io/badge/Trello-100000?style=flat-square&logo=Trello&logoColor=0079BF&labelColor=2b2b2b&color=2b2b2b"
+            "badgeURL": "https://img.shields.io/badge/Trello-2b2b2b?style=flat-square&logo=Trello&logoColor=0079BF&labelColor=2b2b2b&color=2b2b2b"
         },
         {
             "nameTech": "Jira",
@@ -70,15 +70,15 @@
     "secondary": [
         {
             "nameTech": "MySQL",
-            "badgeURL": "https://img.shields.io/badge/MySQL-100000?style=flat-square&logo=mysql&logoColor=4479A1&labelColor=2b2b2b&color=2b2b2b"
+            "badgeURL": "https://img.shields.io/badge/MySQL-2b2b2b?style=flat-square&logo=mysql&logoColor=4479A1&labelColor=2b2b2b&color=2b2b2b"
         },
         {
             "nameTech": "Redis",
-            "badgeURL": "https://img.shields.io/badge/Redis-100000?style=flat-square&logo=redis&logoColor=FF4438&labelColor=2b2b2b&color=2b2b2b"
+            "badgeURL": "https://img.shields.io/badge/Redis-2b2b2b?style=flat-square&logo=redis&logoColor=FF4438&labelColor=2b2b2b&color=2b2b2b"
         },
         {
             "nameTech": "SASS",
-            "badgeURL": "https://img.shields.io/badge/SASS-100000?style=flat-square&logo=sass&logoColor=CC6699&labelColor=2b2b2b&color=2b2b2b"
+            "badgeURL": "https://img.shields.io/badge/SASS-2b2b2b?style=flat-square&logo=sass&logoColor=CC6699&labelColor=2b2b2b&color=2b2b2b"
         }
     ]
 }

@@ -6,7 +6,7 @@
             "flask"
         ],
         "image": "mockup_ping_server.webp",
-        "description": "Este proyecto es un servidor en Python que no solo realiza pings periódicos a una lista de URLs para mantener activos servicios web (ideal para evitar que se duerman en hostings gratuitos), sino que también expone una API ligera desarrollada en Flask que permite gestionar dinámicamente el sistema.",
+        "description": "Este proyecto es un servidor en Python que realiza pings periódicos a una lista de URLs para mantener activos servicios web, sino que también expone una API ligera desarrollada en Flask que permite gestionar dinámicamente el sistema.",
         "links": [
             {
                 "name": "GitHub",

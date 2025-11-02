@@ -1,15 +1,16 @@
 const rawSvgIconsTech = import.meta.glob("./*.svg", {
-	as: "raw",
 	eager: true,
+	query: "raw",
+	import: "default",
 });
 
 const svgIconsTech = {};
-Object.entries(rawSvgIconsTech).forEach(([ path, svg ]) => {
+Object.entries(rawSvgIconsTech).forEach(([path, svg]) => {
 	const start = path.lastIndexOf("/") + 1;
 	const finish = path.lastIndexOf(".");
 	const name = path.substring(start, finish);
 	svgIconsTech[name] = svg;
-})
+});
 
 /**
  * Busca la tecnología por su nombre y devuelve el icono SVG
@@ -22,14 +23,14 @@ export const getSvgTech = (nameTech) => {
 
 export const getSomeSvgTech = (arrayNamesTech) => {
 	let objectSvgTech = {};
-	arrayNamesTech.forEach(nametech => {
+	arrayNamesTech.forEach((nametech) => {
 		const svgTech = svgIconsTech[nametech];
 		objectSvgTech[nametech] = svgTech;
-	})
+	});
 
 	return objectSvgTech;
 };
 
 export const getAllSvgTechs = () => {
 	return svgIconsTech;
-}
+};

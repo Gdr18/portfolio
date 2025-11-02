@@ -14,10 +14,10 @@ const liTemplate = (objectTech, position) => {
 	const { nameTech, badgeURL } = objectTech;
 	return `<li class="logo-tech" style="--position: ${position}">
 		${svgTechs[nameTech.toLowerCase()]}
-		<img alt="Badge ${nameTech}" src=${badgeURL} loading="lazy"/>
+		<img alt="Badge ${nameTech}" src=${badgeURL}/>
 	</li>
 	`;
-}
+};
 /**
  * Genera un template de elementos <li>.
  * @param {Array<Object>} listInfo Ejemplo: [{ nameTech: "JavaScript", badgeURL: "url" }, ...]

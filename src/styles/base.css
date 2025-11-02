@@ -45,8 +45,7 @@ a {
 }
 
 h1,
-h2,
-h3 {
+h2 {
 	font-family: Orbitron, sans-serif;
 	color: var(--blue);
 	text-shadow: var(--text-shadow);
@@ -153,14 +152,24 @@ h3 {
 		transform: none !important;
 	}
 
-	.welcome-container {
-		img {
+	#home {
+		&.active {
+			animation: none !important;
+		}
+		.img-container {
 			opacity: 1 !important;
 		}
 		header {
-			transform: scale(1) translateY(0) !important;
+			opacity: 1 !important;
+			h2 {
+				opacity: 1 !important;
+			}
+			&.active {
+				animation: none !important;
+			}
 		}
 	}
+
 	#skills .skills-container {
 		.card {
 			min-width: 0 !important;
