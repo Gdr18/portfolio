@@ -48,9 +48,6 @@
 	--z-nav: 300;
 	--z-modal: 1000;
 	--height-heading-transition: 60svh;
-
-	background-color: var(--background);
-	color: var(--grey-light);
 }
 
 *,
@@ -63,6 +60,8 @@
 }
 
 body {
+	background-color: var(--background);
+	color: var(--grey-light);
 	padding-left: 5rem;
 }
 
