@@ -27,21 +27,21 @@
 	padding: clamp(1rem, 5vw, 4rem);
 	font-size: 0.95rem;
 	#story-modal {
-		height: fit-content;
-		width: 50%;
+		max-height: 90svh;
+		width: 50vw;
 		color: var(--grey-light);
 		padding: 2rem;
-		transition: scale 0.3s ease-in-out, opacity 0.3s ease-in-out allow-discrete;
 		opacity: 0;
 		scale: 0;
 		z-index: var(--z-modal);
-		inset: 0;
 		margin: auto;
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
 		align-items: center;
+		transition: scale 0.3s ease-in-out, opacity 0.3s ease-in-out allow-discrete;
 		p {
+			font-size: clamp(0.9rem, 2vw, 1.1rem);
 			text-align: center;
 		}
 		&[open] {
@@ -49,11 +49,11 @@
 			scale: 1;
 			@starting-style {
 				scale: 0;
+				opacity: 0;
 			}
 		}
 		&[open]::backdrop {
-			background: rgba(0, 0, 0, 0.4);
-			backdrop-filter: blur(3px);
+			backdrop-filter: blur(3px) brightness(0.6);
 		}
 	}
 	.bento {
@@ -187,7 +187,7 @@
 		}
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 1080px) {
 		--falling-item: 35svh;
 		font-size: 1.1rem;
 		.bento {

@@ -213,7 +213,7 @@ h3 {
 	}
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
 	:root {
 		--height-heading-transition: 40svh;
 	}

@@ -110,14 +110,17 @@
 		transform: translateY(0);
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 1080px) {
+		min-height: 90svh;
+		header {
+			top: 50%;
+		}
 		.img-container .avatar {
 			height: 65svh;
 		}
 	}
 
 	@media (max-width: 480px) {
-		min-height: 90svh;
 		header {
 			top: 55%;
 			h1,
