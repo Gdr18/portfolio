@@ -25,11 +25,11 @@ export const buttonTemplate = (objectValues) => {
  * @param {Object} objectValues Ejemplo: {url, title, svgRaw}
  * @returns {String} Ejemplo: '<a href="...">...</a>'
  */
-export const iconLinkTemplate = (objectValues) => {
+export const iconLinkTemplate = (objectValues, targetBlank = false) => {
 	const { url, title, svgRaw } = objectValues;
 
 	const linkTemplate = `
-	<a href="${url}" title="${title}">
+	<a href="${url}" title="${title}" ${targetBlank ? 'target="_blank" rel="noreferrer"' : ''}>
 		${svgRaw}
 	</a>
 	`;

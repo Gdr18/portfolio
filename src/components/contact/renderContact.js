@@ -26,13 +26,15 @@ const createContactElement = () => {
 			title: "GitHub",
 		},
 		cv: {
-			url: "/cv.pdf",
+			url: "https://drive.google.com/file/d/1UFr_j2glsetUxpApTqhdq3CTX4o5Gjdj/view?usp=drive_link",
 			svgRaw: svgDownload,
 			title: "Descargar CV",
 		},
 	};
+	
+	const targetBlank = true;
+	const iconLinks = Object.values(linksInfo).map(link => iconLinkTemplate(link, targetBlank)).join("");
 
-	const iconLinks = Object.values(linksInfo).map(iconLinkTemplate).join("");
 	const templateFormated = contactTemplate
 		.replace("{{ logo }}", svgLogo)
 		.replace("{{ socialLinks }}", iconLinks)
