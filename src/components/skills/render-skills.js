@@ -3,22 +3,30 @@ import skillsInfo from "./skills-info.json";
 import { getAllSvgTechs } from "../../assets/icons/techs";
 
 const svgTechs = getAllSvgTechs();
+
 /**
- * Genera un HTML de elementos <li> con la información de las tecnologías.
+ * Genera un elemento <li> con la información de una tecnología.
+ * @param {Object<String, String>} objectTech Ejemplo: { nameTech: "JavaScript", badgeURL: "url" }
+ * @param {Number} position Ejemplo: 1
+ * @returns {String} Ejemplo: '<li>...</li>'
+ */
+const liTemplate = (objectTech, position) => {
+	const { nameTech, badgeURL } = objectTech;
+	return `<li class="logo-tech" style="--position: ${position}">
+		${svgTechs[nameTech.toLowerCase()]}
+		<img alt="Badge ${nameTech}" src=${badgeURL}>
+	</li>
+	`;
+}
+/**
+ * Genera un template de elementos <li>.
  * @param {Array<Object>} listInfo Ejemplo: [{ nameTech: "JavaScript", badgeURL: "url" }, ...]
  * @returns {String} Ejemplo: '<li>...</li><li>...</li>...'
  */
-const lisTemplate = (listInfo) => {
+const generateSkillList = (listInfo) => {
 	let position = 0;
-	const lisList = listInfo.map((tech) => {
-		const { nameTech, badgeURL } = tech;
-		const liTemplate = `
-		<li class="logo-tech" style="--position: ${++position}">
-			${svgTechs[nameTech.toLowerCase()]}
-			<img alt="Badge ${nameTech}" src=${badgeURL}>
-		</li>
-		`;
-		return liTemplate;
+	const lisList = listInfo.map((objectTech) => {
+		return liTemplate(objectTech, ++position);
 	});
 	return lisList.join("");
 };
@@ -29,15 +37,15 @@ const lisTemplate = (listInfo) => {
  */
 export const renderSkills = () => {
 	const {
-		main: lisMain,
-		tools: lisTools,
-		secondary: lisSecondary,
+		main: primarySkillList,
+		tools: toolsList,
+		secondary: secondarySkillList,
 	} = skillsInfo;
 
 	const htmlFormated = htmlSkills
-		.replace("{{ lisMain }}", lisTemplate(lisMain))
-		.replace("{{ lisTools }}", lisTemplate(lisTools))
-		.replace("{{ lisSecondary }}", lisTemplate(lisSecondary));
+		.replace("{{ lisMain }}", generateSkillList(primarySkillList))
+		.replace("{{ lisTools }}", generateSkillList(toolsList))
+		.replace("{{ lisSecondary }}", generateSkillList(secondarySkillList));
 
 	const sectionElement = document.createElement("section");
 	sectionElement.setAttribute("id", "skills");

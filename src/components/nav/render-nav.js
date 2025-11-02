@@ -14,7 +14,7 @@ const LinksInfo = {
 	},
 	SKILLS: {
 		url: "#skills",
-		title: "Habilidades",
+		title: "Tecnologías",
 		svgRaw: svgSkills,
 	},
 	PROJECTS: {

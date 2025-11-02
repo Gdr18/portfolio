@@ -4,7 +4,6 @@ import mapPin from "../../assets/icons/home_pin.svg?raw";
 import htmlAboutMe from "./about-me.html?raw";
 import htmlModal from "./modal.html?raw";
 
-// TODO: Manejar el modal con JavaScript
 /**
  * Listener para el modal de la sección "Sobre mí".
  * @param {HTMLElement} parentElement 
