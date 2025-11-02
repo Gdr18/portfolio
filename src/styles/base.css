@@ -82,7 +82,7 @@ h3 {
 	color: var(--black);
 	background-color: var(--orange-dark);
 	padding: 0.5rem 1rem;
-	font-weight: bold;
+	font-weight: 600;
 	box-shadow: var(--shadow-button);
 	border: none;
 	border-radius: var(--border-radius);

@@ -6,3 +6,19 @@
 @import "../components/projects/projects.css";
 @import "../components/contact/contact.css";
 @import "../components/footer/footer.css";
+
+/* @font-face {
+  font-family: 'Orbitron';
+  src: url('/src/assets/fonts/Orbitron-VariableFont_wght.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Exo 2';
+  src: url('/src/assets/fonts/Exo2-VariableFont_wght.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+} */
