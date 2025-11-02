@@ -29,9 +29,10 @@ export const iconLinkTemplate = (objectValues, targetBlank = false) => {
 	const { url, title, svgRaw } = objectValues;
 
 	const linkTemplate = `
-	<a href="${url}" title="${title}" ${targetBlank ? 'target="_blank" rel="noreferrer"' : ''}>
+	<a href="${url}" title="${title}"${targetBlank ? ' target="_blank" rel="noreferrer"' : ''}>
 		${svgRaw}
 	</a>
 	`;
+	console.log(linkTemplate);
 	return linkTemplate;
 };

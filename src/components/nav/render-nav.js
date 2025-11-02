@@ -35,7 +35,7 @@ const LinksInfo = {
 export const renderNav = () => {
 	const navElement = document.createElement("nav");
 
-	const iconsNav = Object.values(LinksInfo).map(iconLinkTemplate).join("");
+	const iconsNav = Object.values(LinksInfo).map(link => iconLinkTemplate(link)).join("");
 
 	const htmlNav = `
                 <a href="#home" title="Inicio">
