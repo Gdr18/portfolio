@@ -14,7 +14,7 @@ const liTemplate = (objectTech, position) => {
 	const { nameTech, badgeURL } = objectTech;
 	return `<li class="logo-tech" style="--position: ${position}">
 		${svgTechs[nameTech.toLowerCase()]}
-		<img alt="Badge ${nameTech}" src=${badgeURL}>
+		<img alt="Badge ${nameTech}" src=${badgeURL} loading="lazy"/>
 	</li>
 	`;
 }
