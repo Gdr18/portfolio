@@ -7,11 +7,18 @@ const TextAdvices = {
 	EMAIL_ERROR: "Error!",
 };
 
+/**
+ * Muestra un mensaje de error al usuario.
+ * @param {HTMLElement} adviseElement Ejemplo: document.querySelector(".form-message")
+ */
 const showError = (adviseElement) => {
 	adviseElement.classList.add("error");
 	displayUserAdvice(adviseElement, TextAdvices.EMAIL_ERROR);
 };
 
+/** Muestra un mensaje de éxito al usuario.
+ * @param {HTMLElement} adviseElement Ejemplo: document.querySelector(".form-message")
+ */
 const showMessage = (adviseElement) => {
     adviseElement.classList.remove("error");
     displayUserAdvice(adviseElement, TextAdvices.EMAIL_SENT);
@@ -30,17 +37,15 @@ export const sendEmail = (formElement, adviseElement) => {
 			formElement,
 			{ publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
 		)
-		.then((response) => {
+		.then(response => {
 			if (response.status === 200) {
                 showMessage(adviseElement);
             } else {
                 showError(adviseElement);
             }
-
-			console.log(response);
 		})
-		.catch((error) => {
+		.catch(error => {
             showError(adviseElement);
-            console.error(TextAdvices.EMAIL_ERROR, error);
+			console.error("Error al enviar el email");
         });
 };
