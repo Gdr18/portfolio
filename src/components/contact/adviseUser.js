@@ -3,10 +3,35 @@
  * @param {HTMLElement} adviseElement Ejemplo: document.querySelector("#advise")
  * @param {String} message Ejemplo: "Email enviado!"
  */
-export const displayUserAdvice = (adviseElement, message = "") => {
+const displayUserAdvice = (adviseElement, message = "") => {
 	adviseElement.textContent = message || adviseElement.textContent;
 	adviseElement.style.display = "inline";
 	setTimeout(() => {
 		adviseElement.style.display = "none";
 	}, 2000);
 };
+
+/**
+ * Muestra un mensaje de error al usuario.
+ * @param {HTMLElement} adviseElement Ejemplo: document.querySelector(".form-message")
+ */
+const showError = (adviseElement) => {
+	const errorMessage = "Error!";
+	adviseElement.classList.add("error");
+	displayUserAdvice(adviseElement, errorMessage);
+};
+
+/** Muestra un mensaje de éxito al usuario.
+ * @param {HTMLElement} adviseElement Ejemplo: document.querySelector(".form-message")
+ */
+const showMessage = (adviseElement) => {
+	const successMessage = "Enviado!";
+    adviseElement.classList.remove("error");
+    displayUserAdvice(adviseElement, successMessage);
+};
+
+export default {
+	displayUserAdvice,
+	showMessage,
+	showError
+}

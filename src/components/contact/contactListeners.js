@@ -1,5 +1,5 @@
 import { sendEmail } from "../../services/emailService.js";
-import { displayUserAdvice } from "./adviseUser.js";
+import advise from "./adviseUser.js";
 /**
  * Agrega los listeners a la sección de contacto.
  * @param {HTMLElement} section
@@ -9,7 +9,7 @@ export const addContactListeners = (section) => {
 	svgEmailCopy.addEventListener("click", copyEmail);
 
 	const form = section.querySelector("form");
-	form.addEventListener("submit", (event) => sendEmailAndReset(form, event));
+	form.addEventListener("submit", (event) => sendEmailAndReset(event, form));
 };
 
 /**
@@ -19,7 +19,7 @@ const copyEmail = () => {
 	const email = import.meta.env.VITE_EMAIL;
 	const messageElement = document.querySelector(".copy-message");
 	navigator.clipboard.writeText(email).then(() => {
-		displayUserAdvice(messageElement);
+		advise.displayUserAdvice(messageElement);
 	});
 };
 
@@ -28,11 +28,18 @@ const copyEmail = () => {
  * @param {HTMLFormElement} formElement 
  * @param {Event} event 
  */
-const sendEmailAndReset = (formElement, event) => {
+const sendEmailAndReset = async (event, formElement) => {
 	event.preventDefault();
+
 	const formAdvise = formElement.querySelector(".form-message");
 
-	sendEmail(formElement, formAdvise);
+	const response = await sendEmail(formElement);
+	if (response?.status === 200) {
+		advise.showMessage(formAdvise);
+	} else {
+		console.error("Error al enviar el email");
+		advise.showError(formAdvise);
+	}
 
 	formElement.reset();
 };

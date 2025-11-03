@@ -6,20 +6,16 @@
 	justify-content: center;
 	.advise {
 		padding: 0.2rem 0.5rem;
-		font-weight: 700;
 		position: absolute;
 		display: none;
 		color: var(--black);
+		border: 1px solid var(--black);
 		background-color: var(--grey-light);
 		border-radius: 5px;
 		opacity: 0;
 		box-shadow: var(--shadow-button);
 		animation: fade-in 0.4s ease-in-out forwards;
-		&.error {
-			color: var(--red);
-		}
 	}
-
 	.contact-form {
 		width: 100%;
 		display: flex;
@@ -110,7 +106,11 @@
 			.form-message {
 				bottom: 5%;
 				right: 5%;
-				font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+				font-size: clamp(0.6rem, 1vw, 1.2rem);
+				background-color: var(--green);
+				&.error {
+					background-color: var(--red);
+				}
 			}
 		}
 	}
