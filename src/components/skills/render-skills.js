@@ -1,32 +1,30 @@
 import htmlSkills from "./skills.html?raw";
-import skillsInfo from "./skills-info.json";
 import { getAllSvgTechs } from "../../assets/icons/techs";
 
 const svgTechs = getAllSvgTechs();
 
 /**
  * Genera un elemento <li> con la información de una tecnología.
- * @param {Object<String, String>} objectTech Ejemplo: { nameTech: "JavaScript", badgeURL: "url" }
+ * @param {String} name Ejemplo: "JavaScript"
  * @param {Number} position Ejemplo: 1
  * @returns {String} Ejemplo: '<li>...</li>'
  */
-const liTemplate = (objectTech, position) => {
-	const { nameTech, badgeURL } = objectTech;
+const liTemplate = (name, position) => {
 	return `<li class="logo-tech" style="--position: ${position}">
-		${svgTechs[nameTech.toLowerCase()]}
-		<img alt="Badge ${nameTech}" src=${badgeURL}/>
+		${svgTechs[name.toLowerCase()]}
+		<span class="advise">${name}</span>
 	</li>
 	`;
 };
 /**
  * Genera un template de elementos <li>.
- * @param {Array<Object>} listInfo Ejemplo: [{ nameTech: "JavaScript", badgeURL: "url" }, ...]
+ * @param {Array<String>} listInfo Ejemplo: ["JavaScript", ...]
  * @returns {String} Ejemplo: '<li>...</li><li>...</li>...'
  */
 const generateSkillList = (listInfo) => {
 	let position = 0;
-	const lisList = listInfo.map((objectTech) => {
-		return liTemplate(objectTech, ++position);
+	const lisList = listInfo.map((nameTech) => {
+		return liTemplate(nameTech, ++position);
 	});
 	return lisList.join("");
 };
@@ -36,16 +34,26 @@ const generateSkillList = (listInfo) => {
  * @returns {HTMLElement} skillsParentElement Ejemplo: <section id="skills">...</section>
  */
 export const renderSkills = () => {
-	const {
-		main: primarySkillList,
-		tools: toolsList,
-		secondary: secondarySkillList,
-	} = skillsInfo;
+	const skillsInfo = {
+		main: ["HTML5", "CSS", "JavaScript", "React", "Python", "Flask", "MongoDB"],
+		tools: [
+			"GitHub",
+			"Git",
+			"Vite",
+			"VSCode",
+			"PyCharm",
+			"Postman",
+			"Trello",
+			"Jira",
+			"Figma",
+		],
+		secondary: ["MySQL", "Redis", "SASS"],
+	};
 
 	const htmlFormated = htmlSkills
-		.replace("{{ lisMain }}", generateSkillList(primarySkillList))
-		.replace("{{ lisTools }}", generateSkillList(toolsList))
-		.replace("{{ lisSecondary }}", generateSkillList(secondarySkillList));
+		.replace("{{ lisMain }}", generateSkillList(skillsInfo.main))
+		.replace("{{ lisTools }}", generateSkillList(skillsInfo.tools))
+		.replace("{{ lisSecondary }}", generateSkillList(skillsInfo.secondary));
 
 	const sectionElement = document.createElement("section");
 	sectionElement.setAttribute("id", "skills");
