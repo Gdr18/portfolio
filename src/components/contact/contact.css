@@ -4,18 +4,6 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	.advise {
-		padding: 0.2rem 0.5rem;
-		position: absolute;
-		display: none;
-		color: var(--black);
-		border: 1px solid var(--black);
-		background-color: var(--grey-light);
-		border-radius: 5px;
-		opacity: 0;
-		box-shadow: var(--shadow-button);
-		animation: fade-in 0.4s ease-in-out forwards;
-	}
 	.contact-form {
 		width: 100%;
 		display: flex;
@@ -53,9 +41,10 @@
 				svg {
 					width: 25px;
 				}
-				.copy-message {
-					right: -75%;
-					font-size: clamp(0.5rem, 1vw, 0.7rem);
+				.copy-advise {
+					right: -80%;
+					top: 10%;
+					font-size: clamp(0.7rem, 1vw, 0.7rem);
 				}
 			}
 		}
@@ -81,7 +70,7 @@
 				box-shadow: var(--shadow-button);
 				transition: border-color 0.3s ease-in-out;
 				background-color: var(--grey-light);
-				color: var(--black);
+				color: var(--black-light);
 			}
 			textarea {
 				resize: none;
@@ -103,10 +92,10 @@
 				-webkit-box-shadow: var(--grey-light);
 				-webkit-text-fill-color: black;
 			}
-			.form-message {
+			.form-advise {
 				bottom: 5%;
 				right: 5%;
-				font-size: clamp(0.6rem, 1vw, 1.2rem);
+				font-size: clamp(0.8rem, 1.1vw, 1.2rem);
 				background-color: var(--green);
 				&.error {
 					background-color: var(--red);
@@ -150,6 +139,9 @@
 				.logo {
 					width: 60px;
 				}
+				.email-container .copy-advise {
+					right: -95%;
+				}
 			}
 			.card {
 				min-width: 90%;
@@ -166,16 +158,5 @@
 				}
 			}
 		}
-	}
-}
-
-@keyframes fade-in {
-	from {
-		opacity: 0;
-		transform: translateY(5px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
 	}
 }

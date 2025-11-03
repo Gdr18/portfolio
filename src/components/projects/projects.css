@@ -24,7 +24,7 @@
 				justify-content: center;
 				gap: 3rem;
 				svg {
-					color: var(--background);
+					color: var(--black-dark);
 					width: clamp(25px, 1.5vw, 35px);
 				}
 			}
@@ -33,9 +33,9 @@
 				max-height: 50%;
 				object-fit: cover;
 				aspect-ratio: 16/9;
-				border-radius: 1rem;
+				border-radius: var(--border-radius-box);
 				align-self: center;
-				box-shadow: var(--text-shadow);
+				box-shadow: var(--shadow-text);
 			}
 			p {
 				font-size: clamp(0.9rem, 1vw, 1.1rem);

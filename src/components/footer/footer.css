@@ -1,6 +1,6 @@
 footer {
 	width: 100%;
-	border-top: 3px solid var(--black);
+	border-top: 3px solid var(--black-light);
 	padding: 1rem 0;
 	display: flex;
 	flex-direction: column;
@@ -8,7 +8,7 @@ footer {
 	gap: 1rem;
 	.button {
 		width: fit-content;
-		font-size: .7rem;
+		font-size: 0.7rem;
 		gap: 0.5rem;
 	}
 }

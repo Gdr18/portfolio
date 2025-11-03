@@ -5,9 +5,9 @@
  */
 const displayUserAdvice = (adviseElement, message = "") => {
 	adviseElement.textContent = message || adviseElement.textContent;
-	adviseElement.style.display = "inline";
+	adviseElement.classList.add("visible");
 	setTimeout(() => {
-		adviseElement.style.display = "none";
+		adviseElement.classList.remove("visible");
 	}, 2000);
 };
 

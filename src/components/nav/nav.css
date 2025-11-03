@@ -1,7 +1,7 @@
 nav {
-	background: var(--background);
-	border-right: 2px solid var(--black);
-	box-shadow: 2px 0 20px var(--black);
+	background: var(--black-dark);
+	border-right: 2px solid var(--black-light);
+	box-shadow: 2px 0 20px var(--black-light);
 	padding: clamp(0.75rem, 1vw, 1.5rem);
 	min-height: 100svh;
 	position: fixed;
@@ -29,8 +29,8 @@ nav {
 		height: 90px;
 		flex-direction: row;
 		border-right: none;
-		border-top: 2px solid var(--black);
-		box-shadow: 0 -1px 10px var(--black);
+		border-top: 2px solid var(--black-light);
+		box-shadow: 0 -1px 10px var(--black-light);
 		.links-nav-section {
 			flex-direction: row;
 		}

@@ -17,9 +17,9 @@ export const addContactListeners = (section) => {
  */
 const copyEmail = () => {
 	const email = import.meta.env.VITE_EMAIL;
-	const messageElement = document.querySelector(".copy-message");
+	const adviseElement = document.querySelector(".copy-advise");
 	navigator.clipboard.writeText(email).then(() => {
-		advise.displayUserAdvice(messageElement);
+		advise.displayUserAdvice(adviseElement);
 	});
 };
 
@@ -31,14 +31,14 @@ const copyEmail = () => {
 const sendEmailAndReset = async (event, formElement) => {
 	event.preventDefault();
 
-	const formAdvise = formElement.querySelector(".form-message");
+	const adviseElement = formElement.querySelector(".form-advise");
 
 	const response = await sendEmail(formElement);
 	if (response?.status === 200) {
-		advise.showMessage(formAdvise);
+		advise.showMessage(adviseElement);
 	} else {
 		console.error("Error al enviar el email");
-		advise.showError(formAdvise);
+		advise.showError(adviseElement);
 	}
 
 	formElement.reset();

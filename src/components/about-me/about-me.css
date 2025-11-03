@@ -57,114 +57,106 @@
 			will-change: transform;
 			overflow: hidden;
 			transition: transform 0.3s, opacity 0.3s;
-		}
-		.text-bento {
-			header h2,
-			ul {
-				transition: opacity 0.4s ease-in-out;
-			}
-			img {
-				transition: opacity 0.4s ease-in-out, transform 0.8s ease-in-out;
-			}
-			.text-container {
-				position: absolute;
-				top: 0;
-				opacity: 0;
-			}
-			img {
-				filter: grayscale(50) blur(1px);
-			}
-			ul {
-				list-style-type: square;
-				list-style-position: inside;
-				li {
-					text-indent: 15px;
-					margin-bottom: 0.5em;
-				}
-			}
-			ul,
-			header h2 {
-				padding: 1.1rem 0 0.3rem 1.4rem;
-			}
-			&:hover {
+			&.text-bento {
 				img {
-					opacity: 0.05;
-					transform: scale3d(2, 2, 1);
+					filter: grayscale(50) blur(1px);
+
+					transition: opacity 0.4s ease-in-out, transform 0.8s ease-in-out;
 				}
-				ul,
-				header h2,
 				.text-container {
-					opacity: 1;
+					position: absolute;
+					top: 0;
+					opacity: 0;
+					transition: opacity 0.4s ease-in-out;
+					header h2,
+					ul {
+						padding: 1.1rem 0 0.3rem 1.4rem;
+						list-style-type: square;
+						list-style-position: inside;
+						li {
+							text-indent: 15px;
+							margin-bottom: 0.5em;
+						}
+					}
 				}
-			}
-		}
-		.photo-bento {
-			grid-area: me;
-			border: var(--border-orange);
-			border-radius: var(--border-radius);
-			position: relative;
-			transition: all 0.2s ease-in-out;
-			&:hover {
-				cursor: pointer;
-				border-color: var(--orange-light);
-				box-shadow: var(--shadow-fluor);
-				transform: scale(1.01);
-				.items-photo-me {
-					animation: falling 1.5s linear var(--delay) infinite;
-				}
-			}
-			img {
-				aspect-ratio: 1/1;
-				width: 100%;
-				transition: all 0.4s ease-in-out;
 				&:hover {
-					filter: blur(0.5px);
+					img {
+						opacity: 0.05;
+						transform: scale3d(2, 2, 1);
+					}
+					.text-container {
+						opacity: 1;
+					}
+				}
+			}
+			&.photo-bento {
+				grid-area: me;
+				border: var(--border-orange);
+				border-radius: var(--border-radius-box);
+				position: relative;
+				transition: all 0.2s ease-in-out;
+				img {
+					aspect-ratio: 1/1;
+					width: 100%;
+					transition: all 0.4s ease-in-out;
+					&:hover {
+						filter: blur(0.5px);
+						opacity: 0.9;
+					}
+				}
+				.items-photo-me {
+					position: absolute;
+					z-index: var(--z-items-photo);
 					opacity: 0.9;
+					top: -15%;
+					width: clamp(15px, 3vw, 20px);
+					font-size: clamp(15px, 3vw, 20px);
+					left: var(--position);
+				}
+				&:hover {
+					cursor: pointer;
+					border-color: var(--orange-light);
+					box-shadow: var(--shadow-fluor);
+					transform: scale(1.01);
+					.items-photo-me {
+						animation: falling 1.5s linear var(--delay) infinite;
+					}
 				}
 			}
-			.items-photo-me {
-				position: absolute;
-				z-index: var(--z-items-photo);
-				opacity: 0.9;
-				top: -15%;
-				width: clamp(15px, 3vw, 20px);
-				font-size: clamp(15px, 3vw, 20px);
-				left: var(--position);
-			}
-		}
-		.map {
-			grid-area: map;
-			position: relative;
-			p {
-				position: absolute;
-				bottom: 5%;
-				right: 5%;
-				opacity: 0;
-			}
-			svg {
-				position: absolute;
-				color: var(--red);
-				width: 3em;
-				top: 50%;
-				left: 20%;
-				opacity: 0;
-				transition: opacity 0.3s ease-in-out;
-			}
-			&:hover {
+			&.map {
+				grid-area: map;
+				position: relative;
 				svg {
-					animation: jump 0.5s ease-in-out infinite alternate;
+					position: absolute;
+					color: var(--red);
+					width: 3em;
+					top: 50%;
+					left: 20%;
+					opacity: 0;
+					transition: opacity 0.3s ease-in-out;
 				}
-				svg,
 				p {
-					opacity: 1;
+					position: absolute;
+					bottom: 5%;
+					right: 5%;
+					opacity: 0;
+				}
+				&:hover {
+					svg {
+						animation: jump 0.5s ease-in-out infinite alternate;
+					}
+					svg,
+					p {
+						opacity: 1;
+					}
 				}
 			}
-		}
-		.education {
-			grid-area: education;
-		}
-		.certifications {
-			grid-area: certifications;
+			&.education {
+				grid-area: education;
+			}
+			&.certifications {
+				grid-area: certifications;
+			}
 		}
 	}
 
