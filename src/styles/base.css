@@ -92,7 +92,7 @@ h2 {
 	display: none;
 	color: var(--black-dark);
 	border: 1px solid var(--black-dark);
-	background-color: var(--blue);
+	background-color: var(--purple-light);
 	border-radius: 5px;
 	opacity: 0;
 	box-shadow: var(--shadow-button);
