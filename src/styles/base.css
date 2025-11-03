@@ -204,49 +204,49 @@ h2 {
 
 @media (prefers-reduced-motion: reduce) {
 	* {
-		animation: none !important;
-		transform: none !important;
+		animation: none;
+		transform: none;
 	}
 
 	#home {
 		&.active {
-			animation: none !important;
+			animation: none;
 		}
 		.img-container {
-			opacity: 1 !important;
+			opacity: 1;
 		}
 		header {
-			opacity: 1 !important;
+			opacity: 1;
 			h2 {
-				opacity: 1 !important;
+				opacity: 1;
 			}
 			&.active {
-				animation: none !important;
+				animation: none;
 			}
 		}
 	}
 
 	#skills .skills-container {
 		.card {
-			min-width: 0 !important;
-			padding: 0 !important;
-			padding-top: 1rem !important;
+			min-width: 0;
+			padding: 0;
+			padding-top: 1rem;
 			.logos-list {
-				height: 100% !important;
-				min-width: 0 !important;
-				mask-image: none !important;
-				padding: 0 1rem !important;
-				flex-wrap: nowrap !important;
-				overflow: auto !important;
+				height: 100%;
+				min-width: 0;
+				mask-image: none;
+				padding: 0 1rem;
+				flex-wrap: nowrap;
+				overflow: auto;
 				.logo-tech {
-					position: static !important;
-					flex: 0 0 var(--width-item-carousel) !important;
+					position: static;
+					flex: 0 0 var(--width-item-carousel);
 				}
 			}
 		}
 		.secondaries-skills .logos-list {
-			display: flex !important;
-			justify-content: center !important;
+			display: flex;
+			justify-content: center;
 		}
 	}
 }
