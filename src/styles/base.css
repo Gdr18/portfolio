@@ -265,6 +265,19 @@ h2 {
 	}
 }
 
+@media (hover: none) and (pointer: coarse) {
+	.button:hover,
+	.card:hover,
+	.link-icon:hover,
+	.advise.visible:hover {
+		transform: none !important;
+		box-shadow: none !important;
+	}
+	.photo-bento:hover .items-photo-me {
+		animation: none !important;
+	}
+}
+
 @keyframes header-reveal {
 	0% {
 		opacity: 0;
