@@ -59,7 +59,7 @@
 			transition: transform 0.3s, opacity 0.3s;
 		}
 		.text-bento {
-			header h3,
+			header h2,
 			ul {
 				transition: opacity 0.4s ease-in-out;
 			}
@@ -88,7 +88,7 @@
 			}
 			&:hover {
 				img {
-					opacity: 0.08;
+					opacity: 0.05;
 					transform: scale3d(2, 2, 1);
 				}
 				ul,

@@ -154,7 +154,7 @@
 			.card {
 				min-width: 90%;
 				max-width: none;
-				header h3 {
+				header h2 {
 					font-size: 1.3rem;
 				}
 				input,

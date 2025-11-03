@@ -16,7 +16,7 @@
 			flex-direction: column;
 			gap: clamp(0.5rem, 2svh, 3rem);
 			justify-content: space-between;
-			header h3 {
+			header h2 {
 				text-indent: 10px;
 			}
 			.logo-container {
