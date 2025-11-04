@@ -51,8 +51,9 @@
 	--border-orange: 5px solid var(--orange-dark);
 	--stroke-text: 1.5px var(--black-dark);
 	--z-items-photo: 100;
-	--z-header-home: 200;
-	--z-nav: 300;
+	--z-text-photo: 200;
+	--z-header-home: 300;
+	--z-nav: 400;
 	--z-modal: 1000;
 	--height-heading-transition: 60vh;
 	--height-heading-transition: 60svh;
@@ -206,6 +207,37 @@ h2 {
 	animation-range: entry 20% cover 50svh;
 }
 
+@media (width <= 1080px) {
+	:root {
+		--height-heading-transition: 40vh;
+		--height-heading-transition: 40svh;
+	}
+	body {
+		padding-left: 0;
+		padding-bottom: 90px;
+	}
+	.card:hover{
+		border-color: var(--purple-dark);
+		box-shadow: none;
+	}
+	.button:hover{
+		transform: none;
+		box-shadow: var(--shadow-button);
+	}
+	.link-icon:hover {
+		transform: none;
+	}
+}
+
+@media (width < 768px) {
+	:root {
+		--height-heading-transition: 30svh;
+	}
+	.button {
+		font-size: 0.9rem;
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	.heading-transition h1 {
 		animation: none ;
@@ -226,26 +258,6 @@ h2 {
 	}
 	.link-icon:hover {
 		transform: none;
-	}
-}
-
-@media (width <= 1080px) {
-	:root {
-		--height-heading-transition: 40vh;
-		--height-heading-transition: 40svh;
-	}
-	body {
-		padding-left: 0;
-		padding-bottom: 90px;
-	}
-}
-
-@media (width < 768px) {
-	:root {
-		--height-heading-transition: 30svh;
-	}
-	.button {
-		font-size: 0.9rem;
 	}
 }
 

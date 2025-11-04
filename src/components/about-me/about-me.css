@@ -12,7 +12,7 @@
 	#story-modal {
 		max-height: 90vh;
 		max-height: 90svh;
-		width: 40vw;
+		width: 600px;
 		color: var(--grey-light);
 		padding: 2rem;
 		opacity: 0;
@@ -127,6 +127,7 @@
 					bottom: 5%;
 					right: 5%;
 					text-shadow: var(--shadow-text);
+					z-index: var(--z-text-photo);
 				}
 				&:hover {
 					cursor: pointer;
@@ -176,8 +177,6 @@
 	}
 
 	@media (max-width: 1080px) {
-		--falling-item: 35vh;
-		--falling-item: 35svh;
 		font-size: 1.1rem;
 		.bento {
 			will-change: auto;
@@ -189,34 +188,42 @@
 				"certifications certifications";
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-rows: repeat(3, 300px);
-			.item-bento.text-bento {
-				img {
-					opacity: 0.1;
-					transform: scale3d(2, 2, 1);
-				}
-				.text-container {
-					opacity: 1;
-					ul li {
-						line-height: 2rem;
+			.item-bento {
+				&.text-bento {
+					img {
+						opacity: 0.1;
+						transform: scale3d(2, 2, 1);
+					}
+					.text-container {
+						opacity: 1;
+						ul li {
+							line-height: 2rem;
+						}
 					}
 				}
-			}
-			.photo-bento {
-				p {
-					display: block;
+				&.photo-bento {
+					p {
+						display: block;
+					}
+					&:hover {
+						img {
+							filter: none;
+							opacity: 1;
+						}
+						.items-photo-me {
+							display: none;
+							animation: none;
+						}
+					}
 				}
-				:hover .items-photo-me {
-					display: none;
-					animation: none;
-				}
-			}
-			.map {
-				svg {
-					animation: jump 1s ease-in-out infinite alternate;
-					opacity: 1;
-				}
-				p {
-					opacity: 1;
+				&.map {
+					svg {
+						animation: jump 1s ease-in-out infinite alternate;
+						opacity: 1;
+					}
+					p {
+						opacity: 1;
+					}
 				}
 			}
 		}
@@ -227,7 +234,6 @@
 		--falling-item: 32svh;
 		font-size: 0.75rem;
 		#story-modal {
-			width: 90%;
 			gap: 1rem;
 			p {
 				font-size: 0.8rem;

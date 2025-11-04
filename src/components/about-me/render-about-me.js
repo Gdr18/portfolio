@@ -10,7 +10,7 @@ import htmlModal from "./modal.html?raw";
  */
 export const modalListener = (parentElement) => {
 	const storyModal = parentElement.querySelector("#story-modal");
-	const photoMine = parentElement.querySelector(".photo-me");
+	const photoMine = parentElement.querySelector(".photo-bento");
 
 	photoMine.addEventListener("click", () => storyModal.showModal());
 };
