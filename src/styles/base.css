@@ -250,6 +250,14 @@ h2 {
 }
 
 @media (width <= 1080px) and (hover: none) and (pointer: coarse) {
+	:root {
+		--height-heading-transition: 40vh;
+		--height-heading-transition: 40svh;
+	}
+	body {
+		padding-left: 0;
+		padding-bottom: 90px;
+	}
 	#about-me .bento {
 		will-change: auto;
 		.photo-bento:hover .items-photo-me {
@@ -277,14 +285,6 @@ h2 {
 				opacity: 1 !important;
 			}
 		}
-	}
-	:root {
-		--height-heading-transition: 40vh;
-		--height-heading-transition: 40svh;
-	}
-	body {
-		padding-left: 0;
-		padding-bottom: 90px;
 	}
 }
 
