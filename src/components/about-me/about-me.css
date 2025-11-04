@@ -113,6 +113,14 @@
 					font-size: clamp(15px, 3vw, 20px);
 					left: var(--position);
 				}
+				p {
+					color: var(--black-dark);
+					font-weight: 700;
+					position: absolute;
+					bottom: 5%;
+					right: 5%;
+					text-shadow: var(--shadow-text);
+				}
 				&:hover {
 					cursor: pointer;
 					border-color: var(--orange-light);
