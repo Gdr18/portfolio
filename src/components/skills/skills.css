@@ -1,5 +1,6 @@
 #skills {
 	--width-item-carousel: 100px;
+	min-height: 100vh;
 	min-height: 100svh;
 	width: 100%;
 	display: flex;
@@ -16,6 +17,7 @@
 			overflow: hidden;
 			display: grid;
 			gap: 0.5rem;
+			animation-range: entry 10% cover 40vh;
 			animation-range: entry 10% cover 40svh;
 			&:hover {
 				.logos-list,
@@ -102,16 +104,19 @@
 
 	@media (min-width: 900) {
 		.skills-container {
+			gap: clamp(0.5rem, 2vh, 0.8rem);
 			gap: clamp(0.5rem, 2svh, 0.8rem);
 			padding: clamp(0.5rem, 1.5vw, 1rem) 0;
 		}
 
 		.card {
+			gap: clamp(0.3rem, 1vh, 0.4rem);
 			gap: clamp(0.3rem, 1svh, 0.4rem);
 		}
 	}
 
 	@media (max-width: 480px) {
+		min-height: 90vh;
 		min-height: 90svh;
 		.skills-container {
 			padding: 0 1rem;

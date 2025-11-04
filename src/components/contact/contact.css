@@ -1,4 +1,5 @@
 #contact {
+	min-height: 100vh;
 	min-height: 100svh;
 	display: flex;
 	flex-direction: column;
@@ -105,6 +106,7 @@
 	}
 
 	@media (max-width: 1080px) {
+		min-height: calc(100vh - 70px);
 		min-height: calc(100svh - 70px);
 		margin-bottom: 50px;
 		.contact-form {

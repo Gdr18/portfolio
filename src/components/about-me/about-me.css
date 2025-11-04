@@ -1,5 +1,7 @@
 #about-me {
+	--falling-item: 40vh;
 	--falling-item: 40svh;
+	min-height: 100vh;
 	min-height: 100svh;
 	display: flex;
 	flex-direction: column;
@@ -8,8 +10,9 @@
 	padding: clamp(1rem, 5vw, 4rem);
 	font-size: 0.95rem;
 	#story-modal {
+		max-height: 90vh;
 		max-height: 90svh;
-		width: 50vw;
+		width: 40vw;
 		color: var(--grey-light);
 		padding: 2rem;
 		opacity: 0;
@@ -68,14 +71,18 @@
 					top: 0;
 					opacity: 0;
 					transition: opacity 0.4s ease-in-out;
-					header h2,
+					header h2 {
+						padding: 1rem;
+					}
 					ul {
-						padding: 1.1rem 0 0.3rem 1.4rem;
 						list-style-type: square;
 						list-style-position: inside;
 						li {
-							text-indent: 15px;
-							margin-bottom: 0.5em;
+							margin-left: 1.5rem;
+							line-height: 1.5rem;
+						}
+						li::marker {
+							color: var(--black-dark)
 						}
 					}
 				}
@@ -114,6 +121,7 @@
 					left: var(--position);
 				}
 				p {
+					display: none;
 					color: var(--black-dark);
 					font-weight: 700;
 					position: absolute;
@@ -169,6 +177,7 @@
 	}
 
 	@media (max-width: 1080px) {
+		--falling-item: 35vh;
 		--falling-item: 35svh;
 		font-size: 1.1rem;
 		.bento {
@@ -180,18 +189,22 @@
 				"certifications certifications";
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-rows: repeat(3, 300px);
-		}
-		#story-modal {
-			width: 70%;
-			padding: 1rem;
+			.item-bento.text-bento .text-container ul li {
+				line-height: 2rem;
+			}
 		}
 	}
 
 	@media (max-width: 480px) {
+		--falling-item: 32vh;
 		--falling-item: 32svh;
 		font-size: 0.75rem;
 		#story-modal {
 			width: 90%;
+			gap: 1rem;
+			p {
+				font-size: 0.8rem;
+			}
 		}
 		.bento {
 			grid-template-columns: 1fr;
@@ -201,8 +214,14 @@
 				"me"
 				"map"
 				"certifications";
-			.text-bento ul {
-				padding: 0 1rem;
+			.item-bento.text-bento .text-container {
+				header h2 {
+					padding: 0.5rem 0 0.5rem 0.7rem;
+				}
+				ul li {
+					margin-left: 1rem;
+					line-height: 1.2rem;
+				}
 			}
 		}
 	}
