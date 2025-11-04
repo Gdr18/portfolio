@@ -57,13 +57,12 @@
 			object-fit: cover;
 		}
 		.item-bento {
-			will-change: transform;
+			will-change: auto;
 			overflow: hidden;
 			transition: transform 0.3s, opacity 0.3s;
 			&.text-bento {
 				img {
 					filter: grayscale(50) blur(1px);
-
 					transition: opacity 0.4s ease-in-out, transform 0.8s ease-in-out;
 				}
 				.text-container {
@@ -82,13 +81,13 @@
 							line-height: 1.5rem;
 						}
 						li::marker {
-							color: var(--black-dark)
+							color: var(--black-dark);
 						}
 					}
 				}
 				&:hover {
 					img {
-						opacity: 0.05;
+						opacity: 0.1;
 						transform: scale3d(2, 2, 1);
 					}
 					.text-container {
@@ -181,6 +180,7 @@
 		--falling-item: 35svh;
 		font-size: 1.1rem;
 		.bento {
+			will-change: auto;
 			max-width: 100%;
 			aspect-ratio: auto;
 			grid-template-areas:
@@ -189,8 +189,35 @@
 				"certifications certifications";
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-rows: repeat(3, 300px);
-			.item-bento.text-bento .text-container ul li {
-				line-height: 2rem;
+			.item-bento.text-bento {
+				img {
+					opacity: 0.1;
+					transform: scale3d(2, 2, 1);
+				}
+				.text-container {
+					opacity: 1;
+					ul li {
+						line-height: 2rem;
+					}
+				}
+			}
+			.photo-bento {
+				p {
+					display: block;
+				}
+				:hover .items-photo-me {
+					display: none;
+					animation: none;
+				}
+			}
+			.map {
+				svg {
+					animation: jump 1s ease-in-out infinite alternate;
+					opacity: 1;
+				}
+				p {
+					opacity: 1;
+				}
 			}
 		}
 	}
@@ -221,6 +248,48 @@
 				ul li {
 					margin-left: 1rem;
 					line-height: 1.2rem;
+				}
+			}
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		#story-modal {
+			transition: none;
+		}
+		.bento .item-bento {
+			&.text-bento {
+				img {
+					transform: scale3d(2, 2, 1);
+					opacity: 0.1;
+				}
+				.text-container {
+					opacity: 1;
+				}
+			}
+			&.photo-bento {
+				&:hover {
+					transform: none;
+					box-shadow: none;
+					.items-photo-me {
+						animation: none;
+					}
+					img {
+						filter: none;
+						opacity: 1;
+					}
+				}
+			}
+			&.map {
+				svg {
+					opacity: 1;
+					animation: none;
+				}
+				p {
+					opacity: 1;
+				}
+				&:hover svg {
+					animation: none;
 				}
 			}
 		}

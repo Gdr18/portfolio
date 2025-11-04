@@ -207,49 +207,29 @@ h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	* {
-		animation: none !important;
-		transform: none !important;
+	.heading-transition h1 {
+		animation: none ;
 	}
-
-	#home {
-		.img-container {
-			opacity: 1 !important;
-		}
-		header {
-			opacity: 1 !important;
-			h2 {
-				opacity: 1 !important;
-			}
-		}
+	.animated-card {
+		animation: none ;
 	}
-
-	#skills .skills-container {
-		.card {
-			min-width: 0 !important;
-			padding: 0 !important;
-			padding-top: 1rem !important;
-			.logos-list {
-				height: 100% !important;
-				min-width: 0 !important;
-				mask-image: none !important;
-				padding: 0 1rem !important;
-				flex-wrap: nowrap !important;
-				overflow: auto !important;
-				.logo-tech {
-					position: static !important;
-					flex: 0 0 var(--width-item-carousel) !important;
-				}
-			}
-		}
-		.secondaries-skills .logos-list {
-			display: flex !important;
-			justify-content: center !important;
-		}
+	.card:hover{
+		border-color: var(--purple-dark);
+		box-shadow: none;
+	}
+	.button:hover{
+		transform: none;
+		box-shadow: var(--shadow-button);
+	}
+	.advise {
+		transition: none;
+	}
+	.link-icon:hover {
+		transform: none;
 	}
 }
 
-@media (width <= 1080px), (hover: none) and (pointer: coarse) {
+@media (width <= 1080px) {
 	:root {
 		--height-heading-transition: 40vh;
 		--height-heading-transition: 40svh;
@@ -258,77 +238,16 @@ h2 {
 		padding-left: 0;
 		padding-bottom: 90px;
 	}
-	#about-me .bento {
-		will-change: auto;
-		.photo-bento:hover .items-photo-me {
-			display: none !important;
-			animation: none !important;
-		}
-		.text-bento {
-			img {
-				opacity: 0.05 !important;
-				transform: scale3d(2, 2, 1) !important;
-			}
-			.text-container {
-				opacity: 1 !important;
-			}
-		}
-		.photo-bento p {
-			display: block !important;
-		}
-		.map {
-			svg {
-				animation: jump 1s ease-in-out infinite alternate !important;
-				opacity: 1 !important;
-			}
-			p {
-				opacity: 1 !important;
-			}
-		}
-	}
 }
 
 @media (width < 768px) {
 	:root {
-		--height-heading-transition: 30vh;
 		--height-heading-transition: 30svh;
 	}
-
 	.button {
 		font-size: 0.9rem;
 	}
 }
-
-/* @media (hover: none) and (pointer: coarse) {
-	#about-me .bento {
-		will-change: auto;
-		.photo-bento:hover .items-photo-me {
-			display: none !important;
-			animation: none !important;
-		}
-		.text-bento {
-			img {
-				opacity: 0.05 !important;
-				transform: scale3d(2, 2, 1) !important;
-			}
-			.text-container {
-				opacity: 1 !important;
-			}
-		}
-		.photo-bento p {
-			display: block !important;
-		}
-		.map {
-			svg {
-				animation: jump 1s ease-in-out infinite alternate !important;
-				opacity: 1 !important;
-			}
-			p {
-				opacity: 1 !important;
-			}
-		}
-	}
-} */
 
 @keyframes header-reveal {
 	0% {
