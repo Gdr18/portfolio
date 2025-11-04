@@ -249,7 +249,7 @@ h2 {
 	}
 }
 
-@media (width <= 1080px) and (hover: none) and (pointer: coarse) {
+@media (width <= 1080px), (hover: none) and (pointer: coarse) {
 	:root {
 		--height-heading-transition: 40vh;
 		--height-heading-transition: 40svh;
