@@ -1,6 +1,5 @@
 #home {
 	min-height: 100vh;
-	min-height: 100dvh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -19,7 +18,6 @@
 		position: relative;
 		.avatar {
 			height: 80vh;
-			height: 80dvh;
 			width: auto;
 			aspect-ratio: 1/1;
 			object-fit: cover;
@@ -85,13 +83,11 @@
 
 	@media (width < 1080px) {
 		min-height: calc(100vh - 90px);
-		min-height: calc(100dvh - 90px);
 		header {
 			top: 55%;
 		}
 		.img-container .avatar {
 			height: 65vh;
-			height: 65dvh;
 		}
 		&:has(header:hover),
 		.img-container:hover {
@@ -104,7 +100,6 @@
 
 	@media (width < 768px) {
 		min-height: calc(100vh - 70px);
-		min-height: calc(100dvh - 70px);
 		header {
 			h1,
 			h2 {

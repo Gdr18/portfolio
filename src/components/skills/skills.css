@@ -1,7 +1,6 @@
 #skills {
 	--width-item-carousel: 100px;
 	min-height: 100vh;
-	min-height: 100dvh;
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -18,7 +17,6 @@
 			display: grid;
 			gap: 0.5rem;
 			animation-range: entry 10% cover 40vh;
-			animation-range: entry 10% cover 40dvh;
 			&:hover .logos-list.logo-tech {
 				animation-play-state: paused;
 			}
@@ -99,13 +97,11 @@
 
 	@media (width < 1080px) {
 		min-height: calc(100vh - 90px);
-		min-height: calc(100dvh - 90px);
 		.skills-container {
 			gap: 2rem;
 		}
 		.card {
 			gap: clamp(0.3rem, 1vh, 1rem);
-			gap: clamp(0.3rem, 1dvh, 1rem);
 			&:hover .logos-list.logo-tech {
 				animation-play-state: none;
 			}
@@ -114,7 +110,6 @@
 
 	@media (width < 768px) {
 		min-height: calc(100vh - 70px);
-		min-height: calc(100dvh - 70px);
 		.skills-container {
 			padding: 0 1rem;
 			gap: 1rem;

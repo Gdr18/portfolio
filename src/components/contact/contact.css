@@ -1,6 +1,5 @@
 #contact {
 	min-height: 100vh;
-	min-height: 100dvh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -111,7 +110,6 @@
 
 	@media (width < 1080px) {
 		min-height: calc(100vh - 110px - 90px);
-		min-height: calc(100dvh - 110px - 90px);
 		.contact-form {
 			display: grid;
 			grid-template-columns: 1fr;

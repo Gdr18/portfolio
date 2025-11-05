@@ -56,7 +56,6 @@
 	--z-nav: 400;
 	--z-modal: 1000;
 	--height-heading-transition: 60vh;
-	--height-heading-transition: 60dvh;
 }
 
 *,
@@ -128,7 +127,6 @@ h2 {
 		animation: header-reveal both;
 		animation-timeline: view();
 		animation-range: entry 20% cover 100vh;
-		animation-range: entry 20% cover 100dvh;
 	}
 }
 
@@ -203,13 +201,11 @@ h2 {
 	animation: card-reveal both;
 	animation-timeline: view();
 	animation-range: entry 20% cover 50vh;
-	animation-range: entry 20% cover 50dvh;
 }
 
 @media (width <= 1080px) {
 	:root {
 		--height-heading-transition: 40vh;
-		--height-heading-transition: 40dvh;
 	}
 	body {
 		padding-left: 0;
@@ -235,7 +231,7 @@ h2 {
 
 @media (width < 768px) {
 	:root {
-		--height-heading-transition: 30dvh;
+		--height-heading-transition: 30vh;
 	}
 	body {
 		padding-bottom: 70px;
