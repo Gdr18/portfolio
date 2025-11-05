@@ -109,7 +109,7 @@
 	}
 
 	@media (width < 768px) {
-		min-height: calc(100dvh - 70px);
+		min-height: calc(100svh - 70px);
 		min-height: calc(100svh - 70px);
 		.skills-container {
 			padding: 0 1rem;
