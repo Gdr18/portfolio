@@ -1,6 +1,6 @@
 #about-me {
-	--falling-item: 40vh;
-	min-height: 100vh;
+	--falling-item: 40dvh;
+	min-height: 100dvh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -8,7 +8,7 @@
 	padding: clamp(1rem, 5vw, 4rem);
 	font-size: 0.95rem;
 	#story-modal {
-		max-height: 90vh;
+		max-height: 90dvh;
 		width: 600px;
 		color: var(--grey-light);
 		padding: 2rem;
@@ -182,7 +182,7 @@
 	@media (width < 1080px) {
 		font-size: 1.1rem;
 		padding: 0;
-		min-height: calc(100vh - 90px);
+		min-height: calc(100dvh - 90px);
 		#story-modal p {
 			font-size: 1.3rem;
 		}
@@ -240,7 +240,7 @@
 	}
 
 	@media (width < 768px) {
-		--falling-item: 32vh;
+		--falling-item: 32dvh;
 		font-size: 0.75rem;
 		padding: 3rem 0;
 		#story-modal {

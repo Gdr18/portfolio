@@ -3,7 +3,7 @@ nav {
 	border-right: 2px solid var(--black-light);
 	box-shadow: 2px 0 20px var(--black-light);
 	padding: clamp(0.75rem, 1vw, 1.5rem);
-	min-height: 100vh;
+	min-height: 100dvh;
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -18,7 +18,7 @@ nav {
 	.links-nav-section {
 		display: flex;
 		flex-direction: column;
-		gap: clamp(1rem, 2vh, 2.5rem);
+		gap: clamp(1rem, 2dvh, 2.5rem);
 	}
 
 	@media (width < 1080px) {
