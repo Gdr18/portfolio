@@ -1,5 +1,5 @@
 #home {
-	min-height: 100dvh;
+	min-height: 100svh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -17,7 +17,7 @@
 		transform: translateY(40px);
 		position: relative;
 		.avatar {
-			height: 80dvh;
+			height: 80svh;
 			width: auto;
 			aspect-ratio: 1/1;
 			object-fit: cover;
@@ -82,12 +82,12 @@
 	}
 
 	@media (width < 1080px) {
-		min-height: calc(100dvh - 90px);
+		min-height: calc(100svh - 90px);
 		header {
 			top: 55%;
 		}
 		.img-container .avatar {
-			height: 65dvh;
+			height: 65svh;
 		}
 		&:has(header:hover),
 		.img-container:hover {
@@ -99,7 +99,7 @@
 	}
 
 	@media (width < 768px) {
-		min-height: calc(100dvh - 70px);
+		min-height: calc(100svh - 70px);
 		header {
 			h1,
 			h2 {

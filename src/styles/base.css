@@ -55,7 +55,7 @@
 	--z-header-home: 300;
 	--z-nav: 400;
 	--z-modal: 1000;
-	--height-heading-transition: 60dvh;
+	--height-heading-transition: 60svh;
 }
 
 *,
@@ -126,7 +126,7 @@ h2 {
 		-webkit-text-stroke: var(--stroke-text);
 		animation: header-reveal both;
 		animation-timeline: view();
-		animation-range: entry 20% cover 100dvh;
+		animation-range: entry 20% cover 100svh;
 	}
 }
 
@@ -200,12 +200,12 @@ h2 {
 .animated-card {
 	animation: card-reveal both;
 	animation-timeline: view();
-	animation-range: entry 20% cover 50dvh;
+	animation-range: entry 20% cover 50svh;
 }
 
 @media (width <= 1080px) {
 	:root {
-		--height-heading-transition: 40dvh;
+		--height-heading-transition: 40svh;
 	}
 	body {
 		padding-left: 0;
@@ -231,7 +231,7 @@ h2 {
 
 @media (width < 768px) {
 	:root {
-		--height-heading-transition: 30dvh;
+		--height-heading-transition: 30svh;
 	}
 	body {
 		padding-bottom: 70px;
