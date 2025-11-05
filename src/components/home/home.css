@@ -21,7 +21,7 @@
 			height: 80vh;
 			height: 80dvh;
 			width: auto;
-			aspect-ratio: 1 / 1;
+			aspect-ratio: 1/1;
 			object-fit: cover;
 			border: var(--border-orange);
 			border-radius: var(--border-radius-box);
@@ -115,8 +115,7 @@
 			}
 		}
 		.img-container .avatar {
-			height: 60vh;
-			height: 60dvh;
+			max-height: 500px;
 			aspect-ratio: auto;
 		}
 	}
