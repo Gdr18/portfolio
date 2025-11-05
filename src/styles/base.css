@@ -56,7 +56,7 @@
 	--z-nav: 400;
 	--z-modal: 1000;
 	--height-heading-transition: 60vh;
-	--height-heading-transition: 60svh;
+	--height-heading-transition: 60dvh;
 }
 
 *,
@@ -128,7 +128,7 @@ h2 {
 		animation: header-reveal both;
 		animation-timeline: view();
 		animation-range: entry 20% cover 100vh;
-		animation-range: entry 20% cover 100svh;
+		animation-range: entry 20% cover 100dvh;
 	}
 }
 
@@ -137,7 +137,6 @@ h2 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 1rem;
 	min-height: 40px;
 	color: var(--black-light);
 	background-color: var(--orange-dark);
@@ -204,52 +203,55 @@ h2 {
 	animation: card-reveal both;
 	animation-timeline: view();
 	animation-range: entry 20% cover 50vh;
-	animation-range: entry 20% cover 50svh;
+	animation-range: entry 20% cover 50dvh;
 }
 
 @media (width <= 1080px) {
 	:root {
 		--height-heading-transition: 40vh;
-		--height-heading-transition: 40svh;
+		--height-heading-transition: 40dvh;
 	}
 	body {
 		padding-left: 0;
 		padding-bottom: 90px;
 	}
-	.card:hover{
+	.card:hover {
 		border-color: var(--purple-dark);
 		box-shadow: none;
 	}
-	.button:hover{
+	.button:hover {
 		transform: none;
 		box-shadow: var(--shadow-button);
 	}
 	.link-icon:hover {
 		transform: none;
 	}
+	.heading-transition {
+		margin-top: 0;
+	}
 }
 
 @media (width < 768px) {
 	:root {
-		--height-heading-transition: 30svh;
+		--height-heading-transition: 30dvh;
 	}
-	.button {
-		font-size: 0.9rem;
+	body {
+		padding-bottom: 70px;
 	}
 }
 
 @media (prefers-reduced-motion: reduce) {
 	.heading-transition h1 {
-		animation: none ;
+		animation: none;
 	}
 	.animated-card {
-		animation: none ;
+		animation: none;
 	}
-	.card:hover{
+	.card:hover {
 		border-color: var(--purple-dark);
 		box-shadow: none;
 	}
-	.button:hover{
+	.button:hover {
 		transform: none;
 		box-shadow: var(--shadow-button);
 	}

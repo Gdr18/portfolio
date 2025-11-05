@@ -1,8 +1,8 @@
 #about-me {
 	--falling-item: 40vh;
-	--falling-item: 40svh;
+	--falling-item: 40dvh;
 	min-height: 100vh;
-	min-height: 100svh;
+	min-height: 100dvh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -11,7 +11,7 @@
 	font-size: 0.95rem;
 	#story-modal {
 		max-height: 90vh;
-		max-height: 90svh;
+		max-height: 90dvh;
 		width: 600px;
 		color: var(--grey-light);
 		padding: 2rem;
@@ -26,7 +26,11 @@
 		transition: scale 0.3s ease-in-out, opacity 0.3s ease-in-out allow-discrete;
 		p {
 			font-size: clamp(0.9rem, 2vw, 1.1rem);
-			text-align: center;
+			hyphens: auto;
+			line-height: 1.2;
+			strong {
+				color: var(--blue);
+			}
 		}
 		&[open] {
 			opacity: 1;
@@ -121,12 +125,14 @@
 				}
 				p {
 					display: none;
+					border-radius: 5px;
+					padding: 0.2rem;
+					background-color: rgba(116, 88, 165, 0.8);
 					color: var(--black-dark);
 					font-weight: 700;
 					position: absolute;
-					bottom: 5%;
-					right: 5%;
-					text-shadow: var(--shadow-text);
+					bottom: 3%;
+					right: 3%;
 					z-index: var(--z-text-photo);
 				}
 				&:hover {
@@ -176,8 +182,11 @@
 		}
 	}
 
-	@media (max-width: 1080px) {
+	@media (width < 1080px) {
 		font-size: 1.1rem;
+		padding: 0;
+		min-height: calc(100vh - 90px);
+		min-height: calc(100dvh - 90px);
 		.bento {
 			will-change: auto;
 			max-width: 100%;
@@ -191,8 +200,8 @@
 			.item-bento {
 				&.text-bento {
 					img {
-						opacity: 0.1;
 						transform: scale3d(2, 2, 1);
+						opacity: 0.1;
 					}
 					.text-container {
 						opacity: 1;
@@ -206,20 +215,22 @@
 						display: block;
 					}
 					&:hover {
+						transform: none;
+						box-shadow: none;
+						.items-photo-me {
+							animation: none;
+							display: none;
+						}
 						img {
 							filter: none;
 							opacity: 1;
-						}
-						.items-photo-me {
-							display: none;
-							animation: none;
 						}
 					}
 				}
 				&.map {
 					svg {
-						animation: jump 1s ease-in-out infinite alternate;
 						opacity: 1;
+						animation: jump 1s ease-in-out infinite alternate;
 					}
 					p {
 						opacity: 1;
@@ -229,14 +240,20 @@
 		}
 	}
 
-	@media (max-width: 480px) {
+	@media (width < 768px) {
 		--falling-item: 32vh;
-		--falling-item: 32svh;
+		--falling-item: 32dvh;
 		font-size: 0.75rem;
+		padding: 3rem 0;
 		#story-modal {
+			padding: 1rem;
 			gap: 1rem;
 			p {
 				font-size: 0.8rem;
+			}
+			.button {
+				font-size: 0.8rem;
+				padding: 0 0.8rem;
 			}
 		}
 		.bento {
@@ -263,7 +280,7 @@
 		#story-modal {
 			transition: none;
 		}
-		.bento .item-bento {
+		.item-bento {
 			&.text-bento {
 				img {
 					transform: scale3d(2, 2, 1);
@@ -278,6 +295,7 @@
 					transform: none;
 					box-shadow: none;
 					.items-photo-me {
+						display: none;
 						animation: none;
 					}
 					img {

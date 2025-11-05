@@ -1,24 +1,23 @@
 #projects {
 	min-height: 100vh;
-	min-height: 100svh;
-	padding: clamp(1rem, 8vw, 6rem);
+	min-height: 100dvh;
+	padding: 5rem;
 	.project-list {
 		display: grid;
 		grid-template-columns: repeat(
 			auto-fit,
 			minmax(clamp(300px, 45vw, 420px), 1fr)
 		);
-		gap: clamp(1rem, 7vw, 6rem);
+		gap: 5rem;
 		.card {
 			padding: clamp(1rem, 3vh, 2rem);
-			padding: clamp(1rem, 3svh, 2rem);
+			padding: clamp(1rem, 3dvh, 2rem);
 			height: auto;
-			max-height: calc(95vh - 90px);
-			max-height: calc(95svh - 90px);
+			max-height: 95dvh;
 			display: flex;
 			flex-direction: column;
 			gap: clamp(0.5rem, 2vh, 3rem);
-			gap: clamp(0.5rem, 2svh, 3rem);
+			gap: clamp(0.5rem, 2dvh, 3rem);
 			justify-content: space-between;
 			header h2 {
 				text-indent: 10px;
@@ -58,16 +57,22 @@
 			}
 		}
 	}
-	@media (min-width: 1080px) {
-		margin-bottom: 20px;
+
+	@media (width < 1080px) {
+		padding: 3rem;
+		.project-list {
+			gap: 3rem;
+		}
 	}
 
-	@media (max-width: 480px) {
-		margin-bottom: 0;
-		padding: 1rem;
+	@media (width < 768px) {
+		padding: 3rem 1rem;
 		.project-list {
-			grid-template-columns: 100%;
+			gap: 1rem;
+			grid-template-columns: 1fr;
 			.card {
+				max-height: calc(95vh - 70px);
+				max-height: calc(95dvh - 70px);
 				.logo-container {
 					gap: 1.6rem;
 				}
