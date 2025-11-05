@@ -187,6 +187,9 @@
 		padding: 0;
 		min-height: calc(100vh - 90px);
 		min-height: calc(100dvh - 90px);
+		#story-modal p {
+			font-size: 1.3rem;
+		}
 		.bento {
 			will-change: auto;
 			max-width: 100%;

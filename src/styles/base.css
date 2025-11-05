@@ -222,9 +222,11 @@ h2 {
 	.button:hover {
 		transform: none;
 		box-shadow: var(--shadow-button);
+		color: var(--orange-dark);
 	}
 	.link-icon:hover {
 		transform: none;
+		color: var(--orange-dark);
 	}
 	.heading-transition {
 		margin-top: 0;
