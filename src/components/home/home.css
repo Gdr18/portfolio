@@ -115,8 +115,7 @@
 			}
 		}
 		.img-container .avatar {
-			max-height: 500px;
-			height: 60%;
+			height: 500px;
 			aspect-ratio: auto;
 		}
 	}
