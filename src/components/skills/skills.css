@@ -96,12 +96,12 @@
 	}
 
 	@media (width < 1080px) {
-		min-height: calc(100svh - 90px);
+		min-height: calc(100dvh - 90px);
 		.skills-container {
 			gap: 2rem;
 		}
 		.card {
-			gap: clamp(0.3rem, 1svh, 1rem);
+			gap: clamp(0.3rem, 1vh, 1rem);
 			&:hover .logos-list.logo-tech {
 				animation-play-state: none;
 			}
@@ -109,7 +109,7 @@
 	}
 
 	@media (width < 768px) {
-		min-height: calc(100svh - 70px);
+		min-height: calc(100dvh - 70px);
 		.skills-container {
 			padding: 0 1rem;
 			gap: 1rem;

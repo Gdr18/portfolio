@@ -182,7 +182,7 @@
 	@media (width < 1080px) {
 		font-size: 1.1rem;
 		padding: 0;
-		min-height: calc(100svh - 90px);
+		min-height: calc(100dvh - 90px);
 		#story-modal p {
 			font-size: 1.3rem;
 		}

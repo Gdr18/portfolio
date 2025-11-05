@@ -9,12 +9,12 @@
 		);
 		gap: 5rem;
 		.card {
-			padding: clamp(1rem, 3svh, 2rem);
+			padding: clamp(1rem, 3vh, 2rem);
 			height: auto;
 			max-height: 95svh;
 			display: flex;
 			flex-direction: column;
-			gap: clamp(0.5rem, 2svh, 3rem);
+			gap: clamp(0.5rem, 2vh, 3rem);
 			justify-content: space-between;
 			header h2 {
 				text-indent: 10px;
@@ -68,7 +68,7 @@
 			gap: 1rem;
 			grid-template-columns: 1fr;
 			.card {
-				max-height: calc(95svh - 70px);
+				max-height: calc(95dvh - 70px);
 				.logo-container {
 					gap: 1.6rem;
 				}

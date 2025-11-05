@@ -109,7 +109,7 @@
 	}
 
 	@media (width < 1080px) {
-		min-height: calc(100svh - 110px - 90px);
+		min-height: calc(100dvh - 110px - 90px);
 		.contact-form {
 			display: grid;
 			grid-template-columns: 1fr;
