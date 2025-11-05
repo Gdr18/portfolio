@@ -68,7 +68,7 @@
 			gap: 1rem;
 			grid-template-columns: 1fr;
 			.card {
-				max-height: calc(95dvh - 70px);
+				max-height: calc(95svh - 70px);
 				.logo-container {
 					gap: 1.6rem;
 				}

@@ -82,7 +82,7 @@
 	}
 
 	@media (width < 1080px) {
-		min-height: calc(100dvh - 90px);
+		min-height: calc(100svh - 90px);
 		header {
 			top: 55%;
 		}
@@ -99,7 +99,7 @@
 	}
 
 	@media (width < 768px) {
-		min-height: calc(100dvh - 70px);
+		min-height: calc(100svh - 70px);
 		header {
 			h1,
 			h2 {
