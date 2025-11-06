@@ -231,11 +231,15 @@ h2 {
 
 @media (width < 768px) {
 	:root {
-		--translate-heading: -7rem;
+		--translate-heading: -5rem;
 	}
 
 	body {
 		padding-bottom: 70px;
+	}
+
+	.heading-transition {
+		height: 25vh;
 	}
 }
 
