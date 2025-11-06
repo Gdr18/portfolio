@@ -239,7 +239,7 @@
 		}
 	}
 
-	@media (width < 768px) {
+	@media (width < 480px) {
 		--falling-item: 32svh;
 		min-height: auto;
 		font-size: 0.75rem;

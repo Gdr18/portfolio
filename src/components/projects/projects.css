@@ -62,7 +62,7 @@
 		}
 	}
 
-	@media (width < 768px) {
+	@media (width < 480px) {
 		padding: 3rem 1rem;
 		.project-list {
 			gap: 1rem;

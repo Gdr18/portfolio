@@ -98,7 +98,7 @@
 		}
 	}
 
-	@media (width < 768px) {
+	@media (width < 480px) {
 		min-height: calc(100svh - 70px);
 		header {
 			h1,

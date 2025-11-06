@@ -223,21 +223,19 @@ h2 {
 	}
 	.heading-transition {
 		margin-top: 0;
-		height: 30vh;
+		height: 25vh;
+		h1 {
+			animation: none;
+		}
 	}
 }
 
-@media (width < 768px) {
-	:root {
-		--translate-heading: -5rem;
-	}
-
+@media (width < 480px) {
 	body {
 		padding-bottom: 70px;
 	}
-
 	.heading-transition {
-		height: 25vh;
+		height: 20vh;
 	}
 }
 
