@@ -11,7 +11,7 @@
 		.card {
 			padding: clamp(1rem, 3vh, 2rem);
 			height: auto;
-			max-height: 95%;
+			max-height: 95svh;
 			display: flex;
 			flex-direction: column;
 			gap: clamp(0.5rem, 2vh, 3rem);
@@ -68,7 +68,7 @@
 			gap: 1rem;
 			grid-template-columns: 1fr;
 			.card {
-				max-height: calc(95% - 70px);
+				max-height: calc(95svh - 70px);
 				.logo-container {
 					gap: 1.6rem;
 				}
