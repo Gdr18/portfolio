@@ -37,7 +37,6 @@ const sendEmailAndReset = async (event, formElement) => {
 	if (response?.status === 200) {
 		advise.showMessage(adviseElement);
 	} else {
-		console.error("Error al enviar el email");
 		advise.showError(adviseElement);
 	}
 
