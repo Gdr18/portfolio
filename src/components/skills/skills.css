@@ -17,7 +17,7 @@
 			display: grid;
 			gap: 0.5rem;
 			animation-range: entry 10% cover 40svh;
-			&:hover .logos-list.logo-tech {
+			&:hover .logos-list .logo-tech {
 				animation-play-state: paused;
 			}
 			header {
@@ -109,7 +109,6 @@
 	}
 
 	@media (width < 768px) {
-		min-height: calc(100svh - 70px);
 		min-height: calc(100svh - 70px);
 		.skills-container {
 			padding: 0 1rem;
