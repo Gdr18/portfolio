@@ -16,7 +16,7 @@
 			overflow: hidden;
 			display: grid;
 			gap: 0.5rem;
-			animation-range: entry 10% cover 40svh;
+			animation-range: entry 10% cover 40vh;
 			&:hover .logos-list .logo-tech {
 				animation-play-state: paused;
 			}
@@ -113,11 +113,7 @@
 		.skills-container {
 			padding: 0 1rem;
 			gap: 1rem;
-			/* TODO: Cambiar */
-			/* grid-template-rows: repeat(3, 150px); */
-			.card {
-				height: 150px;
-			}
+			grid-template-rows: repeat(3, 150px);
 		}
 	}
 

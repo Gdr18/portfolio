@@ -112,7 +112,7 @@ h2 {
 
 .heading-transition {
 	margin-top: 50px;
-	height: 60vh;
+	height: 60%;
 	width: 100%;
 	text-align: right;
 	align-content: flex-end;
@@ -187,8 +187,6 @@ h2 {
 	background-color: var(--grey-dark);
 	border-radius: var(--border-radius-box);
 	border: var(--border-purple);
-	transform-style: preserve-3d;
-	perspective: 600px;
 	transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 	h2 {
 		-webkit-text-stroke: 0.5px var(--black-dark);
