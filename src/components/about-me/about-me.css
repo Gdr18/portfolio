@@ -241,6 +241,7 @@
 
 	@media (width < 768px) {
 		--falling-item: 32svh;
+		min-height: auto;
 		font-size: 0.75rem;
 		padding: 3rem 0;
 		#story-modal {

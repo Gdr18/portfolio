@@ -16,7 +16,8 @@ export const addContactListeners = (section) => {
  * Copia el email al portapapeles y muestra un mensaje temporal.
  */
 const copyEmail = () => {
-	const email = import.meta.env.VITE_EMAIL;
+	const email = document.querySelector(".email-container strong").textContent;
+	console.log(email);
 	const adviseElement = document.querySelector(".copy-advise");
 	navigator.clipboard.writeText(email).then(() => {
 		advise.displayUserAdvice(adviseElement);

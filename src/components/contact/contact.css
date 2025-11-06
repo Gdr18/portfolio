@@ -42,8 +42,8 @@
 					width: 25px;
 				}
 				.copy-advise {
-					right: -80%;
-					top: 10%;
+					right: -28%;
+					top: 18%;
 					font-size: clamp(0.7rem, 1vw, 0.7rem);
 				}
 			}
