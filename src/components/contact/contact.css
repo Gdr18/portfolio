@@ -149,8 +149,9 @@
 				}
 			}
 			.card {
-				min-width: 90%;
-				max-width: none;
+				min-width: auto;
+				width: 90%;
+				max-width: 450px;
 				header h2 {
 					font-size: 1.3rem;
 				}
