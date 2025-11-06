@@ -55,7 +55,6 @@
 	--z-header-home: 300;
 	--z-nav: 400;
 	--z-modal: 1000;
-	--translate-heading: -10rem;
 }
 
 *,
@@ -265,7 +264,7 @@ h2 {
 @keyframes header-reveal {
 	0% {
 		opacity: 0;
-		transform: translateY(var(--translate-heading)) skew(20deg);
+		transform: translateY(-10rem) skew(20deg);
 	}
 	100% {
 		opacity: 1;

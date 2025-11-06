@@ -110,6 +110,7 @@
 
 	@media (width < 1080px) {
 		min-height: calc(100svh - 110px - 90px);
+		padding: 1rem 0;
 		.contact-form {
 			display: grid;
 			grid-template-columns: 1fr;
