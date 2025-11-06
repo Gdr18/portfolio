@@ -180,7 +180,7 @@
 
 	@media (width < 1080px) {
 		font-size: 1.1rem;
-		padding: 1rem 0;
+		padding: 3rem 0;
 		min-height: calc(100svh - 90px);
 		#story-modal p {
 			font-size: 1.3rem;
@@ -242,7 +242,6 @@
 		--falling-item: 32svh;
 		min-height: auto;
 		font-size: 0.75rem;
-		padding: 3rem 0;
 		#story-modal {
 			padding: 1rem;
 			gap: 1rem;
