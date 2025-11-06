@@ -17,7 +17,6 @@ export const addContactListeners = (section) => {
  */
 const copyEmail = () => {
 	const email = document.querySelector(".email-container strong").textContent;
-	console.log(email);
 	const adviseElement = document.querySelector(".copy-advise");
 	navigator.clipboard.writeText(email).then(() => {
 		advise.displayUserAdvice(adviseElement);

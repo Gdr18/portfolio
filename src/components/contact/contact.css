@@ -140,8 +140,12 @@
 				.logo {
 					width: 60px;
 				}
-				.email-container .copy-advise {
-					right: -95%;
+				.email-container {
+					gap: 0.5rem;
+					.copy-advise {
+						right: -33%;
+						font-size: 0.6rem;
+					}
 				}
 			}
 			.card {
