@@ -4,7 +4,7 @@
 
 Portfolio personal con infomación profesional sobre mí. Incluye secciones como "Sobre mí", "Tecnologías", "Proyectos" y "Contacto".
 
-[Demo Portfolio](#)
+[Demo Portfolio](https://gadordev.site)
 
 ## Tecnologías
 - Vite
@@ -29,7 +29,7 @@ npm install
 ```
 Configura las variables de entorno creando un archivo `.env` en la raíz del proyecto con las siguientes variables:
 ```
-VITE_EMAIL=tu_email@ejemplo.com
+VITE_EMAILJS_SECRET_KEY = "tu_secret_key"
 ```
 
 ## Comandos disponibles
@@ -46,5 +46,3 @@ para previsualizar el build de producción:
 ```bash
 npm run preview
 ```
-
-Actualmente sigue en construcción.
