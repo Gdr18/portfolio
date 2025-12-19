@@ -115,6 +115,11 @@
 			gap: 1rem;
 			grid-template-rows: repeat(3, 150px);
 		}
+		.skills-container .secondaries-skills {
+			header h2 {
+				text-align: left;
+			}
+		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {

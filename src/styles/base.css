@@ -88,6 +88,7 @@ h2 {
 }
 
 .advise {
+	width: max-content;
 	font-size: 0.8rem;
 	font-weight: 700;
 	padding: 0.2rem 0.5rem;

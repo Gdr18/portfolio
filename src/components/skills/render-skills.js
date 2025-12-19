@@ -35,7 +35,7 @@ const generateSkillList = (listInfo) => {
  */
 export const renderSkills = () => {
 	const skillsInfo = {
-		main: ["HTML5", "CSS", "JavaScript", "React", "Python", "Flask", "MongoDB"],
+		main: ["HTML5", "CSS", "JavaScript", "TypeScript", "React", "Python", "Flask", "MongoDB"],
 		tools: [
 			"GitHub",
 			"Git",
@@ -47,7 +47,7 @@ export const renderSkills = () => {
 			"Jira",
 			"Figma",
 		],
-		secondary: ["MySQL", "Redis", "SASS"],
+		secondary: ["MySQL", "Redis", "Flask-SQLAlchemy", "SASS"],
 	};
 
 	const htmlFormated = htmlSkills
