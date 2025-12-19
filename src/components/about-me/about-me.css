@@ -270,6 +270,9 @@
 					line-height: 1.2rem;
 				}
 			}
+			.item-bento.certifications {
+				overflow-y: auto;
+			}
 		}
 	}
 
