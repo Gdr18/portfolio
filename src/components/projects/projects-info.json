@@ -1,5 +1,20 @@
 [
     {
+        "title": "Games JSON",
+        "technologies": [
+            "python",
+            "flask"
+        ],
+        "image": "mockup_games_json.webp",
+        "description": "App SSR cuya finalidad es proveer objetos JSON con información de videojuegos mediante web scraping (BeautifulSoup). Se puede descargar un archivo JSON con los datos o incluso registrarlos en una API externa.",
+        "links": [
+            {
+                "name": "GitHub",
+                "url": "https://github.com/Gdr18/videogames-scraper"
+            }
+        ]
+    },
+    {
         "title": "Ping Server",
         "technologies": [
             "python",
@@ -63,10 +78,11 @@
             "flask",
             "react",
             "sass",
-            "sqlalchemy"
+            "sqlalchemy",
+            "redis"
         ],
         "image": "mockup_planet_gamer.webp",
-        "description": "E-commerce de videojuegos como proyecto final del \"Full Stack Development Certificate\". Incluye frontend en React y backend en Flask, con autenticación de usuarios, gestión de productos, carrito de compras y pagos con Stripe. Utiliza PostgreSQL y SQLAlchemy.",
+        "description": "E-commerce de videojuegos como proyecto final del \"Full Stack Development Certificate\". Incluye frontend en React y backend en Flask, con autenticación de usuarios, gestión de productos, carrito de compras y pagos con Stripe. Utiliza PostgreSQL, SQLAlchemy y Redis.",
         "links": [
             {
                 "name": "GitHub",
@@ -96,7 +112,7 @@
         "links": [
             {
                 "name": "GitHub",
-                "url": "https://github.com/Gdr18/redis-link-shortener"  
+                "url": "https://github.com/Gdr18/redis-link-shortener"
             },
             {
                 "name": "Postman",
